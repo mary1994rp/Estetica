@@ -51,8 +51,8 @@ public class CreadorBaseDeDatos {
 			System.out.println("Tabla de Cita creada exitosamente");
 			
 			//crea tabla VentaProducto en la base de datos
-			statement.execute("create table VentaProducto(idVentaProducto INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 0, INCREMENT BY 1), idProducto int, pzaVendida int, total int)"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
-			statement.execute("insert into VentaProducto values (DEFAULT,1,5,20)",Statement.RETURN_GENERATED_KEYS);
+			statement.execute("create table VentaProducto(idVentaProducto INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 0, INCREMENT BY 1), idProducto int, pzaVendida int)"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
+			statement.execute("insert into VentaProducto values (DEFAULT,1,5)",Statement.RETURN_GENERATED_KEYS);
 			System.out.println("Tabla de Ventas de Productos creada exitosamente");
 			//termina la conexion con la base de datos
 			

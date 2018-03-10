@@ -86,7 +86,7 @@ public class VentanaPrincipal extends JFrame {
 				control.modificaConsultaInventario();
 			}
 		});
-		jButtonModificarInventario.setBounds(269, 41, 114, 64);
+		jButtonModificarInventario.setBounds(294, 41, 114, 64);
 		contentPane.add(jButtonModificarInventario);
 
 		/******   CITAS  ******/
@@ -110,7 +110,7 @@ public class VentanaPrincipal extends JFrame {
 				control.modificaConsultaCita();
 			}
 		});
-		jButtonModificarCita.setBounds(201, 171, 85, 66);
+		jButtonModificarCita.setBounds(220, 170, 85, 66);
 		contentPane.add(jButtonModificarCita);
 
 		//CANCELAR
@@ -121,7 +121,7 @@ public class VentanaPrincipal extends JFrame {
 				control.modificaConsultaCita();
 			}
 		});
-		jButtonCancelarCita.setBounds(298, 171, 85, 66);
+		jButtonCancelarCita.setBounds(323, 170, 85, 66);
 		contentPane.add(jButtonCancelarCita);
 
 		/******   TRABAJO  ******/
@@ -143,7 +143,7 @@ public class VentanaPrincipal extends JFrame {
 				control.modificaConsultaTrabajo();
 			}
 		});
-		jButtonModificarTrabajo.setBounds(269, 303, 114, 66);
+		jButtonModificarTrabajo.setBounds(294, 303, 114, 66);
 		contentPane.add(jButtonModificarTrabajo);
 		
 		/******   EMPLEADO  ******/
@@ -155,7 +155,7 @@ public class VentanaPrincipal extends JFrame {
 				control.añadirEmpleado();
 			}
 		});
-		jButtonAñadirEmpleado.setBounds(10, 430, 114, 64);
+		jButtonAñadirEmpleado.setBounds(10, 430, 85, 64);
 		contentPane.add(jButtonAñadirEmpleado);
 		
 		//CONSULTAR
@@ -166,7 +166,7 @@ public class VentanaPrincipal extends JFrame {
 				
 			}
 		});
-		jButtonConsultarEmpleado.setBounds(143, 430, 114, 64);
+		jButtonConsultarEmpleado.setBounds(107, 430, 96, 64);
 		contentPane.add(jButtonConsultarEmpleado);
 		
 		//Consultar sueldo
@@ -177,9 +177,17 @@ public class VentanaPrincipal extends JFrame {
 				control.consultaSalario();
 			}
 		});
-		jButtonConsultarSalario.setBounds(280, 430, 90, 64);
+		jButtonConsultarSalario.setBounds(215, 430, 90, 64);
 		contentPane.add(jButtonConsultarSalario);
+		
+		JButton jButtonEliminarEmpleado = new JButton("Eliminar");
+		jButtonEliminarEmpleado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				control.modificaConsultaEmpleado();
+				
+			}
+		});
+		jButtonEliminarEmpleado.setBounds(312, 430, 96, 64);
+		contentPane.add(jButtonEliminarEmpleado);
 	}
-	
-	
 }

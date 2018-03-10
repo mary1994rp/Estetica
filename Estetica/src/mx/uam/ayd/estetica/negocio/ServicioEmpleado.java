@@ -29,4 +29,9 @@ public class ServicioEmpleado {
 	public void actualizaSalario(double salario, int idEmpleado) {
 		daoEmpleado.actualizaSalario(salario, idEmpleado);
 	}
+	
+	public boolean quitaEmpleado(int id) {
+		return daoEmpleado.quitaEmpleado(id);
+	}
+	
 }

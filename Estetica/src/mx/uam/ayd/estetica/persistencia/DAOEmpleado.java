@@ -57,7 +57,8 @@ public class DAOEmpleado {
 	 * Permite quitar un empleado a la librería
 	 * @return true si el empleado se quito exitosamente, false sino
 	 */
-	public boolean quitaEmpleado(Empleado empleado) {
+	// metodo que quita cita recive un id  este metodo se creo para encontrar la cita a partir de su id
+	public boolean quitaEmpleado(int id) {
 
 		int resultado = 0;
 
@@ -66,7 +67,7 @@ public class DAOEmpleado {
 			Statement statement = ManejadorBD.dameConnection().createStatement();
 
 			// Recibe los resutados
-			resultado = statement.executeUpdate("DELETE FROM Empleado WHERE nombre='"+empleado.dameNombre()+"'");
+			resultado = statement.executeUpdate("DELETE FROM Empleado WHERE idEmpleado="+id);
 
 		} catch (SQLException e) {
 			e.printStackTrace();

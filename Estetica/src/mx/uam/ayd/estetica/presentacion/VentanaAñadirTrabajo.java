@@ -88,7 +88,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 	/********************************************/
 
 	public VentanaAñadirTrabajo(ControlAñadirTrabajo ctrlAñadirTrabajo) {
-		getContentPane().setBackground(Color.WHITE);
+		getContentPane().setBackground(new Color(255, 204, 255));
 
 		this.ctrlAñadirTrabajo = ctrlAñadirTrabajo;
 		setTitle("Añadir Trabajo");
@@ -205,7 +205,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 		// nuevos
 
 		panel_2 = new JPanel();
-		panel_2.setBackground(Color.WHITE);
+		panel_2.setBackground(new Color(255, 204, 204));
 		panel_2.setBounds(541, 117, 265, 272);
 		getContentPane().add(panel_2);
 		panel_2.setLayout(null);
@@ -320,7 +320,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 			    if(txtMontosinpromo.getText().trim().isEmpty()==false) {
 				  
                 double montos = Double.parseDouble((txtMontosinpromo.getText().trim()));
-				//System.out.println("eTyyyyyyyyyyy"+txtMontosinpromo.getText().trim());
+				System.out.println("eTyyyyyyyyyyy"+txtMontosinpromo.getText().trim());
 				String m  = (comboBoxpuntos.getSelectedItem().toString().trim());
 				double mf=montos-ctrlAñadirTrabajo.descuentos(m, montos);
 				
@@ -349,7 +349,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			//System.out.println("soy validar");
+			System.out.println("soy validar");
 			if (chckbxValidarpromo.isSelected() == true ) {
 				comboBoxpuntos.setEnabled(true);
 				btnNewButton.setEnabled(true);	
@@ -376,7 +376,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			//System.out.println("scancelarpromo");
+			System.out.println("scancelarpromo");
 			jTextFieldServicio.setText("");
 			
 		
@@ -425,7 +425,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 				
 				comboBoxPaquetes.setEnabled(true);
 				String m  = (comboBoxpuntos.getSelectedItem().toString().trim());
-			  //	System.out.println("m puntos1 "+m);
+			  	System.out.println("m puntos1 "+m);
                 comboBoxPaquetes.setModel(new DefaultComboBoxModel(ctrlAñadirTrabajo.damePaquetesPuntos(ctrlAñadirTrabajo.damePaquetes(m))));
         
 				String p = comboBoxPaquetes.getSelectedItem().toString().trim();
@@ -433,7 +433,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 				String msp= txtMontosinpromo.getText().trim(); 
 				jTextFieldMonto.setText(msp);
 				txtMontosinpromo.setEnabled(true);
-				//System.out.println("m puntos "+m );
+				System.out.println("m puntos "+m );
 				
 				
 				btnValidarpromo.setEnabled(true);
@@ -508,7 +508,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 							&& (producto.damePzaExistencia() - pzs_usadas >= 0)) {
 
 						if (jCheckBoxProducto.isSelected() == false) {
-							//System.out.println("perra");
+							System.out.println("perra");
 							producto = ctrlAñadirTrabajo.buscaProducto("ninguno", "ninguno", productos);
 							pzs_usadas = 0;
 						}

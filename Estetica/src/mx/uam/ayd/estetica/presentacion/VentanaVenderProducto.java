@@ -108,7 +108,6 @@ public class VentanaVenderProducto extends JFrame{
 		btnVender.addActionListener(eventoVender);
 		btnCancelar.addActionListener(eventoCancelar);
 		cb_nombre.addItemListener(changeclick);
-		comboBox.addItemListener(changeclick);
 		
 		//Agregacion de componentes
 		getContentPane().add(lbl_Producto);
@@ -133,7 +132,7 @@ public class VentanaVenderProducto extends JFrame{
 
 			String nombre = cb_nombre.getSelectedItem().toString();
 			String marca2 = marca.getText();
-			int total = Integer.valueOf(precio.getText());
+			int precio2 = Integer.valueOf(precio.getText());
 			int pzaExistente = Integer.valueOf(piezas.getText());
 			int pzaVendida = Integer.parseInt(comboBox.getSelectedItem().toString());
 
@@ -147,13 +146,13 @@ public class VentanaVenderProducto extends JFrame{
 
 				if (confirmar == JOptionPane.YES_OPTION) {
 
-					Producto prod= ctrlVender.buscaProducto(nombre,marca2);
-					boolean bandera = ctrlVender.añadirVentaProducto(new Venta(producto, pzaVendida,total));
+					Producto producto = new Producto(nombre, marca2, pzaExistente, precio2);
+					boolean bandera = ctrlVender.añadirVentaProducto(new Venta(producto, pzaVendida));
 
 					if (bandera) {
 
 						Producto aux = ctrlVender.buscaProducto(producto.dameNombre(), producto.dameMarca());
-						ctrlVender.actualizaPiezasExistentes((prod.damePzaExistencia() - pzaVendida), prod.dameId());
+						ctrlVender.actualizaPiezasExistentes((aux.damePzaExistencia() - pzaVendida), aux.dameId());
 						JOptionPane.showMessageDialog(null, "La Venta ha sido completada");
 						dispose();
 					} else
@@ -179,22 +178,10 @@ public class VentanaVenderProducto extends JFrame{
 		@Override
 		public void itemStateChanged(ItemEvent e) {
 			//selecciona la marca,precio,piezas existentes de acuerdo al producto en el combobox
-			if(e.getSource()==cb_nombre) {
-				
-					marca.setText(ctrlVender.buscaProductoMarca(e.getItem().toString(), productos));
-					int precioProd = ctrlVender.buscaProductoPrecio(cb_nombre.getSelectedItem().toString(), productos);
-					int pzasVend= Integer.valueOf(comboBox.getSelectedItem().toString());
-					int total = precioProd*pzasVend; 
-					precio.setText(Integer.toString(total));
-					piezas.setText(Integer.toString(ctrlVender.buscaProductoPzaExistente(e.getItem().toString(), productos)));
-				
-			}
-			
-			if(e.getSource()==comboBox) {
-				int precioProd = ctrlVender.buscaProductoPrecio(cb_nombre.getSelectedItem().toString(), productos);
-				int pzasVend= Integer.valueOf(comboBox.getSelectedItem().toString());
-				int total = precioProd*pzasVend; 
-				precio.setText(Integer.toString(total));
+			if (cb_nombre.getSelectedItem().equals(e.getItem())) {
+				marca.setText(ctrlVender.buscaProductoMarca(e.getItem().toString(), productos));
+				precio.setText(Integer.toString(ctrlVender.buscaProductoPrecio(e.getItem().toString(), productos)));
+				piezas.setText(Integer.toString(ctrlVender.buscaProductoPzaExistente(e.getItem().toString(), productos)));
 			}
 
 		}

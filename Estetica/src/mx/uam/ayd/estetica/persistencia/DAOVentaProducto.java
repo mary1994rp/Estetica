@@ -23,7 +23,7 @@ public class DAOVentaProducto {
 			Statement statement = ManejadorBD.dameConnection().createStatement();
 
 			// Envia instruccion SQL, nota el DEFAULT es para insertar la llave autogenerada
-			statement.execute("insert into VentaProducto values (DEFAULT,"+venta.dameProducto().dameId()+","+venta.damePzaVendida()+","+venta.dameTotal()+")",Statement.RETURN_GENERATED_KEYS);
+			statement.execute("insert into VentaProducto values (DEFAULT,"+venta.dameProducto().dameId()+","+venta.damePzaVendida()+")",Statement.RETURN_GENERATED_KEYS);
 			ResultSet rs = statement.getGeneratedKeys(); // Recupera la llave
 			if (rs != null && rs.next()) {
 			    llave = rs.getInt(1);

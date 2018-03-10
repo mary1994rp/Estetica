@@ -46,6 +46,7 @@ public class DAOTrabajo {
 			ResultSet rs = statement.getGeneratedKeys(); // Recupera la llave
 			if (rs != null && rs.next()) {
 				llave = rs.getInt(1);
+				System.out.println("llave: " + llave);
 				trabajo.cambiaId(llave); // Asigna la llave al trabajo
 			}
 			return true;
