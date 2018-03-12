@@ -7,12 +7,14 @@ public class Venta {
 	private int id;
 	private Producto producto;
 	private int pzaVendida;
+	private int total;
 	
 	/*********************   Constructor  ******************************/
 
-	public Venta(Producto producto, int pzaVendida) {
+	public Venta(Producto producto, int pzaVendida, int total) {
 		this.producto=producto;
 		this.pzaVendida=pzaVendida;
+		this.total=total;
 	}
 	
 	/*********************   SETs y GETs  ******************************/
@@ -52,6 +54,15 @@ public class Venta {
 		this.pzaVendida = pzaVendida;
 	}
 
-	
+	/******total*********/
+
+	public int dameTotal() {
+		return total;
+	}
+
+
+	public void cambiaTotal(int total) {
+		this.total = total;
+	}
 	
 }

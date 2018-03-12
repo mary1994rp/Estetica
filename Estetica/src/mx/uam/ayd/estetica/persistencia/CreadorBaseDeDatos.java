@@ -19,6 +19,7 @@ public class CreadorBaseDeDatos {
 			//inicia el statement para poder usar los querys
 			Statement statement = connection.createStatement();
 			
+			
 			//crea tabla Producto en la base de datos y dos productos para prueba
 			
 			statement.execute("create table Producto(idProducto INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 0, INCREMENT BY 1), nombre varchar(40), marca varchar(40), pzaExistencia int, precio int)"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
@@ -54,6 +55,14 @@ public class CreadorBaseDeDatos {
 			statement.execute("create table VentaProducto(idVentaProducto INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 0, INCREMENT BY 1), idProducto int, pzaVendida int)"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
 			statement.execute("insert into VentaProducto values (DEFAULT,1,5)",Statement.RETURN_GENERATED_KEYS);
 			System.out.println("Tabla de Ventas de Productos creada exitosamente");
+			
+			//Crea tabla Cuentas
+			statement.execute("create table Cuenta(idCuenta INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombre varchar(40), idEmpleado int, contraseña varchar(40) )"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
+			System.out.println("Tabla de Ventas de Cuenta creada exitosamente");
+			statement.execute("insert into Cuenta values (DEFAULT,'miriamc',1,'123')",Statement.RETURN_GENERATED_KEYS);
+			statement.execute("insert into Cuenta values (DEFAULT,'maryanc',2,'234')",Statement.RETURN_GENERATED_KEYS);
+			System.out.println("Tabla de Cuentas creada exitosamente");
+			
 			//termina la conexion con la base de datos
 			
 			//Tabla Paquetes
@@ -71,11 +80,7 @@ public class CreadorBaseDeDatos {
 					Statement.RETURN_GENERATED_KEYS);
 			System.out.println("Tabla de Paquete creada exitosamente");
 
-
 			
-			//crea tabla Proveedor en la base de datos y 5 empleados
-			statement.execute("create table Proveedor(idProveedor INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombre varchar(40), descripcion varchar(500), domicilio varchar(300), telefono varchar(20))"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
-			System.out.println("Tabla de Proveedor creada exitosamente");
 			
 			
 			ManejadorBD.termina();

@@ -95,7 +95,7 @@ public class DAOCita {
 
 			// Recibe los resutados
 			resultado = statement.executeUpdate("DELETE FROM Cita WHERE idCita="+id);
-
+            
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

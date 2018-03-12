@@ -46,7 +46,6 @@ public class DAOTrabajo {
 			ResultSet rs = statement.getGeneratedKeys(); // Recupera la llave
 			if (rs != null && rs.next()) {
 				llave = rs.getInt(1);
-				System.out.println("llave: " + llave);
 				trabajo.cambiaId(llave); // Asigna la llave al trabajo
 			}
 			return true;
@@ -66,14 +65,14 @@ public class DAOTrabajo {
 	public boolean quitaTrabajo(Trabajo trabajo) {
 
 		int resultado = 0;
-
+        
 		try {
 			// Crea el statement
 			Statement statement = ManejadorBD.dameConnection().createStatement();
 
 			// Recibe los resutados
 			resultado = statement.executeUpdate("DELETE FROM Trabajo WHERE idTrabajo= '" + trabajo.dameId() + "'");
-
+              
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -28,7 +28,7 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 	private ControlModificaConsultaEmpleado CMCE;
 	private JTable jTableEmpleado;
 	private JScrollPane scrollPaneContenedorTablaEmpleado;
-	private JButton jButtonEliminar;
+	private JButton jButtonGuardar;
 	private JButton jButtonRegresar;
 	private String[] encabezadosJTable;
 	private JLabel jLabelTitulo;
@@ -70,8 +70,8 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 		jTableEmpleado.setBackground(Color.WHITE);
 		jTableEmpleado.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPaneContenedorTablaEmpleado = new JScrollPane();
-		jButtonEliminar = new JButton("Eliminar");
-		jButtonEliminar.setBackground(new Color(0, 204, 204));
+		jButtonGuardar = new JButton("Guardar");
+		jButtonGuardar.setBackground(new Color(0, 204, 204));
 		jButtonRegresar = new JButton("Regresar");
 		jButtonRegresar.setBackground(new Color(51, 204, 255));
 		encabezadosJTable = new String[] { "Id", "Nombre", "Apellido", "Domicilio", "Fecha", "Sueldo" };
@@ -90,7 +90,7 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 		/* scrol que contiene la tabla */
 		scrollPaneContenedorTablaEmpleado.setBounds(12, 47, 427, 228);
 
-		jButtonEliminar.setBounds(167, 287, 105, 25);
+		jButtonGuardar.setBounds(167, 287, 105, 25);
 		jButtonRegresar.setBounds(339, 287, 100, 25);
 
 		modeloJTable.setColumnIdentifiers(encabezadosJTable); // agregamos los encambezados al jtable
@@ -105,7 +105,7 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 		// agregamos todos los elemntos al contenedor
 
 		jPanelContenedor.add(scrollPaneContenedorTablaEmpleado);
-		jPanelContenedor.add(jButtonEliminar);
+		jPanelContenedor.add(jButtonGuardar);
 		jPanelContenedor.add(jButtonRegresar);
 
 		/* estilo del titulo */
@@ -143,7 +143,7 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 			}
 		});
 
-		jButtonEliminar.addActionListener(new ActionListener() {
+		jButtonGuardar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -152,17 +152,36 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 
 				/* dialogo que pide confirmacion de cambios */
 				int dialogResult = JOptionPane.showConfirmDialog(null,
-						"¿Deseas eliminar al empleado de la linea? " + (filaSeleccionada + 1));
+						"Has modificado la linea " + (filaSeleccionada + 1) + "¿Deseas guardar los cambios?");
 				/* si se acepta el dialogo, hacemos la accion de modificar */
 				if (dialogResult == JOptionPane.YES_OPTION) {
 					try {
 
-							CMCE.quitaEmpleado(Integer.parseInt(jTableEmpleado.getValueAt(filaSeleccionada, 0).toString() + ""));
-							modeloJTable.removeRow((filaSeleccionada)); // borramos la fila q se modifico
-														
+						/*
+						 * creamos un producto temporal con la informacion modificada en el jTable, para
+						 * poder pasarselo como parametro al Control
+						 */
+
+						Empleado tempEmpleado = new Empleado(
+								jTableEmpleado.getValueAt(filaSeleccionada, 1).toString() + "",
+								jTableEmpleado.getValueAt(filaSeleccionada, 2).toString() + "",
+								jTableEmpleado.getValueAt(filaSeleccionada, 3).toString() + "",
+								jTableEmpleado.getValueAt(filaSeleccionada, 4).toString() + "",
+								Integer.parseInt(jTableEmpleado.getValueAt(filaSeleccionada, 3).toString() + ""));//integer??
+
+						/*
+						 * le pasamos al metodo actualizaProducto, del control, el nuevo Productotemporal, con
+						 * la informacion obtenida en el jtable asi como el identidicador (id), del
+						 * producto original, que deseamos sea modificado
+						 */
+
+						/*actualizaproductos(producto, id,empleado)
+						 * si regresa true esta bien hecha la actualizacion
+						 * */
+					
 					
 					} catch (Exception error) {
-						System.out.println("ocurrio un error al intentar eliminar");
+						System.out.println("ocurrio un error al intentar actualizar");
 					}
 				}
 

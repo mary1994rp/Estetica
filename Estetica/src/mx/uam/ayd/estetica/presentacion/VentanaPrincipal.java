@@ -22,7 +22,7 @@ public class VentanaPrincipal extends JFrame {
 	private JLabel jLabelAgenda;
 	private JLabel jLabelServicio;
 	private JLabel jLabelEmpleado;
-	private JLabel jLabelProveedor;
+	private JLabel jLabelCuenta;
 	private JButton jButtonConsultarInventario;
 	private JButton jButtonModificarInventario;
 	private JButton jButtonConsultarCita;
@@ -31,17 +31,17 @@ public class VentanaPrincipal extends JFrame {
 	private JButton jButtonConsultarTrabajo;
 	private JButton jButtonModificarTrabajo;
 	private JButton jButtonAñadirEmpleado;
-	private JButton jButtonAñadirProveedor;
 	private JButton jButtonConsultarEmpleado = new JButton("Consultar");
 	private JButton jButtonConsultarSalario;
-	
+	private JButton jButtonAñadirCuenta;
+	private JButton jButtonEliminarCuenta;
 	/*********************   Constructor  ******************************/
 	public VentanaPrincipal(Aplicacion control) {
 		this.control = control;
 
 		/******   Init de la Ventana Principal  ******/
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 422, 650);
+		setBounds(100, 100, 422, 645);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -68,10 +68,10 @@ public class VentanaPrincipal extends JFrame {
 		jLabelEmpleado.setBounds(12, 399, 96, 15);
 		contentPane.add(jLabelEmpleado);
 		
-		jLabelProveedor = new JLabel("Proveedor");
-		jLabelProveedor.setFont(new Font("Dialog", Font.BOLD, 16));
-		jLabelProveedor.setBounds(12, 522, 96, 15);
-		contentPane.add(jLabelProveedor);
+		jLabelCuenta = new JLabel("Cuenta");
+		jLabelCuenta.setFont(new Font("Dialog", Font.BOLD, 16));
+		jLabelCuenta.setBounds(12, 520, 96, 15);
+		contentPane.add(jLabelCuenta);
 
 		/***********************   BOTONES Y EVENTOS  *************************/
 		
@@ -197,16 +197,54 @@ public class VentanaPrincipal extends JFrame {
 		jButtonEliminarEmpleado.setBounds(312, 430, 96, 64);
 		contentPane.add(jButtonEliminarEmpleado);
 		
-		/******   PROVEEDOR  ******/
-		//AÑADIR
-		
-		jButtonAñadirProveedor = new JButton("Añadir");
-		jButtonAñadirProveedor.addActionListener(new ActionListener() {
+		jButtonAñadirCuenta = new JButton("Añadir");
+		jButtonAñadirCuenta.setBounds(10, 550, 96, 64);
+		jButtonAñadirCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				control.añadirProveedor();
+				control.añadirCuenta();;
 			}
 		});
-		jButtonAñadirProveedor.setBounds(10, 550, 114, 64);
-		contentPane.add(jButtonAñadirProveedor);
+		contentPane.add(jButtonAñadirCuenta);
+		
+		JButton btnElimiarcuenta = new JButton("ElimiarCuenta");
+		btnElimiarcuenta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.eliminarCuenta();
+				}
+		});
+		btnElimiarcuenta.setBounds(155, 549, 150, 46);
+		contentPane.add(btnElimiarcuenta);
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
