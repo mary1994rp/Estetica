@@ -52,7 +52,7 @@ public class ControlAñadirTrabajo {
 
 	// reresa los paquetes disponibles para las promociones
 	public Paquete[] damePaquetes(String puntosPaquete) {
-		System.out.println("i mary control");
+		//System.out.println("i mary control");
 		return servicioPaquete.damePaquetes(puntosPaquete);
 	}
 

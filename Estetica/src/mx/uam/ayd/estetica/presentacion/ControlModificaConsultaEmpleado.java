@@ -28,9 +28,7 @@ public class ControlModificaConsultaEmpleado {
 		return servicioEmpleado.dameEmpleados();
 	}
 
-	public boolean quitaEmpleado(int id) {
-		return servicioEmpleado.quitaEmpleado(id);
-	}
+ 
 		
 	
 }

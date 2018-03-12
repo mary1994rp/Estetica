@@ -8,11 +8,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import mx.uam.ayd.estetica.negocio.ServicioCuenta;
+import mx.uam.ayd.estetica.persistencia.DAOCuentas;
+import mx.uam.ayd.estetica.presentacion.VentanaAñadirCuenta;
+
 
 public class Login extends JFrame{
 	
-	//private DAOCuenta daoCuenta;
-	//private ServicioCuenta servicioCuenta;
+	private DAOCuentas daoCuenta;
+	private ServicioCuenta servicioCuenta;
 	
 	JLabel usuario;
 	JLabel contraseña;
@@ -23,12 +27,12 @@ public class Login extends JFrame{
 
 	public Login() {
 		
-		/*
-		inicializamos el DAOCuenta
-		daoCuenta = new DAOCuenta();
-		inicializamos los Servicios
+		
+		//inicializamos el DAOCuenta
+		daoCuenta = new DAOCuentas();
+		//inicializamos los Servicios
 		servicioCuenta = new ServicioCuenta(daoCuenta);
-		*/
+		
 				
 		setTitle("Login");
 		setLocationRelativeTo(null);
@@ -67,10 +71,13 @@ public class Login extends JFrame{
 					dispose();
 					app.inicia();
 				}else {
+					if(servicioCuenta.buscaCuenta(tf_usuario.getText(), tf_contraseña.getText())) {
 					//se validan el caso de las cuentas
 					Aplicacion2 app = new Aplicacion2(/*daoCuenta,servicioCuenta*/);
+					
 					dispose();
 					app.inicia();
+					}
 				}
 				
 				
@@ -85,7 +92,7 @@ public class Login extends JFrame{
 				
 			}
 		});
-		
+			
 		
 		add(usuario);
 		add(contraseña);
