@@ -3,13 +3,16 @@ package mx.uam.ayd.estetica;
 import mx.uam.ayd.estetica.negocio.ServicioCita;
 import mx.uam.ayd.estetica.negocio.ServicioEmpleado;
 import mx.uam.ayd.estetica.negocio.ServicioProducto;
+import mx.uam.ayd.estetica.negocio.ServicioProveedor;
 import mx.uam.ayd.estetica.negocio.ServicioTrabajo;
 import mx.uam.ayd.estetica.persistencia.DAOCita;
 import mx.uam.ayd.estetica.persistencia.DAOEmpleado;
 import mx.uam.ayd.estetica.persistencia.DAOProducto;
+import mx.uam.ayd.estetica.persistencia.DAOProveedor;
 import mx.uam.ayd.estetica.persistencia.DAOTrabajo;
 import mx.uam.ayd.estetica.persistencia.DAOVentaProducto;
 import mx.uam.ayd.estetica.presentacion.ControlAñadirEmpleado;
+import mx.uam.ayd.estetica.presentacion.ControlAñadirProveedor;
 import mx.uam.ayd.estetica.presentacion.ControlConsultaSueldo;
 import mx.uam.ayd.estetica.presentacion.ControlModificaConsultaCita;
 import mx.uam.ayd.estetica.presentacion.ControlModificaConsultaEmpleado;
@@ -25,6 +28,7 @@ public class Aplicacion {
 	private DAOTrabajo daoTrabajo;
 	private DAOCita daoCita;
 	private DAOVentaProducto daoVentaProducto;
+	private DAOProveedor daoProveedor;
 
 	//declaramos los servicios
 	//private ServicioCuenta daoServicio;
@@ -32,6 +36,7 @@ public class Aplicacion {
 	private ServicioProducto servicioProducto;
 	private ServicioTrabajo servicioTrabajo;
 	private ServicioCita servicioCita;
+	private ServicioProveedor servicioProveedor;
 
 	public Aplicacion(/*DAOCuenta daoCuenta, ServicioCuenta servicioCuenta*/) {
 		//inicializamos los DAOS
@@ -41,6 +46,7 @@ public class Aplicacion {
 		daoTrabajo = new DAOTrabajo();
 		daoCita = new DAOCita();
 		daoVentaProducto = new DAOVentaProducto();
+		daoProveedor = new DAOProveedor();
 		
 		//inicializamos los Servicios
 		//this.servicioCuenta=servicioCuenta;
@@ -48,7 +54,7 @@ public class Aplicacion {
 		servicioProducto = new ServicioProducto(daoProducto,daoVentaProducto);
 		servicioTrabajo = new ServicioTrabajo(daoTrabajo);
 		servicioCita = new ServicioCita(daoCita);
-
+		servicioProveedor = new ServicioProveedor(daoProveedor);
 	}
 		
 	
@@ -108,6 +114,15 @@ public class Aplicacion {
 		ControlConsultaSueldo CCS = new ControlConsultaSueldo(servicioEmpleado, servicioTrabajo);
 		CCS.inicia();
 	}
+	
+	/*********************   CU-AÑADIR PROVEEDOR  ******************************/
+	public void añadirProveedor() {
+				
+		ControlAñadirProveedor CAP = new ControlAñadirProveedor(servicioProveedor);
+		CAP.inicia();//arranca el control para  Añadir Trabajo
+		
+	}
+	
 	
 	
 		

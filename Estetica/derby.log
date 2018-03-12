@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-2018-03-10 07:53:31.545 GMT:
- Booting Derby version The Apache Software Foundation - Apache Derby - 10.1.2.1 - (330608): instance c013800d-0162-0ee6-857a-000006819d18
-on database directory /home/danyel/git/Estetica/Estetica/BaseDeDatos 
+2018-03-12 00:29:50.906 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.1.2.1 - (330608): instance c013800d-0162-179d-0ad6-0000033651e8
+on database directory /home/esteban/git/Estetica/Estetica/BaseDeDatos 
 
 Database Class Loader started - derby.database.classpath=''

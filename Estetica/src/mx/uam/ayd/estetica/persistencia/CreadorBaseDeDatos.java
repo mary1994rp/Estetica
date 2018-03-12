@@ -71,7 +71,11 @@ public class CreadorBaseDeDatos {
 					Statement.RETURN_GENERATED_KEYS);
 			System.out.println("Tabla de Paquete creada exitosamente");
 
+
 			
+			//crea tabla Proveedor en la base de datos y 5 empleados
+			statement.execute("create table Proveedor(idProveedor INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombre varchar(40), descripcion varchar(500), domicilio varchar(300), telefono varchar(20))"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
+			System.out.println("Tabla de Proveedor creada exitosamente");
 			
 			
 			ManejadorBD.termina();
