@@ -108,7 +108,7 @@ public class Login extends JFrame{
 		
 	}
 
-	//arranca el Sistema
+	//arranca el sistema
 		public static void main(String[] args) {
 			Login log = new Login();
 			
