@@ -37,7 +37,7 @@ public class VentanaModificaConsultaInventario extends JFrame {
 	private DefaultTableModel modeloJTable = new DefaultTableModel() { // se define el modelo que ocupará la tabla
 		Class[] types = new Class[] {
 				// definimos los tipos que va a aceptar cada celda
-				java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class };
+				java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class };
 
 		// Función que asignará el tipo de campo que asignaste previamente
 		public Class getColumnClass(int columnIndex) {
@@ -72,7 +72,7 @@ public class VentanaModificaConsultaInventario extends JFrame {
 		jButtonGuardar.setBackground(new Color(0, 204, 204));
 		jButtonRegresar = new JButton("Regresar");
 		jButtonRegresar.setBackground(new Color(51, 204, 255));
-		encabezadosJTable = new String[] { "Id", "Nombre", "Marca", "PzaExistencia","Precio" };
+		encabezadosJTable = new String[] { "Id", "Nombre", "Marca", "PzaExistencia" };
 
 		/*
 		 * array de productos temporal, utilizado para almacenar la informacion de la
@@ -127,7 +127,7 @@ public class VentanaModificaConsultaInventario extends JFrame {
 
 				/* arma la tabla que agregara al jtable */
 				Object[] nuevaFilaJTable = { listaProductos.get(i).dameId(), listaProductos.get(i).dameNombre(),
-						listaProductos.get(i).dameMarca(), listaProductos.get(i).damePzaExistencia(),listaProductos.get(i).damePrecio() };
+						listaProductos.get(i).dameMarca(), listaProductos.get(i).damePzaExistencia() };
 
 				/* agrega una nueva fila al jtable */
 				modeloJTable.addRow(nuevaFilaJTable); // agregamos la fila al jTable
@@ -166,8 +166,7 @@ public class VentanaModificaConsultaInventario extends JFrame {
 						Producto tempProducto = new Producto(
 								jTableInventario.getValueAt(filaSeleccionada, 1).toString() + "",
 								jTableInventario.getValueAt(filaSeleccionada, 2).toString() + "",
-								Integer.parseInt(jTableInventario.getValueAt(filaSeleccionada, 3).toString() + ""),
-								Integer.parseInt(jTableInventario.getValueAt(filaSeleccionada, 4).toString() + ""));
+								Integer.parseInt(jTableInventario.getValueAt(filaSeleccionada, 3).toString() + ""));
 
 						/*
 						 * le pasamos al metodo actualizaProducto, del control, el nuevo Productotemporal, con
@@ -191,7 +190,7 @@ public class VentanaModificaConsultaInventario extends JFrame {
 							Object[] filaModificada = { //arreglo q almacenara temporalmente la linea q agregara al jtable
 									Integer.parseInt(jTableInventario.getValueAt(filaSeleccionada, 0).toString() + ""),
 									tempProducto.dameNombre(), tempProducto.dameMarca(),
-									tempProducto.damePzaExistencia(),tempProducto.damePrecio() };
+									tempProducto.damePzaExistencia() };
 
 							modeloJTable.removeRow(filaSeleccionada); // borramos la fila q se modifico
 							modeloJTable.addRow(filaModificada); // creamos una nueva fila, con la informacion cambiada

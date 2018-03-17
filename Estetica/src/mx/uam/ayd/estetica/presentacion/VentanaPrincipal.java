@@ -21,21 +21,16 @@ public class VentanaPrincipal extends JFrame {
 	private JLabel jLabelInventario;
 	private JLabel jLabelAgenda;
 	private JLabel jLabelServicio;
-	private JLabel jLabelEmpleado;
-	private JLabel jLabelProveedor;
+	private JButton jButtonAñadirInventario;
 	private JButton jButtonConsultarInventario;
 	private JButton jButtonModificarInventario;
+	private JButton jButtonAñadirCita; 
 	private JButton jButtonConsultarCita;
 	private JButton jButtonModificarCita;
 	private JButton jButtonCancelarCita;
+	private JButton jButtonAñadirTrabajo;
 	private JButton jButtonConsultarTrabajo;
 	private JButton jButtonModificarTrabajo;
-	private JButton jButtonAñadirEmpleado;
-	private JButton jButtonAñadirProveedor;
-	private JButton jButtonConsultarEmpleado = new JButton("Consultar");
-	private JButton jButtonConsultarSalario;
-	private JButton jButtonEliminarCuenta;
-	private JButton jButtonConsultarVenta;
 	
 	/*********************   Constructor  ******************************/
 	public VentanaPrincipal(Aplicacion control) {
@@ -43,7 +38,7 @@ public class VentanaPrincipal extends JFrame {
 
 		/******   Init de la Ventana Principal  ******/
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 485, 610);
+		setBounds(100, 100, 422, 451);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -57,27 +52,27 @@ public class VentanaPrincipal extends JFrame {
 
 		jLabelAgenda = new JLabel("Agenda");
 		jLabelAgenda.setFont(new Font("Dialog", Font.BOLD, 16));
-		jLabelAgenda.setBounds(12, 145, 96, 20);
+		jLabelAgenda.setBounds(12, 145, 96, 15);
 		contentPane.add(jLabelAgenda);
 
 		jLabelServicio = new JLabel("Servicio");
 		jLabelServicio.setFont(new Font("Dialog", Font.BOLD, 16));
-		jLabelServicio.setBounds(12, 240, 96, 15);
+		jLabelServicio.setBounds(12, 276, 96, 15);
 		contentPane.add(jLabelServicio);
-		
-		jLabelEmpleado = new JLabel("Empleados");
-		jLabelEmpleado.setFont(new Font("Dialog", Font.BOLD, 16));
-		jLabelEmpleado.setBounds(12, 340, 96, 20);
-		contentPane.add(jLabelEmpleado);
-		
-		jLabelProveedor = new JLabel("Proveedor");
-		jLabelProveedor.setFont(new Font("Dialog", Font.BOLD, 16));
-		jLabelProveedor.setBounds(12, 460, 96, 15);
-		contentPane.add(jLabelProveedor);
 
 		/***********************   BOTONES Y EVENTOS  *************************/
 		
 		/******   INVENTARIO  ******/
+		//AÑADIR
+		jButtonAñadirInventario = new JButton("Añadir");
+		jButtonAñadirInventario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				control.añadirInventario();
+			}
+		});
+		jButtonAñadirInventario.setBounds(17, 39, 114, 66);
+		contentPane.add(jButtonAñadirInventario);
+
 		//CONSULTAR
 		jButtonConsultarInventario = new JButton("Consultar");
 		jButtonConsultarInventario.addActionListener(new ActionListener() {
@@ -85,7 +80,7 @@ public class VentanaPrincipal extends JFrame {
 				control.modificaConsultaInventario();
 			}
 		});
-		jButtonConsultarInventario.setBounds(180, 50, 110, 60);
+		jButtonConsultarInventario.setBounds(143, 41, 114, 64);
 		contentPane.add(jButtonConsultarInventario);
 
 		//MODIFICAR
@@ -95,20 +90,19 @@ public class VentanaPrincipal extends JFrame {
 				control.modificaConsultaInventario();
 			}
 		});
-		jButtonModificarInventario.setBounds(315, 50, 110, 60);
+		jButtonModificarInventario.setBounds(269, 41, 114, 64);
 		contentPane.add(jButtonModificarInventario);
-		
-		//CONSULTA VENTA
-				jButtonConsultarVenta = new JButton("Consultar Ventas");
-				jButtonConsultarVenta.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						control.consultaVenta();
-					}
-				});
-				jButtonConsultarVenta.setBounds(15, 50, 145, 60);
-				contentPane.add(jButtonConsultarVenta);
 
 		/******   CITAS  ******/
+		//AÑADIR
+		jButtonAñadirCita = new JButton("Añadir");
+		jButtonAñadirCita.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				control.añadirCita();
+			}
+		});
+		jButtonAñadirCita.setBounds(12, 171, 85, 66);
+		contentPane.add(jButtonAñadirCita);
 
 		//CONSULTA
 		jButtonConsultarCita = new JButton("Consultar");
@@ -118,7 +112,7 @@ public class VentanaPrincipal extends JFrame {
 				control.modificaConsultaCita();
 			}
 		});
-		jButtonConsultarCita.setBounds(90, 170, 90, 60);
+		jButtonConsultarCita.setBounds(104, 171, 85, 64);
 		contentPane.add(jButtonConsultarCita);
 
 		//MODIFICAR
@@ -129,7 +123,7 @@ public class VentanaPrincipal extends JFrame {
 				control.modificaConsultaCita();
 			}
 		});
-		jButtonModificarCita.setBounds(200, 170, 85, 60);
+		jButtonModificarCita.setBounds(201, 171, 85, 66);
 		contentPane.add(jButtonModificarCita);
 
 		//CANCELAR
@@ -140,10 +134,19 @@ public class VentanaPrincipal extends JFrame {
 				control.modificaConsultaCita();
 			}
 		});
-		jButtonCancelarCita.setBounds(310, 170, 85, 60);
+		jButtonCancelarCita.setBounds(298, 171, 85, 66);
 		contentPane.add(jButtonCancelarCita);
 
 		/******   TRABAJO  ******/
+		//AÑADIR
+		jButtonAñadirTrabajo = new JButton("Añadir");
+		jButtonAñadirTrabajo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				control.añadirTrabajo();
+			}
+		});
+		jButtonAñadirTrabajo.setBounds(12, 303, 114, 66);
+		contentPane.add(jButtonAñadirTrabajo);
 
 		//CONSULTA
 		jButtonConsultarTrabajo = new JButton("Consultar");
@@ -152,7 +155,7 @@ public class VentanaPrincipal extends JFrame {
 				control.modificaConsultaTrabajo();
 			}
 		});
-		jButtonConsultarTrabajo.setBounds(110, 270, 114, 66);
+		jButtonConsultarTrabajo.setBounds(143, 303, 114, 66);
 		contentPane.add(jButtonConsultarTrabajo);
 
 		//MODIFICAR
@@ -162,83 +165,7 @@ public class VentanaPrincipal extends JFrame {
 				control.modificaConsultaTrabajo();
 			}
 		});
-		jButtonModificarTrabajo.setBounds(250, 270, 114, 66);
+		jButtonModificarTrabajo.setBounds(269, 303, 114, 66);
 		contentPane.add(jButtonModificarTrabajo);
-		
-		/******   EMPLEADO  ******/
-		//AñADIR
-		
-		jButtonAñadirEmpleado = new JButton("Añadir");
-		jButtonAñadirEmpleado.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.añadirEmpleado();
-			}
-		});
-		jButtonAñadirEmpleado.setBounds(12, 380, 85, 64);
-		contentPane.add(jButtonAñadirEmpleado);
-		
-		//CONSULTAR
-		jButtonConsultarEmpleado.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				control.modificaConsultaEmpleado();
-				
-			}
-		});
-		jButtonConsultarEmpleado.setBounds(115, 380, 96, 64);
-		contentPane.add(jButtonConsultarEmpleado);
-		
-		//Consultar sueldo
-		
-		jButtonConsultarSalario = new JButton("Sueldo");
-		jButtonConsultarSalario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.consultaSalario();
-			}
-		});
-		jButtonConsultarSalario.setBounds(225, 380, 90, 64);
-		contentPane.add(jButtonConsultarSalario);
-		
-		JButton jButtonEliminarEmpleado = new JButton("Eliminar");
-		jButtonEliminarEmpleado.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.modificaConsultaEmpleado();
-				
-			}
-		});
-		jButtonEliminarEmpleado.setBounds(330, 380, 96, 64);
-		contentPane.add(jButtonEliminarEmpleado);
-		
-		/******   PROVEEDOR  ******/
-		//AñADIR
-		
-		jButtonAñadirProveedor = new JButton("Añadir");
-		jButtonAñadirProveedor.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.añadirProveedor();
-			}
-		});
-		jButtonAñadirProveedor.setBounds(20, 500, 115, 60);
-		contentPane.add(jButtonAñadirProveedor);
-		
-
-		JButton btnElimiarcuenta = new JButton("ElimiarCuenta");
-		btnElimiarcuenta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.eliminarCuenta();
-				}
-		});
-		btnElimiarcuenta.setBounds(160, 500, 115, 60);
-		contentPane.add(btnElimiarcuenta);
-		
-		JButton jButtonAñadirCuenta = new JButton("A. Cuenta");
-		jButtonAñadirCuenta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.añadirCuenta();
-			}
-		});
-		jButtonAñadirCuenta.setBounds(300, 500, 115, 60);
-		contentPane.add(jButtonAñadirCuenta);	
-	}	
+	}
 }
-	

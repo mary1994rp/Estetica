@@ -260,7 +260,7 @@ public class VentanaAñadirCita extends JFrame {
 		jLabelHora.setBounds(193, 141, 117, 15);
 		contentPane.add(jLabelHora);
 		
-		/***** EVENTO DEL COMBOBOX DEL AñO****/
+		/***** EVENTO DEL COMBOBOX DEL AÑO****/
 		/*** Toma el año del sistema y sumamos 1 ****/
 		jComboBoxAño = new JComboBox();
 		jComboBoxAño.setModel(new DefaultComboBoxModel(new String[] {String.valueOf(horaSistema.get(Calendar.YEAR)),
@@ -281,7 +281,7 @@ public class VentanaAñadirCita extends JFrame {
 		jComboBoxMinutos.setBounds(414, 136, 57, 24);
 		contentPane.add(jComboBoxMinutos);
 				
-		/*** BOTON ACEPTAR DONDE SE AñADE LA CITA Y VERIFICA QUE LOS CAMPOS NO ESTEN VACIOS *************/
+		/*** BOTON ACEPTAR DONDE SE AÑADE LA CITA Y VERIFICA QUE LOS CAMPOS NO ESTEN VACIOS *************/
 		
 		jButtonAceptar = new JButton("Añadir");
 		jButtonAceptar.setBounds(120, 296, 117, 25);

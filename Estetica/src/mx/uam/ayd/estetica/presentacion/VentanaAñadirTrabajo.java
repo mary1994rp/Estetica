@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import mx.uam.ayd.estetica.modelo.Empleado;
-import mx.uam.ayd.estetica.modelo.Paquete;
 import mx.uam.ayd.estetica.modelo.Producto;
 
 import java.awt.event.ActionEvent;
@@ -24,14 +23,9 @@ import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import java.awt.Color;
-import java.awt.SystemColor;
 
 public class VentanaAñadirTrabajo extends JFrame {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	/********************************************/
 	/******** COMPONENTES ***********/
 	/******** Y ***********/
@@ -55,33 +49,14 @@ public class VentanaAñadirTrabajo extends JFrame {
 	private JTextField jTextFieldServicio;
 	private JTextField jTextFieldMonto;
 	private JTextField jTextFieldMarca;
-	private JComboBox<?> jComboBoxEmpleado;
-	private JComboBox<?> jComboBoxProducto;
-	private JComboBox<?> jComboBoxPiezas;
+	private JComboBox jComboBoxEmpleado;
+	private JComboBox jComboBoxProducto;
+	private JComboBox jComboBoxPiezas;
 	private JCheckBox jCheckBoxProducto;
 	private JTextArea jTextAreaDescripcion;
 	private JScrollPane scrollPane;
 	private JButton jButtonAñadir;
 	private JButton jButtonCancelar;
-	// nuevos componentes
-	private JPanel panel_2;
-	private JCheckBox chckbxValidarpromo;
-	private JLabel lblPuntos;
-	private JLabel lblPaquete;
-	private JLabel lblCotizacion;
-	private JComboBox<?> comboBoxpuntos;
-	private JComboBox<?> comboBoxPaquetes;
-	private JTextField textFieldCotizacion;
-	private JTextArea descripcionPaquete;
-	private JButton btnValidarpromo;
-	
-
-	private Paquete[] paquetes;
-	private JLabel lblMontosinpromo;
-	private JTextField txtMontosinpromo;
-	private JButton btnNewButton ;
-	
-	
 
 	/********************************************/
 	/******** CONSTRUCTOR ***************/
@@ -92,7 +67,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 
 		this.ctrlAñadirTrabajo = ctrlAñadirTrabajo;
 		setTitle("Añadir Trabajo");
-		setBounds(100, 100, 836, 442);
+		setBounds(100, 100, 536, 442);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		initialize();
@@ -172,7 +147,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 		// config panel
 		panel.setBorder(
 				new TitledBorder(null, "Informacion del Producto", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(27, 239, 452, 102);
+		panel.setBounds(34, 227, 452, 102);
 		panel.setLayout(null);
 		jLabelProducto.setBounds(63, 25, 70, 15);
 		jComboBoxProducto.setBounds(12, 52, 172, 24);
@@ -193,98 +168,15 @@ public class VentanaAñadirTrabajo extends JFrame {
 		jComboBoxPiezas.setEnabled(false);
 
 		// config botones
-		jButtonAñadir.setBounds(122, 364, 117, 25);
-		jButtonCancelar.setBounds(272, 364, 117, 25);
+		jButtonAñadir.setBounds(124, 353, 117, 25);
+		jButtonCancelar.setBounds(266, 353, 117, 25);
 
-		// EVENTOS******************************************************************************************
+		// eventos
 		jCheckBoxProducto.addActionListener(eventoCheckbox);
-		jComboBoxProducto.addItemListener(changeclick);
 		jButtonAñadir.addActionListener(eventoBtnAñadir);
 		jButtonCancelar.addActionListener(eventoBtnCancelar);
-		
-		// nuevos
+		jComboBoxProducto.addItemListener(changeclick);
 
-		panel_2 = new JPanel();
-		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(541, 117, 265, 272);
-		getContentPane().add(panel_2);
-		panel_2.setLayout(null);
-
-		lblPuntos = new JLabel("puntos");
-		lblPuntos.setBackground(SystemColor.activeCaption);
-		lblPuntos.setForeground(new Color(0, 0, 0));
-		lblPuntos.setBounds(32, 28, 73, 15);
-		panel_2.add(lblPuntos);
-		lblPuntos.setEnabled(false);
-
-		lblPaquete = new JLabel("paquetes");
-		lblPaquete.setBounds(32, 68, 70, 15);
-		panel_2.add(lblPaquete);
-		lblPaquete.setEnabled(false);
-
-		
-
-		chckbxValidarpromo = new JCheckBox("validarPromo");
-		chckbxValidarpromo.setForeground(SystemColor.activeCaption);
-		chckbxValidarpromo.setBounds(541, 73, 129, 23);
-		chckbxValidarpromo.setEnabled(true);
-		getContentPane().add(chckbxValidarpromo);
-
-		comboBoxpuntos = new JComboBox();
-		comboBoxpuntos.setBounds(142, 24, 95, 24);
-		panel_2.add(comboBoxpuntos);
-		comboBoxpuntos.setModel((new DefaultComboBoxModel(new String[] { "1-15", "15-20", "20-30" })));
-		comboBoxpuntos.setSelectedIndex(-1);
-		comboBoxpuntos.setEnabled(false);
-		
-		
-
-		comboBoxPaquetes = new JComboBox();
-		comboBoxPaquetes.setBounds(142, 63, 95, 24);
-		panel_2.add(comboBoxPaquetes);
-		comboBoxPaquetes.setEnabled(false);
-
-		
-		
-		
-
-		
-		
-		
-		
-
-		btnValidarpromo = new JButton("validarPromo");
-		btnValidarpromo.setBackground(new Color(153, 204, 255));
-		btnValidarpromo.setBounds(106, 186, 141, 25);
-		panel_2.add(btnValidarpromo);
-		btnValidarpromo.setEnabled(false);
-
-		lblMontosinpromo = new JLabel("Monto sin promocion");
-		lblMontosinpromo.setBackground(SystemColor.activeCaption);
-		lblMontosinpromo.setBounds(32, 126, 148, 15);
-		panel_2.add(lblMontosinpromo);
-		lblMontosinpromo.setEnabled(false);
-
-		txtMontosinpromo = new JTextField();
-		txtMontosinpromo.setBounds(32, 153, 127, 19);
-		panel_2.add(txtMontosinpromo);
-		txtMontosinpromo.setColumns(10);
-		txtMontosinpromo.setEnabled(false);
-		
-		btnNewButton = new JButton("Cancelar");
-		btnNewButton.setEnabled(false);	
-		btnNewButton.setBounds(130, 235, 112, 25);
-		panel_2.add(btnNewButton);
-		
-				
-		
-		
-
-		chckbxValidarpromo.addActionListener(eventovalidar);
-		comboBoxpuntos.addItemListener(comboxpuntosS);
-		btnValidarpromo.addActionListener(eventobtnAñadirPromo);
-		btnNewButton.addActionListener(eventocancelarpromo);
-		
 		// adds de componentes
 		getContentPane().add(jLabelFechayHora);
 		getContentPane().add(jLabelEstilista);
@@ -307,148 +199,11 @@ public class VentanaAñadirTrabajo extends JFrame {
 		getContentPane().add(jButtonAñadir);
 		getContentPane().add(jButtonCancelar);
 
-	}// fin inicializar
+	}
 
 	/********************************************/
 	/********** EVENTOS *****************/
 	/********************************************/
-
-	ActionListener eventobtnAñadirPromo = new ActionListener() {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			    if(txtMontosinpromo.getText().trim().isEmpty()==false) {
-				  
-                double montos = Double.parseDouble((txtMontosinpromo.getText().trim()));
-				System.out.println("eTyyyyyyyyyyy"+txtMontosinpromo.getText().trim());
-				String m  = (comboBoxpuntos.getSelectedItem().toString().trim());
-				double mf=montos-ctrlAñadirTrabajo.descuentos(m, montos);
-				
-				String cadena  = String.valueOf(mf);
-				
-									
-				jTextFieldMonto.setText(cadena);
-				montos=Double.parseDouble(cadena);
-				jTextFieldServicio.setText(comboBoxPaquetes.getSelectedItem().toString().trim());
-				String des=ctrlAñadirTrabajo.buscaPaquete(comboBoxPaquetes.getSelectedItem().toString()).dameDescripcion();
-				jTextAreaDescripcion.setText(des);
-				String dp=jTextAreaDescripcion.getText();
-				jTextAreaDescripcion.setText(jTextAreaDescripcion.getText()+" "+dp);
-				JOptionPane.showMessageDialog(null,"Se a validado CORRECTAMENTE la promocion ");
-				}
-			    else {
-			    	if((txtMontosinpromo.getText()).isEmpty()==true) {
-			    		JOptionPane.showMessageDialog(null,"ADVERTENCIA: llenar campo Monto ");
-			    	}
-			    }
-
-		}
-	};
-
-	ActionListener eventovalidar = new ActionListener() {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			System.out.println("soy validar");
-			if (chckbxValidarpromo.isSelected() == true ) {
-				comboBoxpuntos.setEnabled(true);
-				btnNewButton.setEnabled(true);	
-				}
-			
-			else {
-				
-				btnValidarpromo.setEnabled(false);
-				comboBoxpuntos.setEnabled(false);
-				comboBoxPaquetes.setEnabled(false);
-				txtMontosinpromo.setEnabled(false);
-				btnNewButton.setEnabled(false);	
-				
-				
-			}	
-			
-
-		}
-	};
-	
-	
-	
-	ActionListener eventocancelarpromo = new ActionListener() {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			System.out.println("scancelarpromo");
-			jTextFieldServicio.setText("");
-			
-		
-				
-				
-				jTextAreaDescripcion.setText("");
-				jTextFieldServicio.setText("");	
-				jTextFieldMonto.setText("              ");
-				btnValidarpromo.setEnabled(false);
-				comboBoxpuntos.setEnabled(false);
-				comboBoxPaquetes.setEnabled(false);
-				txtMontosinpromo.setEnabled(false);
-			
-			
-		}
-	};
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	ItemListener comboxpuntosS = new ItemListener() {
-
-		@Override
-		public void itemStateChanged(ItemEvent e) {
-			
-			if (comboBoxpuntos.getSelectedIndex()!=-1) {
-				
-				comboBoxPaquetes.setEnabled(true);
-				String m  = (comboBoxpuntos.getSelectedItem().toString().trim());
-			  	System.out.println("m puntos1 "+m);
-                comboBoxPaquetes.setModel(new DefaultComboBoxModel(ctrlAñadirTrabajo.damePaquetesPuntos(ctrlAñadirTrabajo.damePaquetes(m))));
-        
-				String p = comboBoxPaquetes.getSelectedItem().toString().trim();
-				
-				String msp= txtMontosinpromo.getText().trim(); 
-				jTextFieldMonto.setText(msp);
-				txtMontosinpromo.setEnabled(true);
-				System.out.println("m puntos "+m );
-				
-				
-				btnValidarpromo.setEnabled(true);
-					
-					
-				
-				
-
-			}
-			comboBoxpuntos.setSelectedItem(-1);
-			comboBoxPaquetes.setSelectedIndex(-1);;
-		}
-	};
-
-	// viejos
 
 	ActionListener eventoCheckbox = new ActionListener() {
 
@@ -475,8 +230,8 @@ public class VentanaAñadirTrabajo extends JFrame {
 
 			try {
 
-				// CAMPOS VACIOS
-				if ((jTextFieldMonto.getText().equals("")) || (jTextFieldServicio.getText().equals("")||(jTextAreaDescripcion.getText().isEmpty()==true) )) {
+				//CAMPOS VACIOS
+				if ((jTextFieldMonto.getText().equals("")) || (jTextFieldServicio.getText().equals(""))) {
 					JOptionPane.showMessageDialog(null, "Es necesario llenar los campos");
 				} else {
 
@@ -484,7 +239,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 					String nombreEmpleado = jComboBoxEmpleado.getSelectedItem().toString();
 					Empleado empleado = ctrlAñadirTrabajo.buscaEmpleado(nombreEmpleado, empleados);
 					String descripcion = jTextAreaDescripcion.getText();
-					double monto = Double.parseDouble(jTextFieldMonto.getText().trim());
+					double monto = Double.parseDouble(jTextFieldMonto.getText());
 					String fecha = jLabelFechayHora2.getText();
 					fecha = fecha.substring(0, fecha.indexOf(" "));
 					String nombreProducto = jComboBoxProducto.getSelectedItem().toString();
@@ -492,24 +247,22 @@ public class VentanaAñadirTrabajo extends JFrame {
 					Producto producto = ctrlAñadirTrabajo.buscaProducto(nombreProducto, marcaProducto, productos);
 					int pzs_usadas = Integer.parseInt(jComboBoxPiezas.getSelectedItem().toString());
 
-					// EL MONTO ES MENOR O IGUAL A 0
+					//EL MONTO ES MENOR O IGUAL A 0
 					if (Double.parseDouble(jTextFieldMonto.getText()) <= 0) {
 						JOptionPane.showMessageDialog(null, "Verifica que la cantidad del monto sea correcta");
 					}
-
-					// NO HAY SUFUCIENTES PIEZAS DEL PRODUCTO EN EL INVENTARIO
-					if (producto.damePzaExistencia() - pzs_usadas < 0) {
-						JOptionPane.showMessageDialog(null, "ADVERTENCIA: solo hay " + producto.damePzaExistencia()
-								+ " " + producto.dameNombre() + " en el inventario");
+					
+					//NO HAY SUFUCIENTES PIEZAS DEL PRODUCTO EN EL INVENTARIO
+					if(producto.damePzaExistencia()-pzs_usadas<0) {
+						JOptionPane.showMessageDialog(null, "ADVERTENCIA: solo hay "+producto.damePzaExistencia()+" "+producto.dameNombre()+" en el inventario");
 					}
-
-					// SE CUMPLEN TODAS LAS EXCEPCIONES PREEVISTAS
-					if ((Double.parseDouble(jTextFieldMonto.getText()) > 0)
-							&& (producto.damePzaExistencia() - pzs_usadas >= 0)) {
+					
+					//SE CUMPLEN TODAS LAS EXCEPCIONES PREEVISTAS
+					if( (Double.parseDouble(jTextFieldMonto.getText()) > 0) && (producto.damePzaExistencia()-pzs_usadas>=0)) {
 
 						if (jCheckBoxProducto.isSelected() == false) {
 							System.out.println("perra");
-							producto = ctrlAñadirTrabajo.buscaProducto("ninguno", "ninguno", productos);
+							producto = ctrlAñadirTrabajo.buscaProducto("ninguno","ninguno", productos);
 							pzs_usadas = 0;
 						}
 
@@ -519,10 +272,9 @@ public class VentanaAñadirTrabajo extends JFrame {
 						dispose();
 
 						if (añadido == true) {
-							// SE ACTUALIZAN LAS PIEZAS EXISTENTES DEL PRODUCTO
-							if (!(producto.dameNombre().equals("ninguno"))) {
-								ctrlAñadirTrabajo.actualizaPiezasExistentes(producto.damePzaExistencia() - pzs_usadas,
-										producto.dameId());
+							//SE ACTUALIZAN LAS PIEZAS EXISTENTES DEL PRODUCTO
+							if(!(producto.dameNombre().equals("ninguno"))) {
+								ctrlAñadirTrabajo.actualizaPiezasExistentes(producto.damePzaExistencia()-pzs_usadas,producto.dameId());
 							}
 							JOptionPane.showMessageDialog(null, "Trabajo añadido");
 						} else {
@@ -550,7 +302,7 @@ public class VentanaAñadirTrabajo extends JFrame {
 
 		@Override
 		public void itemStateChanged(ItemEvent e) {
-			// selecciona la marca de acuerdo al producto y la escribe en el textfield
+			//selecciona la marca de acuerdo al producto y la escribe en el textfield
 			if (jComboBoxProducto.getSelectedItem().equals(e.getItem())) {
 				String marca = ctrlAñadirTrabajo.buscaProductoMarca(e.getItem().toString(), productos);
 				jTextFieldMarca.setText(marca);
@@ -558,5 +310,5 @@ public class VentanaAñadirTrabajo extends JFrame {
 
 		}
 	};
-	private JScrollPane scrollPane_1;
+
 }
