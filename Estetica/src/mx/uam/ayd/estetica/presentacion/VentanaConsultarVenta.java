@@ -72,7 +72,7 @@ public class VentanaConsultarVenta extends JFrame{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			dispose();
+			System.exit(0);
 			
 		}
 	};
