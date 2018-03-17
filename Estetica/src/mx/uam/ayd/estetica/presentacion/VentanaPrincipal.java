@@ -5,8 +5,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import mx.uam.ayd.estetica.Aplicacion;
+import mx.uam.ayd.estetica.Login;
 
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -15,230 +17,361 @@ import java.awt.Color;
 
 public class VentanaPrincipal extends JFrame {
 
-	/*********************   control  ******************************/
+	/*********************   Recursos  ******************************/
 	private JPanel contentPane;
 	private Aplicacion control;
 	private JLabel jLabelInventario;
 	private JLabel jLabelAgenda;
 	private JLabel jLabelServicio;
 	private JLabel jLabelEmpleado;
-	private JLabel jLabelProveedor;
-	private JButton jButtonConsultarInventario;
-	private JButton jButtonModificarInventario;
-	private JButton jButtonConsultarCita;
-	private JButton jButtonModificarCita;
-	private JButton jButtonCancelarCita;
-	private JButton jButtonConsultarTrabajo;
-	private JButton jButtonModificarTrabajo;
-	private JButton jButtonAñadirEmpleado;
-	private JButton jButtonAñadirProveedor;
-	private JButton jButtonConsultarEmpleado = new JButton("Consultar");
-	private JButton jButtonConsultarSalario;
-	private JButton jButtonEliminarCuenta;
-	private JButton jButtonConsultarVenta;
+	
+	private JButton BtnConsultarInventario;
+	private JButton BtnConsultarVenta;
+	private JButton BtnConsultarCita;
+	private JButton BtnConsultarTrabajo;
+	private JButton BtnAñadirEmpleado;
+	private JButton BtnConsultarEmpleado;
+	private JButton BtnConsultarSalario;
+	private JButton BtnAñadirProveedor;
+	private JButton BtnAñadirCuenta;
+	private JButton BtnConsultaCuenta;
+	
+	
+	private ImageIcon img_Agenda = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/Agenda.png");
+	private ImageIcon img_Producto = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/producto.png");
+	private ImageIcon img_Ventas = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/ventas.png");
+	private ImageIcon img_Trabajos = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/trabajo.png");
+	private ImageIcon img_AnadirEmpleado = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/anadiremp.png");
+	private ImageIcon img_reunionEmp = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/reunion.png");
+	private ImageIcon img_ConsultarAzul = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/consultarAzul.png");
+	private ImageIcon img_ConsultarRojo = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/consultarRojo.png");
+	private ImageIcon img_EditarAzul = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/editarAzul.png");
+	private ImageIcon img_Sueldo = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/sueldo.png");
+	private ImageIcon img_Graficos = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/graficos.png");
+	private ImageIcon img_Proveedor = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/proveedor.png");
+	private ImageIcon img_AnadirUsuario = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/agusuario.png");
+	private ImageIcon img_Usuario = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/usuarios.png");
+	
 	
 	/*********************   Constructor  ******************************/
 	public VentanaPrincipal(Aplicacion control) {
 		this.control = control;
 
-		/******   Init de la Ventana Principal  ******/
+		/******   Diseño Ventana Principal  ******/
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 485, 610);
+		setSize(558, 724);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
+		
+		/***************************************************************************/
+		/*********************** CONFIGURACION DE LABELS  **************************/
+		/***************************************************************************/
+		
+		//LABELS TITULO
 		jLabelInventario = new JLabel("Inventario");
-		jLabelInventario.setFont(new Font("Dialog", Font.BOLD, 16));
-		jLabelInventario.setBounds(12, 12, 96, 15);
+		jLabelInventario.setFont(new Font("Dialog", Font.BOLD, 20));
+		jLabelInventario.setBounds(205, 12, 143, 37);
 		contentPane.add(jLabelInventario);
 
 		jLabelAgenda = new JLabel("Agenda");
-		jLabelAgenda.setFont(new Font("Dialog", Font.BOLD, 16));
-		jLabelAgenda.setBounds(12, 145, 96, 20);
+		jLabelAgenda.setFont(new Font("Dialog", Font.BOLD, 20));
+		jLabelAgenda.setBounds(220, 143, 108, 30);
 		contentPane.add(jLabelAgenda);
 
 		jLabelServicio = new JLabel("Servicio");
-		jLabelServicio.setFont(new Font("Dialog", Font.BOLD, 16));
-		jLabelServicio.setBounds(12, 240, 96, 15);
+		jLabelServicio.setFont(new Font("Dialog", Font.BOLD, 20));
+		jLabelServicio.setBounds(220, 270, 96, 30);
 		contentPane.add(jLabelServicio);
 		
 		jLabelEmpleado = new JLabel("Empleados");
-		jLabelEmpleado.setFont(new Font("Dialog", Font.BOLD, 16));
-		jLabelEmpleado.setBounds(12, 340, 96, 20);
+		jLabelEmpleado.setFont(new Font("Dialog", Font.BOLD, 20));
+		jLabelEmpleado.setBounds(198, 409, 150, 28);
 		contentPane.add(jLabelEmpleado);
 		
-		jLabelProveedor = new JLabel("Proveedor");
-		jLabelProveedor.setFont(new Font("Dialog", Font.BOLD, 16));
-		jLabelProveedor.setBounds(12, 460, 96, 15);
-		contentPane.add(jLabelProveedor);
-
-		/***********************   BOTONES Y EVENTOS  *************************/
+		//LABELS NOMBRES
+		JLabel label_producto = new JLabel("producto");
+		label_producto.setBounds(184, 120, 70, 15);
+		contentPane.add(label_producto);
 		
-		/******   INVENTARIO  ******/
-		//CONSULTAR
-		jButtonConsultarInventario = new JButton("Consultar");
-		jButtonConsultarInventario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.modificaConsultaInventario();
-			}
-		});
-		jButtonConsultarInventario.setBounds(180, 50, 110, 60);
-		contentPane.add(jButtonConsultarInventario);
+		JLabel label_proveedor = new JLabel("proveedor");
+		label_proveedor.setBounds(280, 120, 85, 15);
+		contentPane.add(label_proveedor);
+		
+		JLabel label_agenda = new JLabel("agenda");
+		label_agenda.setBounds(240, 250, 64, 15);
+		contentPane.add(label_agenda);
+		
+		JLabel label_trabajos = new JLabel("trabajos");
+		label_trabajos.setBounds(180, 385, 70, 15);
+		contentPane.add(label_trabajos);
+		
+		JLabel label_ventas = new JLabel("ventas");
+		label_ventas.setBounds(300, 382, 70, 15);
+		contentPane.add(label_ventas);
+		
+		JLabel label_nuevoEmpleado = new JLabel("Nuevo Empleado");
+		label_nuevoEmpleado.setBounds(82, 519, 130, 15);
+		contentPane.add(label_nuevoEmpleado);
+		
+		JLabel label_empleados = new JLabel("Empleados");
+		label_empleados.setBounds(230, 519, 86, 15);
+		contentPane.add(label_empleados);
+		
+		JLabel label_sueldo = new JLabel("Sueldo");
+		label_sueldo.setBounds(350, 519, 70, 15);
+		contentPane.add(label_sueldo);
+		
+		JLabel label_cuentas = new JLabel("Cuentas");
+		label_cuentas.setBounds(310, 620, 70, 15);
+		contentPane.add(label_cuentas);
+		
+		JLabel label_nuevaCuenta = new JLabel("Nueva Cuenta");
+		label_nuevaCuenta.setBounds(160, 620, 108, 15);
+		contentPane.add(label_nuevaCuenta);
+		
+		/***************************************************************************/
+		/*********************** CONFIGURACION DE BOTONES  *************************/
+		/***************************************************************************/
+		
+		//llenado de botones
+		BtnConsultarInventario = new JButton();
+		BtnConsultarCita = new JButton();
+		BtnConsultarTrabajo = new JButton();
+		BtnAñadirEmpleado = new JButton();
+		BtnConsultarEmpleado = new JButton();
+		BtnConsultarSalario = new JButton();
+		BtnAñadirProveedor = new JButton();
+		BtnAñadirCuenta = new JButton();
+		BtnConsultaCuenta = new JButton();
+		BtnConsultarVenta = new JButton();
+		JButton BtnSalir = new JButton("Salir");
+		
+		
+		/******   DISEÑO INVENTARIO  ******/
+		
+		//CONSULTAR-MODIFICA INVENTARIO
+		BtnConsultarInventario.addActionListener(eventoModificaConsultarInventario);
+		BtnConsultarInventario.setBounds(174, 48, 90, 60);
+		BtnConsultarInventario.setBackground(null);
+		BtnConsultarInventario.setBorder(null);
+		BtnConsultarInventario.setIcon(img_Producto);
+		
+		//AñADIR PROVEDOR
+		BtnAñadirProveedor.addActionListener(eventoAñadirProveedor);
+		BtnAñadirProveedor.setBounds(276, 48, 73, 60);
+		BtnAñadirProveedor.setBackground(null);
+		BtnAñadirProveedor.setBorder(null);
+		BtnAñadirProveedor.setIcon(img_Proveedor);
 
-		//MODIFICAR
-		jButtonModificarInventario = new JButton("Modificar");
-		jButtonModificarInventario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.modificaConsultaInventario();
-			}
-		});
-		jButtonModificarInventario.setBounds(315, 50, 110, 60);
-		contentPane.add(jButtonModificarInventario);
+		/******   DISEÑO AGENDA  ******/
+
+		//CONSULTA-MODIFICA-ELIMINA CITA
+		BtnConsultarCita.addActionListener(eventoModificaConsultarCancelaCita);
+		BtnConsultarCita.setBounds(230, 182, 73, 60);
+		BtnConsultarCita.setBackground(null);
+		BtnConsultarCita.setBorder(null);
+		BtnConsultarCita.setIcon(img_Agenda);
+
+
+		/****** DISEÑO  SERVICIO  ******/
+
+		//CONSULTA- MODIFICA TRABAJO
+		BtnConsultarTrabajo.addActionListener(eventoModificaConsultarTrabajo);
+		BtnConsultarTrabajo.setBounds(174, 317, 73, 66);
+		BtnConsultarTrabajo.setBackground(null);
+		BtnConsultarTrabajo.setBorder(null);
+		BtnConsultarTrabajo.setIcon(img_Trabajos);
 		
 		//CONSULTA VENTA
-				jButtonConsultarVenta = new JButton("Consultar Ventas");
-				jButtonConsultarVenta.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						control.consultaVenta();
-					}
-				});
-				jButtonConsultarVenta.setBounds(15, 50, 145, 60);
-				contentPane.add(jButtonConsultarVenta);
-
-		/******   CITAS  ******/
-
-		//CONSULTA
-		jButtonConsultarCita = new JButton("Consultar");
-		jButtonConsultarCita.setFont(new Font("Dialog", Font.BOLD, 9));
-		jButtonConsultarCita.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.modificaConsultaCita();
-			}
-		});
-		jButtonConsultarCita.setBounds(90, 170, 90, 60);
-		contentPane.add(jButtonConsultarCita);
-
-		//MODIFICAR
-		jButtonModificarCita = new JButton("Modificar");
-		jButtonModificarCita.setFont(new Font("Dialog", Font.BOLD, 9));
-		jButtonModificarCita.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.modificaConsultaCita();
-			}
-		});
-		jButtonModificarCita.setBounds(200, 170, 85, 60);
-		contentPane.add(jButtonModificarCita);
-
-		//CANCELAR
-		jButtonCancelarCita = new JButton("Cancelar");
-		jButtonCancelarCita.setFont(new Font("Dialog", Font.BOLD, 9));
-		jButtonCancelarCita.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.modificaConsultaCita();
-			}
-		});
-		jButtonCancelarCita.setBounds(310, 170, 85, 60);
-		contentPane.add(jButtonCancelarCita);
-
-		/******   TRABAJO  ******/
-
-		//CONSULTA
-		jButtonConsultarTrabajo = new JButton("Consultar");
-		jButtonConsultarTrabajo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.modificaConsultaTrabajo();
-			}
-		});
-		jButtonConsultarTrabajo.setBounds(110, 270, 114, 66);
-		contentPane.add(jButtonConsultarTrabajo);
-
-		//MODIFICAR
-		jButtonModificarTrabajo = new JButton("Modificar");
-		jButtonModificarTrabajo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.modificaConsultaTrabajo();
-			}
-		});
-		jButtonModificarTrabajo.setBounds(250, 270, 114, 66);
-		contentPane.add(jButtonModificarTrabajo);
+		BtnConsultarVenta.addActionListener(eventoConsultaVenta);
+		BtnConsultarVenta.setBounds(280, 312, 85, 71);
+		BtnConsultarVenta.setBackground(null);
+		BtnConsultarVenta.setBorder(null);
+		BtnConsultarVenta.setIcon(img_Ventas);
 		
-		/******   EMPLEADO  ******/
-		//AñADIR
+		/****** DISEÑO  EMPLEADOS  ******/
 		
-		jButtonAñadirEmpleado = new JButton("Añadir");
-		jButtonAñadirEmpleado.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.añadirEmpleado();
-			}
-		});
-		jButtonAñadirEmpleado.setBounds(12, 380, 85, 64);
-		contentPane.add(jButtonAñadirEmpleado);
+		//AñADIR EMPLEADO
+		BtnAñadirEmpleado.addActionListener(eventoAñadirEmpleado);
+		BtnAñadirEmpleado.setBounds(107, 449, 64, 64);
+		BtnAñadirEmpleado.setBackground(null);
+		BtnAñadirEmpleado.setBorder(null);
+		BtnAñadirEmpleado.setIcon(img_AnadirEmpleado);
 		
-		//CONSULTAR
-		jButtonConsultarEmpleado.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				control.modificaConsultaEmpleado();
-				
-			}
-		});
-		jButtonConsultarEmpleado.setBounds(115, 380, 96, 64);
-		contentPane.add(jButtonConsultarEmpleado);
+		//CONSULTAR-ELIMINA EMPLEADO
+		BtnConsultarEmpleado.addActionListener(eventoModificaConsultaEmpleado);
+		BtnConsultarEmpleado.setBounds(226, 449, 77, 64);
+		BtnConsultarEmpleado.setBackground(null);
+		BtnConsultarEmpleado.setBorder(null);
+		BtnConsultarEmpleado.setIcon(img_reunionEmp);
 		
 		//Consultar sueldo
+		BtnConsultarSalario.addActionListener(eventoConsultaSalario);
+		BtnConsultarSalario.setBounds(340, 449, 85, 64);
+		BtnConsultarSalario.setBackground(null);
+		BtnConsultarSalario.setBorder(null);
+		BtnConsultarSalario.setIcon(img_Sueldo);
 		
-		jButtonConsultarSalario = new JButton("Sueldo");
-		jButtonConsultarSalario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.consultaSalario();
-			}
-		});
-		jButtonConsultarSalario.setBounds(225, 380, 90, 64);
-		contentPane.add(jButtonConsultarSalario);
+		//AñADIR CUENTA
+		BtnAñadirCuenta.addActionListener(eventoAñadirCuenta);
+		BtnConsultaCuenta.setBounds(304, 546, 73, 73);
+		BtnAñadirCuenta.setBackground(null);
+		BtnAñadirCuenta.setBorder(null);
+		BtnAñadirCuenta.setIcon(img_AnadirUsuario);
 		
-		JButton jButtonEliminarEmpleado = new JButton("Eliminar");
-		jButtonEliminarEmpleado.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.modificaConsultaEmpleado();
-				
-			}
-		});
-		jButtonEliminarEmpleado.setBounds(330, 380, 96, 64);
-		contentPane.add(jButtonEliminarEmpleado);
+		//Consulta-ELIMINA CUENTAS
+		BtnConsultaCuenta.addActionListener(eventoEliminarCuenta);
+		BtnAñadirCuenta.setBounds(174, 546, 73, 73);
+		BtnConsultaCuenta.setBackground(null);
+		BtnConsultaCuenta.setBorder(null);
+		BtnConsultaCuenta.setIcon(img_Usuario);
 		
-		/******   PROVEEDOR  ******/
-		//AñADIR
+		/****** DISEÑO SALIR  ******/
+		BtnSalir.addActionListener(eventoSalir);
+		BtnSalir.setBounds(410, 654, 117, 25);
 		
-		jButtonAñadirProveedor = new JButton("Añadir");
-		jButtonAñadirProveedor.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.añadirProveedor();
-			}
-		});
-		jButtonAñadirProveedor.setBounds(20, 500, 115, 60);
-		contentPane.add(jButtonAñadirProveedor);
+		//agregado de botones Inventario
+		contentPane.add(BtnConsultarInventario);
+		contentPane.add(BtnAñadirProveedor);
 		
-
-		JButton btnElimiarcuenta = new JButton("ElimiarCuenta");
-		btnElimiarcuenta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.eliminarCuenta();
-				}
-		});
-		btnElimiarcuenta.setBounds(160, 500, 115, 60);
-		contentPane.add(btnElimiarcuenta);
+		//agregado de botones Citas
+		contentPane.add(BtnConsultarCita);
 		
-		JButton jButtonAñadirCuenta = new JButton("A. Cuenta");
-		jButtonAñadirCuenta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.añadirCuenta();
-			}
-		});
-		jButtonAñadirCuenta.setBounds(300, 500, 115, 60);
-		contentPane.add(jButtonAñadirCuenta);	
+		//agregado de botones Trabajo
+		contentPane.add(BtnConsultarTrabajo);
+		contentPane.add(BtnConsultarVenta);
+		
+		//agregado de botones Empleado
+		contentPane.add(BtnAñadirEmpleado);
+		contentPane.add(BtnConsultarEmpleado);
+		contentPane.add(BtnConsultarSalario);
+		contentPane.add(BtnAñadirCuenta);
+		contentPane.add(BtnConsultaCuenta);
+		
+		//agregado de boton salir
+		contentPane.add(BtnSalir);
+		
 	}	
+	
+	/***************************************************************************/
+	/*********************** EVENTOS DE LOS BOTONES  *************************/
+	/***************************************************************************/
+	
+	//EVENTOS INVENTARIO
+	
+	ActionListener eventoModificaConsultarInventario = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			control.modificaConsultaInventario();
+		}
+	};
+	
+	ActionListener eventoAñadirProveedor = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			control.añadirProveedor();
+		}
+	};
+	
+	//EVENTOS CITAS
+	
+	ActionListener eventoModificaConsultarCancelaCita = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			control.modificaConsultaCita();
+		}
+	};
+	
+	
+	//EVENTOS TRABAJO
+	
+	ActionListener eventoModificaConsultarTrabajo = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			control.modificaConsultaTrabajo();
+		}
+	};
+	
+	ActionListener eventoConsultaVenta = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			control.consultaVenta();
+		}
+	};
+	
+	//EVENTOS EMPLEADO
+	
+	ActionListener eventoAñadirEmpleado = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			control.añadirEmpleado();
+		}
+	};
+	
+	
+	ActionListener eventoModificaConsultaEmpleado = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			control.modificaConsultaEmpleado();
+		}
+	};
+	
+	
+	ActionListener eventoConsultaSalario = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			control.consultaSalario();
+		}
+	}; 
+	
+	ActionListener eventoAñadirCuenta = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			control.añadirCuenta();
+		}
+	};
+	
+	ActionListener eventoEliminarCuenta = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			control.eliminarCuenta();
+		}
+	};
+	
+	/****** EVENTO SALIR*******/
+	
+	ActionListener eventoSalir = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			dispose();
+			Login obj = new Login();
+		}
+	};
 }
 	
