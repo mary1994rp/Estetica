@@ -75,7 +75,7 @@ public class Login extends JFrame{
 					app.inicia();
 				}else {
 					if(servicioCuenta.buscaCuenta(tf_usuario.getText(), tf_contraseña.getText())) {
-					//se validan el caso de las cuentas
+					//Se validan el caso de las cuentas
 					Aplicacion2 app = new Aplicacion2(/*daoCuenta,servicioCuenta*/);
 					
 					dispose();
