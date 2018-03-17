@@ -37,7 +37,7 @@ public class DAOEmpleado {
 			Statement statement = ManejadorBD.dameConnection().createStatement();
 
 			// Envia instruccion SQL, nota el DEFAULT es para insertar la llave autogenerada
-			statement.execute("insert into Empleado values (DEFAULT,'"+empleado.dameNombre()+"')",Statement.RETURN_GENERATED_KEYS);
+			statement.execute("insert into Empleado values (DEFAULT,'"+empleado.dameNombre()+"','"+empleado.dameApellido()+"','"+empleado.dameDomicilio()+"','"+empleado.dameFecha()+"',"+empleado.dameSueldo()+")",Statement.RETURN_GENERATED_KEYS);
 			ResultSet rs = statement.getGeneratedKeys(); // Recupera la llave
 			if (rs != null && rs.next()) {
 			    llave = rs.getInt(1);
@@ -153,7 +153,7 @@ public class DAOEmpleado {
 			while(rs.next())
 			{
 				// Crea una nueva instancia del objeto
-				Empleado empleado = new Empleado(rs.getString("nombre"));
+				Empleado empleado = new Empleado(rs.getString("nombre"),rs.getString("apellido"),rs.getString("domicilio"),rs.getString("fecha"), rs.getDouble("sueldo") );
 				empleado.cambiaId(rs.getInt(1));// Asigna la llave al empleado
 				empleadosTemp.add(empleado);
 			}
@@ -188,6 +188,21 @@ public class DAOEmpleado {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	public void actualizaSalario(double salario, int idEmpleado) {
+		try {
+			// Crea el statement
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+
+			// Recibe los resutados
+			/*solo actualizare el salario*/
+			statement.executeUpdate("UPDATE Empleado set sueldo ="+salario+" WHERE idEmpleado="+idEmpleado);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
 

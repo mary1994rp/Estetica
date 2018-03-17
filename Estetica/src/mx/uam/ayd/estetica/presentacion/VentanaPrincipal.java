@@ -21,16 +21,17 @@ public class VentanaPrincipal extends JFrame {
 	private JLabel jLabelInventario;
 	private JLabel jLabelAgenda;
 	private JLabel jLabelServicio;
-	private JButton jButtonAñadirInventario;
+	private JLabel jLabelEmpleado;
 	private JButton jButtonConsultarInventario;
 	private JButton jButtonModificarInventario;
-	private JButton jButtonAñadirCita; 
 	private JButton jButtonConsultarCita;
 	private JButton jButtonModificarCita;
 	private JButton jButtonCancelarCita;
-	private JButton jButtonAñadirTrabajo;
 	private JButton jButtonConsultarTrabajo;
 	private JButton jButtonModificarTrabajo;
+	private JButton jButtonAñadirEmpleado;
+	private JButton jButtonConsultarEmpleado = new JButton("Consultar");
+	private JButton jButtonConsultarSalario;
 	
 	/*********************   Constructor  ******************************/
 	public VentanaPrincipal(Aplicacion control) {
@@ -38,7 +39,7 @@ public class VentanaPrincipal extends JFrame {
 
 		/******   Init de la Ventana Principal  ******/
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 422, 451);
+		setBounds(100, 100, 422, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -59,20 +60,15 @@ public class VentanaPrincipal extends JFrame {
 		jLabelServicio.setFont(new Font("Dialog", Font.BOLD, 16));
 		jLabelServicio.setBounds(12, 276, 96, 15);
 		contentPane.add(jLabelServicio);
+		
+		jLabelEmpleado = new JLabel("Empleados");
+		jLabelEmpleado.setFont(new Font("Dialog", Font.BOLD, 16));
+		jLabelEmpleado.setBounds(12, 399, 96, 15);
+		contentPane.add(jLabelEmpleado);
 
 		/***********************   BOTONES Y EVENTOS  *************************/
 		
 		/******   INVENTARIO  ******/
-		//AÑADIR
-		jButtonAñadirInventario = new JButton("Añadir");
-		jButtonAñadirInventario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.añadirInventario();
-			}
-		});
-		jButtonAñadirInventario.setBounds(17, 39, 114, 66);
-		contentPane.add(jButtonAñadirInventario);
-
 		//CONSULTAR
 		jButtonConsultarInventario = new JButton("Consultar");
 		jButtonConsultarInventario.addActionListener(new ActionListener() {
@@ -94,15 +90,6 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.add(jButtonModificarInventario);
 
 		/******   CITAS  ******/
-		//AÑADIR
-		jButtonAñadirCita = new JButton("Añadir");
-		jButtonAñadirCita.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.añadirCita();
-			}
-		});
-		jButtonAñadirCita.setBounds(12, 171, 85, 66);
-		contentPane.add(jButtonAñadirCita);
 
 		//CONSULTA
 		jButtonConsultarCita = new JButton("Consultar");
@@ -138,15 +125,6 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.add(jButtonCancelarCita);
 
 		/******   TRABAJO  ******/
-		//AÑADIR
-		jButtonAñadirTrabajo = new JButton("Añadir");
-		jButtonAñadirTrabajo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				control.añadirTrabajo();
-			}
-		});
-		jButtonAñadirTrabajo.setBounds(12, 303, 114, 66);
-		contentPane.add(jButtonAñadirTrabajo);
 
 		//CONSULTA
 		jButtonConsultarTrabajo = new JButton("Consultar");
@@ -167,5 +145,41 @@ public class VentanaPrincipal extends JFrame {
 		});
 		jButtonModificarTrabajo.setBounds(269, 303, 114, 66);
 		contentPane.add(jButtonModificarTrabajo);
+		
+		/******   EMPLEADO  ******/
+		//AñADIR
+		
+		jButtonAñadirEmpleado = new JButton("Añadir");
+		jButtonAñadirEmpleado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				control.añadirEmpleado();
+			}
+		});
+		jButtonAñadirEmpleado.setBounds(10, 430, 114, 64);
+		contentPane.add(jButtonAñadirEmpleado);
+		
+		//CONSULTAR
+		jButtonConsultarEmpleado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				control.modificaConsultaEmpleado();
+				
+			}
+		});
+		jButtonConsultarEmpleado.setBounds(143, 430, 114, 64);
+		contentPane.add(jButtonConsultarEmpleado);
+		
+		//Consultar sueldo
+		
+		jButtonConsultarSalario = new JButton("Sueldo");
+		jButtonConsultarSalario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				control.consultaSalario();
+			}
+		});
+		jButtonConsultarSalario.setBounds(280, 430, 90, 64);
+		contentPane.add(jButtonConsultarSalario);
 	}
+	
+	
 }

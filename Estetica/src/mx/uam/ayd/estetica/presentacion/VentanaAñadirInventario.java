@@ -28,6 +28,7 @@ public class VentanaAñadirInventario extends JFrame {
 	private JTextField JTextFieldNombre;
 	private JTextField JTextFieldMarca;
 	private JTextField JTextFieldCantidad;
+	private JTextField textField_precio;
 	private JButton jButtonAñadir;
     private JButton jButtonRegresar;
 	/**
@@ -90,6 +91,14 @@ public class VentanaAñadirInventario extends JFrame {
 	    jButtonRegresar = new JButton("Regresar");
 		jButtonRegresar.setBounds(279, 201, 117, 25);
 		panel.add(jButtonRegresar);
+		
+		JLabel lblPrecio = new JLabel("Precio");
+		lblPrecio.setBounds(120, 163, 70, 15);
+		panel.add(lblPrecio);
+		
+		textField_precio = new JTextField();
+		textField_precio.setBounds(200, 161, 114, 19);
+		panel.add(textField_precio);
 		jButtonRegresar.addActionListener(EventoCancelar);
 	}
 	//Evento de boton añadir a inventario 
@@ -113,10 +122,13 @@ ActionListener EventoAñadir = new ActionListener() {
 		System.out.println("hasta qui va bien"+marca);
 		int pzaExistencia = Integer.parseInt(String.valueOf(JTextFieldCantidad.getText()));
 		System.out.println("hasta qui va bien"+pzaExistencia);
+		int precio = Integer.parseInt(String.valueOf(textField_precio.getText()));
+		System.out.println("hasta qui va bien"+precio);
+		
 		
 		//pasa los datos ingresados por el usuario como parametros al metodo añadir producto del control 
 		
-		boolean añadido= CAI.añadirProducto( new Producto(nombre, marca, pzaExistencia));
+		boolean añadido= CAI.añadirProducto( new Producto(nombre, marca, pzaExistencia,precio));
 		if(añadido){
 			//si se añadio entonces envia un mensaje
 			JOptionPane.showMessageDialog(null, "Se añadio a inventario exitosamente");
@@ -137,37 +149,5 @@ ActionListener EventoCancelar = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {	
 			dispose();
 		}};
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

@@ -12,6 +12,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+
+import mx.uam.ayd.estetica.modelo.Empleado;
 import mx.uam.ayd.estetica.modelo.Producto;
 import javax.swing.ListSelectionModel;
 import java.awt.Color;
@@ -19,25 +21,25 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-public class VentanaModificaConsultaInventario extends JFrame {
+public class VentanaModificaConsultaEmpleado extends JFrame {
 
 	/* declaracion de componentes usados */
 	private JPanel jPanelContenedor;
-	private ControlModificaConsultaInventario CMCI;
-	private JTable jTableInventario;
-	private JScrollPane scrollPaneContenedorTablaInventario;
+	private ControlModificaConsultaEmpleado CMCE;
+	private JTable jTableEmpleado;
+	private JScrollPane scrollPaneContenedorTablaEmpleado;
 	private JButton jButtonGuardar;
 	private JButton jButtonRegresar;
 	private String[] encabezadosJTable;
 	private JLabel jLabelTitulo;
 	// array que almacenara los productos
-	private ArrayList<Producto> listaProductos;
+	private ArrayList<Empleado> listaEmpleados;
 
 	/* modelo utilizado en el diseño de la tabla */
 	private DefaultTableModel modeloJTable = new DefaultTableModel() { // se define el modelo que ocupará la tabla
 		Class[] types = new Class[] {
 				// definimos los tipos que va a aceptar cada celda
-				java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class };
+				java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class  };
 
 		// Función que asignará el tipo de campo que asignaste previamente
 		public Class getColumnClass(int columnIndex) {
@@ -45,17 +47,17 @@ public class VentanaModificaConsultaInventario extends JFrame {
 		}
 	};
 
-	public VentanaModificaConsultaInventario(ControlModificaConsultaInventario CMCI) {
-
+	public VentanaModificaConsultaEmpleado(ControlModificaConsultaEmpleado CMCE) {
+		
 		setType(Type.UTILITY);
-		setTitle("Inventario");
+		setTitle("Empleados");
 		setBackground(Color.WHITE);
-		this.CMCI = CMCI;
+		this.CMCE = CMCE;
 
 		/* inicializacion de componentes */
 		jPanelContenedor = new JPanel();
 		jPanelContenedor.setBackground(Color.WHITE);
-		jTableInventario = new JTable(modeloJTable) {
+		jTableEmpleado = new JTable(modeloJTable) {
 			// evitamos q se pueda editar algunas columnas, nos interesa que no se pueda
 			// modificar el id
 			public boolean isCellEditable(int rowIndex, int colIndex) {
@@ -64,21 +66,21 @@ public class VentanaModificaConsultaInventario extends JFrame {
 		};
 
 		/* configuracion de las ventanas */
-		jTableInventario.setFillsViewportHeight(true);
-		jTableInventario.setBackground(Color.WHITE);
-		jTableInventario.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		scrollPaneContenedorTablaInventario = new JScrollPane();
+		jTableEmpleado.setFillsViewportHeight(true);
+		jTableEmpleado.setBackground(Color.WHITE);
+		jTableEmpleado.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		scrollPaneContenedorTablaEmpleado = new JScrollPane();
 		jButtonGuardar = new JButton("Guardar");
 		jButtonGuardar.setBackground(new Color(0, 204, 204));
 		jButtonRegresar = new JButton("Regresar");
 		jButtonRegresar.setBackground(new Color(51, 204, 255));
-		encabezadosJTable = new String[] { "Id", "Nombre", "Marca", "PzaExistencia","Precio" };
+		encabezadosJTable = new String[] { "Id", "Nombre", "Apellido", "Domicilio", "Fecha", "Sueldo" };
 
 		/*
 		 * array de productos temporal, utilizado para almacenar la informacion de la
 		 * base de datos
 		 */
-		listaProductos = new ArrayList<Producto>(Arrays.asList(CMCI.dameProductos()));
+		listaEmpleados = new ArrayList<Empleado>(Arrays.asList(CMCE.dameEmpleados()));
 
 		/* configuraciones graficas de los componentes */
 		jPanelContenedor.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -86,7 +88,7 @@ public class VentanaModificaConsultaInventario extends JFrame {
 		jPanelContenedor.setLayout(null);
 
 		/* scrol que contiene la tabla */
-		scrollPaneContenedorTablaInventario.setBounds(12, 47, 427, 228);
+		scrollPaneContenedorTablaEmpleado.setBounds(12, 47, 427, 228);
 
 		jButtonGuardar.setBounds(167, 287, 105, 25);
 		jButtonRegresar.setBounds(339, 287, 100, 25);
@@ -96,18 +98,18 @@ public class VentanaModificaConsultaInventario extends JFrame {
 		setBounds(100, 100, 459, 358);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-		jTableInventario.getColumnModel().getColumn(3).setPreferredWidth(116); // armamos el jtable, pegamos toda la
+		jTableEmpleado.getColumnModel().getColumn(3).setPreferredWidth(116); // armamos el jtable, pegamos toda la
 																				// informacion
-		scrollPaneContenedorTablaInventario.setViewportView(jTableInventario); // agreamos un scrollaljtable
+		scrollPaneContenedorTablaEmpleado.setViewportView(jTableEmpleado); // agreamos un scrollaljtable
 
 		// agregamos todos los elemntos al contenedor
 
-		jPanelContenedor.add(scrollPaneContenedorTablaInventario);
+		jPanelContenedor.add(scrollPaneContenedorTablaEmpleado);
 		jPanelContenedor.add(jButtonGuardar);
 		jPanelContenedor.add(jButtonRegresar);
 
 		/* estilo del titulo */
-		jLabelTitulo = new JLabel("Inventario:");
+		jLabelTitulo = new JLabel("Empleados:");
 		jLabelTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		jLabelTitulo.setForeground(new Color(105, 105, 105));
 		jLabelTitulo.setBackground(new Color(0, 0, 0));
@@ -119,19 +121,16 @@ public class VentanaModificaConsultaInventario extends JFrame {
 		 * for que crea cada fila para el jTable, con la informacion recuperada de la
 		 * base de datos
 		 */
-
-		for (int i = 0; i < listaProductos.size(); i++) {
-			/* validacion q no sean vacios nulos */
-			if ((!listaProductos.get(i).dameNombre().equals("ninguno"))
-					&& (!listaProductos.get(i).dameMarca().equals("ninguno"))) {
-
+		
+		for (int i = 0; i < listaEmpleados.size(); i++) {
+	
 				/* arma la tabla que agregara al jtable */
-				Object[] nuevaFilaJTable = { listaProductos.get(i).dameId(), listaProductos.get(i).dameNombre(),
-						listaProductos.get(i).dameMarca(), listaProductos.get(i).damePzaExistencia(),listaProductos.get(i).damePrecio() };
+				Object[] nuevaFilaJTable = { listaEmpleados.get(i).dameId(), listaEmpleados.get(i).dameNombre(),
+						listaEmpleados.get(i).dameApellido(), listaEmpleados.get(i).dameDomicilio(), listaEmpleados.get(i).dameFecha(), 120 };
 
 				/* agrega una nueva fila al jtable */
 				modeloJTable.addRow(nuevaFilaJTable); // agregamos la fila al jTable
-			}
+			
 		}
 
 		/* eventos */
@@ -149,7 +148,7 @@ public class VentanaModificaConsultaInventario extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				/* variable que almacenara el numero de la fila seleccionada */
-				int filaSeleccionada = jTableInventario.getSelectedRow();
+				int filaSeleccionada = jTableEmpleado.getSelectedRow();
 
 				/* dialogo que pide confirmacion de cambios */
 				int dialogResult = JOptionPane.showConfirmDialog(null,
@@ -163,11 +162,12 @@ public class VentanaModificaConsultaInventario extends JFrame {
 						 * poder pasarselo como parametro al Control
 						 */
 
-						Producto tempProducto = new Producto(
-								jTableInventario.getValueAt(filaSeleccionada, 1).toString() + "",
-								jTableInventario.getValueAt(filaSeleccionada, 2).toString() + "",
-								Integer.parseInt(jTableInventario.getValueAt(filaSeleccionada, 3).toString() + ""),
-								Integer.parseInt(jTableInventario.getValueAt(filaSeleccionada, 4).toString() + ""));
+						Empleado tempEmpleado = new Empleado(
+								jTableEmpleado.getValueAt(filaSeleccionada, 1).toString() + "",
+								jTableEmpleado.getValueAt(filaSeleccionada, 2).toString() + "",
+								jTableEmpleado.getValueAt(filaSeleccionada, 3).toString() + "",
+								jTableEmpleado.getValueAt(filaSeleccionada, 4).toString() + "",
+								Integer.parseInt(jTableEmpleado.getValueAt(filaSeleccionada, 3).toString() + ""));//integer??
 
 						/*
 						 * le pasamos al metodo actualizaProducto, del control, el nuevo Productotemporal, con
@@ -178,24 +178,8 @@ public class VentanaModificaConsultaInventario extends JFrame {
 						/*actualizaproductos(producto, id,empleado)
 						 * si regresa true esta bien hecha la actualizacion
 						 * */
-						if (CMCI.actualizaProducto(tempProducto,
-								Integer.parseInt(jTableInventario.getValueAt(filaSeleccionada, 0).toString() + ""))) {
-							/* actualiza la jTable */
-
-							
-							/* Al terminar la actualizacion en la base de datos, "refrescamos" el jTable de
-							 la vista. Creamos un arreglo con la nueva informacion del producto modificado para
-							 pasarselo al jtable
-							*/
-							
-							Object[] filaModificada = { //arreglo q almacenara temporalmente la linea q agregara al jtable
-									Integer.parseInt(jTableInventario.getValueAt(filaSeleccionada, 0).toString() + ""),
-									tempProducto.dameNombre(), tempProducto.dameMarca(),
-									tempProducto.damePzaExistencia(),tempProducto.damePrecio() };
-
-							modeloJTable.removeRow(filaSeleccionada); // borramos la fila q se modifico
-							modeloJTable.addRow(filaModificada); // creamos una nueva fila, con la informacion cambiada
-						}
+					
+					
 					} catch (Exception error) {
 						System.out.println("ocurrio un error al intentar actualizar");
 					}

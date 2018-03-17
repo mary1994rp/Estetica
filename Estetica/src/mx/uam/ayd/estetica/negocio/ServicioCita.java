@@ -22,7 +22,7 @@ public class ServicioCita {
 		return daoCita.buscaCita(nombreCliente);
 	}
 	public Cita[] dameCitas() {
-		// Si hubiera lñgica de negocio se aplicarña aquñ
+		// Si hubiera logica de negocio se aplicara aqui
 		return daoCita.dameCitas();
 	}
 

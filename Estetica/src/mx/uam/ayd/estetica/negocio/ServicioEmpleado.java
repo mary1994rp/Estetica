@@ -9,15 +9,10 @@ public class ServicioEmpleado {
 	public ServicioEmpleado(DAOEmpleado daoEmpleado) {
 		this.daoEmpleado=daoEmpleado;
 	}
-
-	//metodo que validará el login, si quisieramos pudiesemos ir a recuperar el nombre del DAO
-	public boolean validaAdministrador(String usuario, String contraseña) {
-		if(usuario.equals("miriam") && contraseña.equals("123")) {
-			return true;
-		}else {
-			return false;
-		}
-	}	
+	public boolean añadirEmpleado(String nombreEmpleado, String apellidoEmpleado, String domicilio, String fechaIngreso, double sueldo) {
+		//Como parametro el metodo añadir empleado recibe un 
+		return daoEmpleado.añadirEmpleado(new Empleado(nombreEmpleado, apellidoEmpleado, domicilio, fechaIngreso, sueldo));
+	}
 
 	public Empleado[] dameEmpleados() {
 		return daoEmpleado.dameEmpleados();
@@ -29,5 +24,9 @@ public class ServicioEmpleado {
 	
 	public Empleado buscaEmpleado(int id) {
 		return daoEmpleado.buscaEmpleado(id);
+	}
+	
+	public void actualizaSalario(double salario, int idEmpleado) {
+		daoEmpleado.actualizaSalario(salario, idEmpleado);
 	}
 }

@@ -7,13 +7,15 @@ public class Producto {
 	private String nombre;
 	private String marca;
 	private int pzaExistencia;
+	private int precio;
 	
 	/*********************   Constructor  ******************************/
 
-	public Producto(String nombre, String marca, int pzaExistencia) {
+	public Producto(String nombre, String marca, int pzaExistencia, int precio) {
 		this.nombre=nombre;
 		this.marca=marca;
 		this.pzaExistencia=pzaExistencia;
+		this.precio=precio;
 	}
 	
 	/*********************   SETs y GETs  ******************************/
@@ -61,6 +63,17 @@ public class Producto {
 
 	public void cambiaPzaExistencia(int pzaExistencia) {
 		this.pzaExistencia = pzaExistencia;
+	}
+	
+	/******precio*********/
+
+	public int damePrecio() {
+		return precio;
+	}
+
+
+	public void cambiaPrecio(int pzaExistencia) {
+		this.precio = precio;
 	}
 
 }

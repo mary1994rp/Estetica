@@ -34,7 +34,7 @@ public class DAOProducto {
 			Statement statement = ManejadorBD.dameConnection().createStatement();
 
 			// Envia instruccion SQL, nota el DEFAULT es para insertar la llave autogenerada
-			statement.execute("insert into Producto values (DEFAULT,'"+producto.dameNombre()+"','"+producto.dameMarca()+"',"+producto.damePzaExistencia()+")",Statement.RETURN_GENERATED_KEYS);
+			statement.execute("insert into Producto values (DEFAULT,'"+producto.dameNombre()+"','"+producto.dameMarca()+"',"+producto.damePzaExistencia()+","+producto.damePrecio()+")",Statement.RETURN_GENERATED_KEYS);
 			ResultSet rs = statement.getGeneratedKeys(); // Recupera la llave
 			if (rs != null && rs.next()) {
 			    llave = rs.getInt(1);
@@ -94,7 +94,7 @@ public class DAOProducto {
 			if(rs.next())
 			{
 				// Crea una nueva instancia del objeto
-				producto = new Producto(rs.getString("nombre"), rs.getString("marca"), rs.getInt("pzaExistencia"));
+				producto = new Producto(rs.getString("nombre"), rs.getString("marca"), rs.getInt("pzaExistencia"), rs.getInt("precio"));
 				producto.cambiaId(rs.getInt(1));// Asigna la llave al producto
 			}
 		} catch (SQLException e) {
@@ -121,7 +121,7 @@ public class DAOProducto {
 			if(rs.next())
 			{
 				// Crea una nueva instancia del objeto
-				producto = new Producto(rs.getString("nombre"), rs.getString("marca"), rs.getInt("pzaExistencia"));
+				producto = new Producto(rs.getString("nombre"), rs.getString("marca"), rs.getInt("pzaExistencia"), rs.getInt("precio"));
 				producto.cambiaId(rs.getInt(1));// Asigna la llave al producto
 			}
 		} catch (SQLException e) {
@@ -149,7 +149,7 @@ public class DAOProducto {
 			if(rs.next())
 			{
 				// Crea una nueva instancia del objeto
-				producto = new Producto(rs.getString("nombre"), rs.getString("marca"), rs.getInt("pzaExistencia"));
+				producto = new Producto(rs.getString("nombre"), rs.getString("marca"), rs.getInt("pzaExistencia"), rs.getInt("precio"));
 				producto.cambiaId(id);// Asigna la llave al producto
 			}
 		} catch (SQLException e) {
@@ -177,7 +177,7 @@ public class DAOProducto {
 			while(rs.next())
 			{
 				// Crea una nueva instancia del objeto
-				Producto producto = new Producto(rs.getString("nombre"), rs.getString("marca"), rs.getInt("pzaExistencia"));
+				Producto producto = new Producto(rs.getString("nombre"), rs.getString("marca"), rs.getInt("pzaExistencia"), rs.getInt("precio"));
 				producto.cambiaId(rs.getInt(1));// Asigna la llave a cada producto
 				productosTemp.add(producto);
 			}
