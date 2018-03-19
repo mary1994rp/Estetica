@@ -17,7 +17,7 @@ import java.awt.Color;
 
 public class VentanaPrincipal extends JFrame {
 
-	/*********************   Recursos  ******************************/
+	/********************   Recursos  *****************************/
 	private JPanel contentPane;
 	private Aplicacion control;
 	private JLabel jLabelInventario;
