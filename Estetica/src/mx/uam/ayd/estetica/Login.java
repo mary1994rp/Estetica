@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import mx.uam.ayd.estetica.negocio.ServicioCuenta;
@@ -20,7 +21,7 @@ public class Login extends JFrame{
 	JLabel usuario;
 	JLabel contraseña;
 	JTextField tf_usuario;
-	JTextField tf_contraseña;
+	JPasswordField tf_contraseña;
 	JButton ingresar;
 	JButton salir;
 
@@ -51,7 +52,7 @@ public class Login extends JFrame{
 		usuario = new JLabel("Usuario: ");
 		contraseña= new JLabel("Contraseña: ");
 		tf_usuario = new JTextField("");
-		tf_contraseña = new JTextField("");
+		tf_contraseña = new JPasswordField();
 		ingresar = new JButton("Ingresar");
 		salir = new JButton("Salir");
 		
@@ -69,7 +70,7 @@ public class Login extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				if((tf_usuario.getText().equals("miriam"))&&(tf_contraseña.getText().equals("123"))) {
+				if((tf_usuario.getText().equals("miriam"))&&(String.valueOf(tf_contraseña.getPassword()).equals("123"))) {
 					Aplicacion app = new Aplicacion(/*daoCuenta,servicioCuenta*/);
 					dispose();
 					app.inicia();
