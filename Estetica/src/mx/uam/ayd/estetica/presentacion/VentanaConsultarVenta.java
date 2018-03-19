@@ -29,6 +29,7 @@ public class VentanaConsultarVenta extends JFrame{
 		setSize(546, 389);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
+		getContentPane().setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		initialize();
 	}
@@ -72,8 +73,7 @@ public class VentanaConsultarVenta extends JFrame{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			System.exit(0);
-			
+			dispose();
 		}
 	};
 }
