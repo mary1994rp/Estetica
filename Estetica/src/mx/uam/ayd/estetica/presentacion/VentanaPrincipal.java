@@ -36,7 +36,6 @@ public class VentanaPrincipal extends JFrame {
 	private JButton BtnAñadirProveedor;
 	private JButton BtnAñadirCuenta;
 	private JButton BtnConsultaCuenta;
-	private JButton btnEliminarProv;/**nuevo boton***************************************/ 
 	
 	File ruta_agenda = new File("icons/Agenda.png");
 	File ruta_producto = new File("icons/producto.png");
@@ -47,8 +46,7 @@ public class VentanaPrincipal extends JFrame {
 	File ruta_sueldo = new File("icons/sueldo.png");
 	File ruta_proveedor = new File("icons/proveedor.png");
 	File ruta_anadirusuario= new File("icons/agusuario.png");
-	File ruta_usuario = new File("/home/mary/git/Estetica/Estetica/icons/usuarios.png");
-	File ruta_eliminarprov = new File("/home/mary/git/Estetica/Estetica/icons/proveedorm.png");
+	File ruta_usuario = new File("icons/usuarios.png");
 	
 	private ImageIcon img_Agenda = new ImageIcon(ruta_agenda.getAbsolutePath());
 	private ImageIcon img_Producto = new ImageIcon(ruta_producto.getAbsolutePath());
@@ -60,7 +58,7 @@ public class VentanaPrincipal extends JFrame {
 	private ImageIcon img_Proveedor = new ImageIcon(ruta_proveedor.getAbsolutePath());
 	private ImageIcon img_AnadirUsuario = new ImageIcon(ruta_anadirusuario.getAbsolutePath());
 	private ImageIcon img_Usuario = new ImageIcon(ruta_usuario.getAbsolutePath());
-	private ImageIcon img_elimiprov = new ImageIcon(ruta_eliminarprov.getAbsolutePath());
+	
 	
 	/*********************   Constructor  ******************************/
 	public VentanaPrincipal(Aplicacion control) {
@@ -158,7 +156,6 @@ public class VentanaPrincipal extends JFrame {
 		BtnAñadirCuenta = new JButton();
 		BtnConsultaCuenta = new JButton();
 		BtnConsultarVenta = new JButton();
-		btnEliminarProv = new JButton("");
 		JButton BtnSalir = new JButton("Salir");
 		
 		
@@ -177,16 +174,6 @@ public class VentanaPrincipal extends JFrame {
 		BtnAñadirProveedor.setBackground(null);
 		BtnAñadirProveedor.setBorder(null);
 		BtnAñadirProveedor.setIcon(img_Proveedor);
-		
-		
-		//ELIMINAR proveedor
-		btnEliminarProv.addActionListener(eventoEliminarProveedor);
-		btnEliminarProv.setBounds(390, 48, 85, 60);
-		btnEliminarProv.setBackground(null);
-		btnEliminarProv.setBorder(null);
-		btnEliminarProv.setIcon(img_elimiprov);
-		
-		
 
 		/******   DISEÑO AGENDA  ******/
 
@@ -251,8 +238,6 @@ public class VentanaPrincipal extends JFrame {
 		BtnConsultaCuenta.setBorder(null);
 		BtnConsultaCuenta.setIcon(img_Usuario);
 		
-				
-		
 		/****** DISEÑO SALIR  ******/
 		BtnSalir.addActionListener(eventoSalir);
 		BtnSalir.setBounds(410, 654, 117, 25);
@@ -260,7 +245,6 @@ public class VentanaPrincipal extends JFrame {
 		//agregado de botones Inventario
 		contentPane.add(BtnConsultarInventario);
 		contentPane.add(BtnAñadirProveedor);
-		contentPane.add(btnEliminarProv);
 		
 		//agregado de botones Citas
 		contentPane.add(BtnConsultarCita);
@@ -278,15 +262,6 @@ public class VentanaPrincipal extends JFrame {
 		
 		//agregado de boton salir
 		contentPane.add(BtnSalir);
-	
-		
-		
-		
-	
-		
-		JLabel lblNewLabel = new JLabel("Eliminar provedor");
-		lblNewLabel.setBounds(390, 120, 137, 15);
-		contentPane.add(lblNewLabel);
 		
 	}	
 	
@@ -313,24 +288,6 @@ public class VentanaPrincipal extends JFrame {
 			control.añadirProveedor();
 		}
 	};
-	
-	
-	
-	/********eliminar proveedores******/
-	
-ActionListener eventoEliminarProveedor = new ActionListener() {
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			control.eliminarProveedor();
-		}
-	};
-	
-	
-	
-	
-	
 	
 	//EVENTOS CITAS
 	
@@ -411,18 +368,6 @@ ActionListener eventoEliminarProveedor = new ActionListener() {
 			control.eliminarCuenta();
 		}
 	};
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	/****** EVENTO SALIR*******/
 	
