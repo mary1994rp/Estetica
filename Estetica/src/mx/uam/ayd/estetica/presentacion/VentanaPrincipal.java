@@ -37,6 +37,7 @@ public class VentanaPrincipal extends JFrame {
 	private JButton BtnAñadirCuenta;
 	private JButton BtnConsultaCuenta;
 	
+	//Rutas
 	File ruta_agenda = new File("icons/Agenda.png");
 	File ruta_producto = new File("icons/producto.png");
 	File ruta_ventas = new File("icons/ventas.png");
