@@ -36,21 +36,27 @@ public class VentanaPrincipal extends JFrame {
 	private JButton BtnAñadirCuenta;
 	private JButton BtnConsultaCuenta;
 	
+	File ruta_agenda = new File("icons/Agenda.png");
+	File ruta_producto = new File("icons/producto.png");
+	File ruta_ventas = new File("icons/ventas.png");
+	File ruta_trabajos = new File("icons/trabajo.png");
+	File ruta_anadirempleado = new File("icons/anadiremp.png");
+	File ruta_reunionEmp = new File("icons/reunion.png");
+	File ruta_sueldo = new File("icons/sueldo.png");
+	File ruta_proveedor = new File("icons/proveedor.png");
+	File ruta_anadirusuario= new File("icons/agusuario.png");
+	File ruta_usuario = new File("icons/usuarios.png");
 	
-	private ImageIcon img_Agenda = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/Agenda.png");
-	private ImageIcon img_Producto = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/producto.png");
-	private ImageIcon img_Ventas = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/ventas.png");
-	private ImageIcon img_Trabajos = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/trabajo.png");
-	private ImageIcon img_AnadirEmpleado = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/anadiremp.png");
-	private ImageIcon img_reunionEmp = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/reunion.png");
-	private ImageIcon img_ConsultarAzul = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/consultarAzul.png");
-	private ImageIcon img_ConsultarRojo = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/consultarRojo.png");
-	private ImageIcon img_EditarAzul = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/editarAzul.png");
-	private ImageIcon img_Sueldo = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/sueldo.png");
-	private ImageIcon img_Graficos = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/graficos.png");
-	private ImageIcon img_Proveedor = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/proveedor.png");
-	private ImageIcon img_AnadirUsuario = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/agusuario.png");
-	private ImageIcon img_Usuario = new ImageIcon("/home/fili/Documentos/repos/Estetica/icons/usuarios.png");
+	private ImageIcon img_Agenda = new ImageIcon(ruta_agenda.getAbsolutePath());
+	private ImageIcon img_Producto = new ImageIcon(ruta_producto.getAbsolutePath());
+	private ImageIcon img_Ventas = new ImageIcon(ruta_ventas.getAbsolutePath());
+	private ImageIcon img_Trabajos = new ImageIcon(ruta_trabajos.getAbsolutePath());
+	private ImageIcon img_AnadirEmpleado = new ImageIcon(ruta_anadirempleado.getAbsolutePath());
+	private ImageIcon img_reunionEmp = new ImageIcon(ruta_reunionEmp.getAbsolutePath());
+	private ImageIcon img_Sueldo = new ImageIcon(ruta_sueldo.getAbsolutePath());
+	private ImageIcon img_Proveedor = new ImageIcon(ruta_proveedor.getAbsolutePath());
+	private ImageIcon img_AnadirUsuario = new ImageIcon(ruta_anadirusuario.getAbsolutePath());
+	private ImageIcon img_Usuario = new ImageIcon(ruta_usuario.getAbsolutePath());
 	
 	
 	/*********************   Constructor  ******************************/
