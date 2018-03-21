@@ -47,8 +47,8 @@ public class VentanaPrincipal extends JFrame {
 	File ruta_sueldo = new File("icons/sueldo.png");
 	File ruta_proveedor = new File("icons/proveedor.png");
 	File ruta_anadirusuario= new File("icons/agusuario.png");
-	File ruta_usuario = new File("/home/mary/git/Estetica/Estetica/icons/usuarios.png");
-	File ruta_eliminarprov = new File("/home/mary/git/Estetica/Estetica/icons/proveedorm.png");
+	File ruta_usuario = new File("icons/usuarios.png");
+	File ruta_eliminarprov = new File("icons/proveedorm.png");
 	
 	private ImageIcon img_Agenda = new ImageIcon(ruta_agenda.getAbsolutePath());
 	private ImageIcon img_Producto = new ImageIcon(ruta_producto.getAbsolutePath());
