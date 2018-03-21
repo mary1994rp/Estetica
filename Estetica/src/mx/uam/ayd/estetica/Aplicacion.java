@@ -18,6 +18,7 @@ import mx.uam.ayd.estetica.presentacion.ControlAñadirEmpleado;
 import mx.uam.ayd.estetica.presentacion.ControlAñadirProveedor;
 import mx.uam.ayd.estetica.presentacion.ControlConsultaSueldo;
 import mx.uam.ayd.estetica.presentacion.ControlConsultaVenta;
+import mx.uam.ayd.estetica.presentacion.ControlEliminaProveedor;
 import mx.uam.ayd.estetica.presentacion.ControlModificaConsultaCita;
 import mx.uam.ayd.estetica.presentacion.ControlModificaConsultaCuenta;
 import mx.uam.ayd.estetica.presentacion.ControlModificaConsultaEmpleado;
@@ -150,7 +151,11 @@ public class Aplicacion {
 		CEC.inicia();
 	}
 	
-	
+	/********************************** ELIMINAR PROVEEDOR *************************************/
+	public void eliminarProveedor() {
+		ControlEliminaProveedor CEP = new ControlEliminaProveedor(servicioProveedor);
+		CEP.inicia();
+	}
 	
 		
 	
