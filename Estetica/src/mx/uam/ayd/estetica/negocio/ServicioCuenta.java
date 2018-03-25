@@ -19,7 +19,7 @@ public class ServicioCuenta {
 	}
 	
 	
-	public int cuantasCitas() {
+	public int cuantasCuentas() {
 		return daoCuentas.cuantasCuentas();
 	}
 	
@@ -32,6 +32,7 @@ public class ServicioCuenta {
 		
 		return daoCuentas.actualizaCuenta(cuenta, id);
 	}
+	
 	//quita cita recibe el id de la cita a eliminar
 	public boolean quitaCuenta(int id) {
 		return daoCuentas.quitaCuenta(id);

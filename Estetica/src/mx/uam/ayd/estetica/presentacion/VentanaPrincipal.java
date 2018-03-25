@@ -5,8 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import mx.uam.ayd.estetica.Aplicacion;
-import mx.uam.ayd.estetica.Login;
-
+import mx.uam.ayd.estetica.ControlLogin;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -37,6 +36,7 @@ public class VentanaPrincipal extends JFrame {
 	private JButton BtnAñadirCuenta;
 	private JButton BtnConsultaCuenta;
 	
+	//Rutas
 	File ruta_agenda = new File("icons/Agenda.png");
 	File ruta_producto = new File("icons/producto.png");
 	File ruta_ventas = new File("icons/ventas.png");
@@ -377,7 +377,8 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			dispose();
-			Login obj = new Login();
+			ControlLogin obj = new ControlLogin();
+			obj.inicia();
 		}
 	};
 }
