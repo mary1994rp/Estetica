@@ -89,17 +89,15 @@ public class VentanaLogin extends JFrame {
 
 			// se valida el caso de las cuentas de Administrador
 			if (ctrlLogin.validaCuentaAdmin(tf_usuario.getText(), String.valueOf(tf_contraseña.getPassword()))) {
-				Aplicacion app = new Aplicacion();
+				JOptionPane.showMessageDialog(null, "Iniciaste como ADMINISTRADOR");
 				dispose();
-				app.inicia();
 			}
 			// se valida el caso de las cuentas de usuario
 			else {
 
 				if (ctrlLogin.validaCuentaUsuario(tf_usuario.getText(), String.valueOf(tf_contraseña.getPassword()))) {
-					Aplicacion2 app = new Aplicacion2();
+					JOptionPane.showMessageDialog(null, "Iniciaste como USUARIO");
 					dispose();
-					app.inicia();
 				}
 
 				else {

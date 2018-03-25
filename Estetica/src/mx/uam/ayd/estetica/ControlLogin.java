@@ -34,7 +34,8 @@ public class ControlLogin {
 	public boolean validaCuentaAdmin(String usuario, String contraseña) {
 		
 		if( (usuario.equals("miriam")) && (contraseña.equals("123"))) {
-			JOptionPane.showMessageDialog(null, "Iniciando como ADMINISTRADOR");
+			Aplicacion app = new Aplicacion();
+			app.inicia();
 			return true;
 		}
 		
@@ -44,7 +45,8 @@ public class ControlLogin {
 	public boolean validaCuentaUsuario(String usuario, String contraseña) {
 		for(Cuenta c: servicioCuenta.dameCuentas()) {
 			if((c.dameNombre().equals(usuario)) && (c.dameContraseña().equals(contraseña))){
-				JOptionPane.showMessageDialog(null, "Iniciando como USUARIO");
+				Aplicacion2 app = new Aplicacion2();
+				app.inicia();
 				return true;
 			}
 		}
