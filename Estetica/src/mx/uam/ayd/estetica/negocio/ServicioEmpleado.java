@@ -34,4 +34,8 @@ public class ServicioEmpleado {
 		return daoEmpleado.quitaEmpleado(id);
 	}
 	
+	public boolean actualizaEmpleado(Empleado empleado, int id) {
+		return daoEmpleado.actualizaEmpleado(empleado, id);
+	}
+	
 }

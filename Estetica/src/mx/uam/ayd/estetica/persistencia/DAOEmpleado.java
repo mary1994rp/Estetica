@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import mx.uam.ayd.estetica.modelo.Empleado;
+import mx.uam.ayd.estetica.modelo.Producto;
 import mx.uam.ayd.estetica.persistencia.ManejadorBD;
 
 
@@ -191,6 +192,36 @@ public class DAOEmpleado {
 		return 0;
 	}
 
+	
+	/*metodo agregado */
+	public boolean actualizaEmpleado(Empleado empleado, int id) {
+
+		int resultado = 0;
+		try {
+			// Crea el statement
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+
+			// Recibe los resutados
+			/*solo actualizare el nombre*/
+			resultado = statement.executeUpdate("UPDATE Empleado set nombre='"+empleado.dameNombre()+"', "
+																  + "apellido='"+empleado.dameApellido()+"', "
+																  + "domicilio='"+empleado.dameDomicilio()+"', "
+																  + "fecha='"+empleado.dameFecha()+"' , "
+																  + "sueldo="+empleado.dameSueldo()+" "
+																  + "WHERE idEmpleado="+id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		if(resultado == 0) {
+			return false;
+		} else {
+			return true;
+		}
+		
+	}
+	
+	
 	public void actualizaSalario(double salario, int idEmpleado) {
 		try {
 			// Crea el statement

@@ -32,5 +32,7 @@ public class ControlModificaConsultaEmpleado {
 		return servicioEmpleado.quitaEmpleado(id);
 	}
 		
-	
+	public boolean actualizaEmpleado(Empleado empleado, int id) {
+		return servicioEmpleado.actualizaEmpleado(empleado, id);
+	}
 }

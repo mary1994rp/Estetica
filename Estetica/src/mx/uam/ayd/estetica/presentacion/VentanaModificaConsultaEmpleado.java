@@ -71,7 +71,8 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 		jTableEmpleado.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPaneContenedorTablaEmpleado = new JScrollPane();
 		jButtonEliminar = new JButton("Eliminar");
-		jButtonEliminar.setBackground(new Color(0, 204, 204));
+		jButtonEliminar.setForeground(Color.WHITE);
+		jButtonEliminar.setBackground(Color.RED);
 		jButtonRegresar = new JButton("Regresar");
 		jButtonRegresar.setBackground(new Color(51, 204, 255));
 		encabezadosJTable = new String[] { "Id", "Nombre", "Apellido", "Domicilio", "Fecha", "Sueldo" };
@@ -90,7 +91,7 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 		/* scrol que contiene la tabla */
 		scrollPaneContenedorTablaEmpleado.setBounds(12, 47, 427, 228);
 
-		jButtonEliminar.setBounds(167, 287, 105, 25);
+		jButtonEliminar.setBounds(215, 287, 105, 25);
 		jButtonRegresar.setBounds(339, 287, 100, 25);
 
 		modeloJTable.setColumnIdentifiers(encabezadosJTable); // agregamos los encambezados al jtable
@@ -114,8 +115,15 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 		jLabelTitulo.setForeground(new Color(105, 105, 105));
 		jLabelTitulo.setBackground(new Color(0, 0, 0));
 		jLabelTitulo.setFont(new Font("DejaVu Serif", Font.BOLD, 20));
-		jLabelTitulo.setBounds(12, 12, 145, 15);
+		jLabelTitulo.setBounds(12, 12, 145, 23);
 		jPanelContenedor.add(jLabelTitulo);
+		
+		JButton jButtonGuardar = new JButton("Modificar");
+		
+		jButtonGuardar.setForeground(Color.DARK_GRAY);
+		jButtonGuardar.setBackground(Color.YELLOW);
+		jButtonGuardar.setBounds(80, 287, 105, 25);
+		jPanelContenedor.add(jButtonGuardar);
 
 		/*
 		 * for que crea cada fila para el jTable, con la informacion recuperada de la
@@ -142,7 +150,73 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 				dispose(); // oculta la ventana
 			}
 		});
+		
+	
+		jButtonGuardar.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/* variable que almacenara el numero de la fila seleccionada */
+				int filaSeleccionada = jTableEmpleado.getSelectedRow();
+
+				/* dialogo que pide confirmacion de cambios */
+				int dialogResult = JOptionPane.showConfirmDialog(null,
+						"¿Deseas actualizar al empleado de la linea? " + (filaSeleccionada + 1));
+				/* si se acepta el dialogo, hacemos la accion de modificar */
+				if (dialogResult == JOptionPane.YES_OPTION) {
+					try {
+
+						/*
+						 * creamos un producto temporal con la informacion modificada en el jTable, para
+						 * poder pasarselo como parametro al Control
+						 */
+
+						Empleado tempEmpleado = new Empleado(
+								jTableEmpleado.getValueAt(filaSeleccionada, 1).toString() + "",
+								jTableEmpleado.getValueAt(filaSeleccionada, 2).toString() + "",
+								jTableEmpleado.getValueAt(filaSeleccionada, 3).toString() + "",
+								jTableEmpleado.getValueAt(filaSeleccionada, 4).toString() + "",
+								Integer.parseInt(jTableEmpleado.getValueAt(filaSeleccionada, 5).toString() + ""));//double
+
+						/*
+						 * le pasamos al metodo actualizaProducto, del control, el nuevo Productotemporal, con
+						 * la informacion obtenida en el jtable asi como el identidicador (id), del
+						 * producto original, que deseamos sea modificado
+						 */
+
+						/*actualizaproductos(producto, id,empleado)
+						 * si regresa true esta bien hecha la actualizacion
+						 * */
+						if (CMCE.actualizaEmpleado(tempEmpleado,
+								Integer.parseInt(jTableEmpleado.getValueAt(filaSeleccionada, 0).toString() + ""))) {
+							/* actualiza la jTable */
+
+							
+							/* Al terminar la actualizacion en la base de datos, "refrescamos" el jTable de
+							 la vista. Creamos un arreglo con la nueva informacion del producto modificado para
+							 pasarselo al jtable
+							*/
+							
+							Object[] filaModificada = { //arreglo q almacenara temporalmente la linea q agregara al jtable
+									Integer.parseInt(jTableEmpleado.getValueAt(filaSeleccionada, 0).toString() + ""),
+									tempEmpleado.dameNombre(), tempEmpleado.dameApellido(),
+									tempEmpleado.dameDomicilio(),tempEmpleado.dameFecha(), tempEmpleado.dameSueldo()};
+
+							modeloJTable.removeRow(filaSeleccionada); // borramos la fila q se modifico
+							modeloJTable.addRow(filaModificada); // creamos una nueva fila, con la informacion cambiada
+						}
+					} catch (Exception error) {
+						System.out.println("ocurrio un error al intentar actualizar");
+					}
+				}
+
+			}
+		}
+		
+				);
+		
+		
+		
 		jButtonEliminar.addActionListener(new ActionListener() {
 
 			@Override
