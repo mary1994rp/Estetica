@@ -22,7 +22,7 @@ public class ControlLogin {
 	
 	//inicia la ventana login
 	public void inicia() {
-		new Login(this);
+		new VentanaLogin(this);
 	}
 	
 	//arranca el SISTEMA

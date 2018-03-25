@@ -13,7 +13,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 
-public class Login extends JFrame {
+public class VentanaLogin extends JFrame {
 
 	private ControlLogin ctrlLogin;
 
@@ -25,7 +25,7 @@ public class Login extends JFrame {
 	JButton ingresar;
 	JButton salir;
 
-	public Login(ControlLogin ctrlLogin) {
+	public VentanaLogin(ControlLogin ctrlLogin) {
 
 		this.ctrlLogin = ctrlLogin;
 
