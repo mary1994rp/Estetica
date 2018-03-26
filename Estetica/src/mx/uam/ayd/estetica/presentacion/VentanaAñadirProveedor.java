@@ -1,31 +1,31 @@
 package mx.uam.ayd.estetica.presentacion;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
-
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class VentanaAñadirProveedor extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel jLabelNombreProveedor;
 	private JTextField jTextFieldnombreProveedor;
 	private JLabel jLabelDescripcion;
-	private JTextArea jTextAreaDescripcion;
+	private JTextField jTextFieldDescripcion;
 	private JButton jButtonRegresar;
 
-	private JButton jButtonAceptar;
+	private JButton jButtonAñadir;
 	private JLabel jLabelDomicilio;
 	private JLabel jLabelCalleyNum;
 	private JTextField jTextFieldCalleyNum;	
@@ -39,6 +39,7 @@ public class VentanaAñadirProveedor extends JFrame {
 		setTitle("Añadir Proveedor");
 		setBounds(100, 100, 650, 367);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -93,10 +94,10 @@ public class VentanaAñadirProveedor extends JFrame {
 		contentPane.add(jTextFieldCalleyNum);
 		jTextFieldCalleyNum.setColumns(10);
 		
-		jTextAreaDescripcion = new JTextArea();
-		jTextAreaDescripcion.setBounds(150, 70, 460, 50);
-		contentPane.add(jTextAreaDescripcion);
-		jTextAreaDescripcion.setColumns(10);
+		jTextFieldDescripcion = new JTextField();
+		jTextFieldDescripcion.setBounds(150, 70, 460, 50);
+		contentPane.add(jTextFieldDescripcion);
+		jTextFieldDescripcion.setColumns(10);
 		
 		
 		
@@ -108,7 +109,8 @@ public class VentanaAñadirProveedor extends JFrame {
 		
 		/*** BOTON QUE REGRESA A LA VENTANA PRINCIPAL  *************/
 		jButtonRegresar = new JButton("Regresar");
-		jButtonRegresar.setBounds(319, 296, 117, 25);
+		jButtonRegresar.setBounds(370, 296, 117, 25);
+		jButtonRegresar.setBackground(new Color(0, 191, 255));
 		jButtonRegresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();				
@@ -118,18 +120,19 @@ public class VentanaAñadirProveedor extends JFrame {
 		
 		
 		
-		/*** BOTON ACEPTAR DONDE SE AñADE EL EMPLEADO Y VERIFICA QUE LOS CAMPOS NO ESTEN VACIOS *************/
+		/*** BOTON Añadir DONDE SE AñADE EL EMPLEADO Y VERIFICA QUE LOS CAMPOS NO ESTEN VACIOS *************/
 		
-		jButtonAceptar = new JButton("Añadir");
-		jButtonAceptar.setBounds(120, 296, 117, 25);
-		contentPane.add(jButtonAceptar);
-		jButtonAceptar.addActionListener(new ActionListener() {
+		jButtonAñadir = new JButton("Añadir");
+		jButtonAñadir.setBounds(150, 296, 117, 25);
+		jButtonAñadir.setBackground(Color.GREEN);
+		contentPane.add(jButtonAñadir);
+		jButtonAñadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//String nombreEmpleado = jComboBoxSeleccionarEmpleado.getSelectedItem().toString();
 				String nombreProveedor = jTextFieldnombreProveedor.getText();
 				//String apellidoEmpleado = jTextFieldApellidoProveedor.getText();
 				String domicilio = jTextFieldCalleyNum.getText();
-				String descripcion = jTextAreaDescripcion.getText();
+				String descripcion = jTextFieldDescripcion.getText();
 				String telefono = jTextFieldTelefono.getText();
 				
 				
@@ -142,7 +145,7 @@ public class VentanaAñadirProveedor extends JFrame {
 					
 					if (añadido == true) {
 						JOptionPane.showMessageDialog(null, "El proveedor se añadio correctamente");
-						jTextAreaDescripcion.setText("");
+						jTextFieldDescripcion.setText("");
 						jTextFieldCalleyNum.setText("");
 						jTextFieldnombreProveedor.setText("");
 						jTextFieldTelefono.setText("");
