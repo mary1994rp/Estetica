@@ -10,7 +10,7 @@ import mx.uam.ayd.estetica.modelo.Cuenta;
 import mx.uam.ayd.estetica.modelo.Empleado;
 import mx.uam.ayd.estetica.modelo.Producto;
 
-public class DAOCuentas {
+public class DAOCuentas implements DAOCuentaContrato{
 
 	public DAOCuentas() {
 		// TODO Auto-generated constructor stub
@@ -42,29 +42,7 @@ public class DAOCuentas {
 	
 	
 	
-	public boolean quitaCuenta(Cuenta cuenta) {
-
-		int resultado = 0;
-        int llave;
-		try {
-			// Crea el statement
-			Statement statement = ManejadorBD.dameConnection().createStatement();
-
-			// Recibe los resutados
-			resultado = statement.executeUpdate("DELETE FROM Cuenta WHERE idCuenta= '"+cuenta.dameId()+"'");
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		if(resultado == 0) {
-			return false;
-		} else {
-			return true;
-		}
-
-	}
+	
 	
 	
 	
@@ -92,12 +70,6 @@ public class DAOCuentas {
 
 	}
 	
-	
-	
-	
-	
-	
-
 	/**
 	 * Permite buscar una cita del registro por id
 	 * @return la cita si la cita se encontro exitosamente, null sino

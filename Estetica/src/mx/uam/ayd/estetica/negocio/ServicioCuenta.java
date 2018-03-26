@@ -3,14 +3,16 @@ package mx.uam.ayd.estetica.negocio;
 import mx.uam.ayd.estetica.modelo.Cita;
 import mx.uam.ayd.estetica.modelo.Cuenta;
 import mx.uam.ayd.estetica.modelo.Empleado;
+import mx.uam.ayd.estetica.persistencia.DAOCuentaContrato;
 import mx.uam.ayd.estetica.persistencia.DAOCuentas;
 import mx.uam.ayd.estetica.persistencia.DAOEmpleado;
 
 public class ServicioCuenta {
 	
-	private DAOCuentas daoCuentas;
+	private DAOCuentaContrato daoCuentas;
+	
 
-	public ServicioCuenta(DAOCuentas daoCuenta) {
+	public ServicioCuenta(DAOCuentaContrato daoCuenta) {
 		this.daoCuentas=daoCuenta;
 	}
 
