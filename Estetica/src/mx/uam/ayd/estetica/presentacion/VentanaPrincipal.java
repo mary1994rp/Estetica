@@ -241,6 +241,7 @@ public class VentanaPrincipal extends JFrame {
 		/****** DISEÑO SALIR  ******/
 		BtnSalir.addActionListener(eventoSalir);
 		BtnSalir.setBounds(410, 654, 117, 25);
+		BtnSalir.setBackground(Color.RED);
 		
 		//agregado de botones Inventario
 		contentPane.add(BtnConsultarInventario);
