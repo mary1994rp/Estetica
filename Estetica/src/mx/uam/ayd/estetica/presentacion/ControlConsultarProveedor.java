@@ -25,5 +25,9 @@ public class ControlConsultarProveedor {
 		return servicioProveedor.dameProveedor();
 	}
 	
+	public boolean quitaProveedor(int id) {
+		return servicioProveedor.quitaProveedor(id);
+	}
+	
 		
 }
