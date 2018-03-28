@@ -26,7 +26,7 @@ public class VentanaConsultaProveedor extends JFrame {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L; 
 	/* declaracion de componentes usados */
 	private JPanel jPanelContenedor;
 	private ControlConsultarProveedor CCP;
