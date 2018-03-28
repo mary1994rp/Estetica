@@ -11,6 +11,7 @@ import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -120,6 +121,36 @@ public class VentanaConsultaProveedor extends JFrame {
 		jLabelTitulo.setFont(new Font("DejaVu Serif", Font.BOLD, 20));
 		jLabelTitulo.setBounds(12, 12, 212, 15);
 		jPanelContenedor.add(jLabelTitulo);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				/* variable que almacenara el numero de la fila seleccionada */
+				int filaSeleccionada = jTableProveedores.getSelectedRow();
+
+				/* dialogo que pide confirmacion de cambios */
+				int dialogResult = JOptionPane.showConfirmDialog(null,
+						"¿Deseas eliminar al empleado de la linea? " + (filaSeleccionada + 1));
+				/* si se acepta el dialogo, hacemos la accion de modificar */
+				if (dialogResult == JOptionPane.YES_OPTION) {
+					try {
+
+							CCP.quitaProveedor(Integer.parseInt(jTableProveedores.getValueAt(filaSeleccionada, 0).toString() + ""));
+							modeloJTable.removeRow((filaSeleccionada)); // borramos la fila q se modifico
+														
+					
+					} catch (Exception error) {
+						System.out.println("ocurrio un error al intentar eliminar");
+					}
+				}
+				
+				
+			}
+		});
+		btnEliminar.setBackground(Color.RED);
+		btnEliminar.setBounds(614, 287, 117, 25);
+		jPanelContenedor.add(btnEliminar);
 
 		/*
 		 * for que crea cada fila para el jTable, con la informacion recuperada de la
@@ -148,5 +179,4 @@ public class VentanaConsultaProveedor extends JFrame {
 
 
 	}// fin del constructor
-
 }
