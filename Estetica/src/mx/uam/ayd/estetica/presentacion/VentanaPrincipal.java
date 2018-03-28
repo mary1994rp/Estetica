@@ -105,15 +105,15 @@ public class VentanaPrincipal extends JFrame {
 		
 		//LABELS NOMBRES
 		JLabel label_producto = new JLabel("producto");
-		label_producto.setBounds(184, 120, 70, 15);
+		label_producto.setBounds(240, 120, 70, 15);
 		contentPane.add(label_producto);
 		
 		JLabel label_proveedor = new JLabel("<html><body>Nuevo <br>proveedor</body></html>");
-		label_proveedor.setBounds(280, 120, 85, 30);
+		label_proveedor.setBounds(107, 120, 130, 30);
 		contentPane.add(label_proveedor);
 		
 		JLabel label_consultarProveedor = new JLabel("Proveedores");
-		label_consultarProveedor.setBounds(70, 120, 120, 15);
+		label_consultarProveedor.setBounds(340, 120, 95, 15);
 		contentPane.add(label_consultarProveedor);
 		
 		
@@ -172,14 +172,14 @@ public class VentanaPrincipal extends JFrame {
 		
 		//CONSULTAR-MODIFICA INVENTARIO
 		BtnConsultarInventario.addActionListener(eventoModificaConsultarInventario);
-		BtnConsultarInventario.setBounds(174, 48, 90, 60);
+		BtnConsultarInventario.setBounds(235, 48, 90, 60);
 		BtnConsultarInventario.setBackground(null);
 		BtnConsultarInventario.setBorder(null);
 		BtnConsultarInventario.setIcon(img_Producto);
 		
 		//AñADIR PROVEDOR
 		BtnAñadirProveedor.addActionListener(eventoAñadirProveedor);
-		BtnAñadirProveedor.setBounds(276, 48, 73, 60);
+		BtnAñadirProveedor.setBounds(107, 48, 73, 60);
 		BtnAñadirProveedor.setBackground(null);
 		BtnAñadirProveedor.setBorder(null);
 		BtnAñadirProveedor.setIcon(img_Proveedor);
@@ -187,7 +187,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		//CONSULTA PROVEDOR
 		BtnConsultaProveedor.addActionListener(eventoConsultaProveedor);
-		BtnConsultaProveedor.setBounds(70, 48, 73, 60);
+		BtnConsultaProveedor.setBounds(340, 48, 73, 60);
 		BtnConsultaProveedor.setBackground(null);
 		BtnConsultaProveedor.setBorder(null);
 		BtnConsultaProveedor.setIcon(img_ConsultaProveedor);
