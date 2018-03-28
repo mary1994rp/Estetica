@@ -37,7 +37,8 @@ public class VentanaAñadirProveedor extends JFrame {
 		/*********************  CONFIGURACION DE LA VENTANA  ******************************/
 		getContentPane().setLayout(null);
 		setTitle("Añadir Proveedor");
-		setBounds(100, 100, 650, 367);
+		setSize(650, 367);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
