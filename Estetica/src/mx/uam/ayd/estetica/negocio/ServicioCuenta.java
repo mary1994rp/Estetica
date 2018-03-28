@@ -1,5 +1,7 @@
 package mx.uam.ayd.estetica.negocio;
 
+import mx.uam.ayd.estetica.Aplicacion;
+import mx.uam.ayd.estetica.Aplicacion2;
 import mx.uam.ayd.estetica.modelo.Cita;
 import mx.uam.ayd.estetica.modelo.Cuenta;
 import mx.uam.ayd.estetica.modelo.Empleado;
@@ -46,10 +48,27 @@ public class ServicioCuenta {
 		return daoCuentas.buscaCuenta(usuario, contraseña);
 	}
 	
+	public boolean validaCuentaAdmin(String usuario, String contraseña) {
+		
+		if( (usuario.equals("miriam")) && (contraseña.equals("123"))) {
+			Aplicacion app = new Aplicacion();
+			app.inicia();
+			return true;
+		}
+		
+		return false;
+	}
 	
-	
-	
-	
+	public boolean validaCuentaUsuario(String usuario, String contraseña) {
+		for(Cuenta c: dameCuentas()) {
+			if((c.dameNombre().equals(usuario)) && (c.dameContraseña().equals(contraseña))){
+				Aplicacion2 app = new Aplicacion2();
+				app.inicia();
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	
 	
