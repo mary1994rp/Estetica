@@ -1,6 +1,7 @@
 package test.mx.uam.ayd.estetica.negocio;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,22 +28,24 @@ class ServicioCuentaTest {
 
 	@Test
 	void testDameCuentas() {
-		//caso negativo no hay nada en la base y me regresa null
-		Cuenta[] obj= ser.dameCuentas();
-		boolean resultado;
 		
-		if(obj==null) {
-			resultado = true;
+		/*CASO POSITIVO
+		 *Precondicion "SI" hay cuentas*/
+		ArrayList<Cuenta> lista = new ArrayList<>();
+		
+		for(Cuenta c: ser.dameCuentas()) {
+			lista.add(c);
 		}
-		assertEquals(obj,true);
 		
+		boolean resultado1 = lista.isEmpty();
+		assertEquals("esperaba un false ya que la lista \"NO\" esta vacia",resultado1,false);
 		
-		//caso positivo hay cuentas en la base y me regresa el arreglo
-				obj= ser.dameCuentas();
-				if(obj!=null) {
-					resultado = true;
-				}
-				assertEquals(obj,true);
+		/*CASO NEGATIVO
+		 *Precondicion "NO" hay cuentas*/
+		
+		lista.clear();
+		boolean resultado2 = lista.isEmpty();
+		assertEquals("esperaba un true ya que la lista \"SI\" esta vacia",resultado2,true);
 	}
 
 }
