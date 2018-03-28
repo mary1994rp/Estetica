@@ -3,14 +3,18 @@ package mx.uam.ayd.estetica.negocio;
 import mx.uam.ayd.estetica.modelo.Cita;
 import mx.uam.ayd.estetica.modelo.Cuenta;
 import mx.uam.ayd.estetica.modelo.Empleado;
+import mx.uam.ayd.estetica.persistencia.DAOCuentaContrato;
 import mx.uam.ayd.estetica.persistencia.DAOCuentas;
 import mx.uam.ayd.estetica.persistencia.DAOEmpleado;
 
 public class ServicioCuenta {
 	
-	private DAOCuentas daoCuentas;
-
-	public ServicioCuenta(DAOCuentas daoCuenta) {
+	private DAOCuentaContrato daoCuentas;
+	
+	/*El constructor recibe la interfaz llenada con el dao de la base de 
+	 * datoscuando ya que se pasa como referencia desde que se hecha
+	 * a andar la aplicacion*/
+	public ServicioCuenta(DAOCuentaContrato daoCuenta) {
 		this.daoCuentas=daoCuenta;
 	}
 
