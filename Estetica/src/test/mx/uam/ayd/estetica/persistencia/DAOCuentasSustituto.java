@@ -1,5 +1,7 @@
 package test.mx.uam.ayd.estetica.persistencia;
 
+import java.util.ArrayList;
+
 import mx.uam.ayd.estetica.modelo.Cuenta;
 import mx.uam.ayd.estetica.modelo.Empleado;
 import mx.uam.ayd.estetica.persistencia.DAOCuentaContrato;
@@ -32,15 +34,14 @@ public class DAOCuentasSustituto implements DAOCuentaContrato{
 
 	@Override
 	public Cuenta[] dameCuentas() {
-		Cuenta c1 = new Cuenta("bambam", new Empleado("jean"), "123");
-		System.out.println("ESTOY EN EL DAO SUSTITUTO");
-		if(c1!=null) {
-			Cuenta[] arreglo = {c1};
-			return arreglo;
-		}else {
-			return null;
-		}
+		Empleado emp = new Empleado("nombre", "apellido", "la purisima", "27-03-18", 300.5);
 		
+		Cuenta c1 = new Cuenta("emp1", emp, "123");
+		Cuenta c2 = new Cuenta("emp2", emp, "123");
+		
+		Cuenta[] arreglo = {c1,c2};
+	
+		return arreglo;
 	}
 
 	@Override
