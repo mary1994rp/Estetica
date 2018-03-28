@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 import mx.uam.ayd.estetica.modelo.Proveedor;
 
-public class VentanaConsultaProveedor extends JFrame {
+public class VentanaModificaConsultaProveedor extends JFrame {
 
 	/**
 	 * 
@@ -29,7 +29,7 @@ public class VentanaConsultaProveedor extends JFrame {
 	private static final long serialVersionUID = 1L; 
 	/* declaracion de componentes usados */
 	private JPanel jPanelContenedor;
-	private ControlConsultarProveedor CCP;
+	private ControlModificaConsultarProveedor CCP;
 	private JTable jTableProveedores;
 	private JScrollPane scrollPaneContenedorTablaProveedor;
 	//private JButton jButtonEliminar;
@@ -51,7 +51,7 @@ public class VentanaConsultaProveedor extends JFrame {
 		}
 	};
 
-	public VentanaConsultaProveedor(ControlConsultarProveedor CCP) {
+	public VentanaModificaConsultaProveedor(ControlModificaConsultarProveedor CCP) {
 		
 		setType(Type.UTILITY);
 		setTitle("Consulta de Proveedores");
@@ -103,9 +103,8 @@ public class VentanaConsultaProveedor extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		jTableProveedores.getColumnModel().getColumn(0).setPreferredWidth(3); // armamos el jtable, pegamos toda la
-		jTableProveedores.getColumnModel().getColumn(1).setPreferredWidth(25);// informacion
-		jTableProveedores.getColumnModel().getColumn(4).setPreferredWidth(25);
-		scrollPaneContenedorTablaProveedor.setViewportView(jTableProveedores); // agreamos un scrollaljtable
+		scrollPaneContenedorTablaProveedor.setViewportView(jTableProveedores);// informacion
+																				// agreamos un scrollaljtable
 
 		// agregamos todos los elemntos al contenedor
 
@@ -113,7 +112,7 @@ public class VentanaConsultaProveedor extends JFrame {
 		jPanelContenedor.add(jButtonRegresar);
 
 		/* estilo del titulo */
-		jLabelTitulo = new JLabel("Consulta Proveedores:");
+		jLabelTitulo = new JLabel("Proveedores:");
 		jLabelTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		jLabelTitulo.setForeground(new Color(105, 105, 105));
 		jLabelTitulo.setBackground(new Color(0, 0, 0));

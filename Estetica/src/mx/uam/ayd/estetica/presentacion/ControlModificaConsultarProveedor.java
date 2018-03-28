@@ -6,18 +6,18 @@ import mx.uam.ayd.estetica.negocio.ServicioCuenta;
 import mx.uam.ayd.estetica.negocio.ServicioEmpleado;
 import mx.uam.ayd.estetica.negocio.ServicioProveedor;
 
-public class ControlConsultarProveedor {
+public class ControlModificaConsultarProveedor {
 
 	private ServicioProveedor servicioProveedor;
 
-	public ControlConsultarProveedor(ServicioProveedor servicioProveedor) {
+	public ControlModificaConsultarProveedor(ServicioProveedor servicioProveedor) {
 		this.servicioProveedor= servicioProveedor; 
 	}
 	
 	public void inicia() {
 	/******* Inicia el caso de uso Consulta proveedor***********/
-		VentanaConsultaProveedor VCP = new VentanaConsultaProveedor(this);
-		VCP.setVisible(true);		
+		VentanaModificaConsultaProveedor VCP = new VentanaModificaConsultaProveedor(this);
+		VCP.setVisible(true);
 	}
 	
 	//dame citas
