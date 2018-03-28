@@ -11,7 +11,7 @@ public class ControlConsultarProveedor {
 	private ServicioProveedor servicioProveedor;
 
 	public ControlConsultarProveedor(ServicioProveedor servicioProveedor) {
-		this.servicioProveedor= servicioProveedor;
+		this.servicioProveedor= servicioProveedor; 
 	}
 	
 	public void inicia() {
