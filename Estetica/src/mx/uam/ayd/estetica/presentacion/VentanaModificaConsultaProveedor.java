@@ -30,7 +30,7 @@ public class VentanaModificaConsultaProveedor extends JFrame {
 	private static final long serialVersionUID = 1L; 
 	/* declaracion de componentes usados */
 	private JPanel jPanelContenedor;
-	private ControlModificaConsultarProveedor CCP;
+	private ControlModificaConsultaProveedor CCP;
 	private JTable jTableProveedores;
 	private JScrollPane scrollPaneContenedorTablaProveedor;
 	//private JButton jButtonEliminar;
@@ -52,7 +52,7 @@ public class VentanaModificaConsultaProveedor extends JFrame {
 		}
 	};
 
-	public VentanaModificaConsultaProveedor(ControlModificaConsultarProveedor CCP) {
+	public VentanaModificaConsultaProveedor(ControlModificaConsultaProveedor CCP) {
 		
 		setType(Type.UTILITY);
 		setTitle("Consulta de Proveedores");
