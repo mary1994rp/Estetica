@@ -17,7 +17,7 @@ public class ControlConsultarProveedor {
 	public void inicia() {
 	/******* Inicia el caso de uso Consulta proveedor***********/
 		VentanaConsultaProveedor VCP = new VentanaConsultaProveedor(this);
-		VCP.setVisible(true);		
+		VCP.setVisible(true);
 	}
 	
 	//dame citas

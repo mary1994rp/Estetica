@@ -103,9 +103,8 @@ public class VentanaConsultaProveedor extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		jTableProveedores.getColumnModel().getColumn(0).setPreferredWidth(3); // armamos el jtable, pegamos toda la
-		jTableProveedores.getColumnModel().getColumn(1).setPreferredWidth(25);// informacion
-		jTableProveedores.getColumnModel().getColumn(4).setPreferredWidth(25);
-		scrollPaneContenedorTablaProveedor.setViewportView(jTableProveedores); // agreamos un scrollaljtable
+		scrollPaneContenedorTablaProveedor.setViewportView(jTableProveedores);// informacion
+																				// agreamos un scrollaljtable
 
 		// agregamos todos los elemntos al contenedor
 
