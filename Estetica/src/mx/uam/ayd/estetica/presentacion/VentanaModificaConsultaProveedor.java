@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 import mx.uam.ayd.estetica.modelo.Proveedor;
 
-public class VentanaConsultaProveedor extends JFrame {
+public class VentanaModificaConsultaProveedor extends JFrame {
 
 	/**
 	 * 
@@ -29,7 +29,7 @@ public class VentanaConsultaProveedor extends JFrame {
 	private static final long serialVersionUID = 1L; 
 	/* declaracion de componentes usados */
 	private JPanel jPanelContenedor;
-	private ControlConsultarProveedor CCP;
+	private ControlModificaConsultarProveedor CCP;
 	private JTable jTableProveedores;
 	private JScrollPane scrollPaneContenedorTablaProveedor;
 	//private JButton jButtonEliminar;
@@ -51,7 +51,7 @@ public class VentanaConsultaProveedor extends JFrame {
 		}
 	};
 
-	public VentanaConsultaProveedor(ControlConsultarProveedor CCP) {
+	public VentanaModificaConsultaProveedor(ControlModificaConsultarProveedor CCP) {
 		
 		setType(Type.UTILITY);
 		setTitle("Consulta de Proveedores");
@@ -112,7 +112,7 @@ public class VentanaConsultaProveedor extends JFrame {
 		jPanelContenedor.add(jButtonRegresar);
 
 		/* estilo del titulo */
-		jLabelTitulo = new JLabel("Consulta Proveedores:");
+		jLabelTitulo = new JLabel("Proveedores:");
 		jLabelTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		jLabelTitulo.setForeground(new Color(105, 105, 105));
 		jLabelTitulo.setBackground(new Color(0, 0, 0));
