@@ -6,11 +6,11 @@ import mx.uam.ayd.estetica.negocio.ServicioCuenta;
 import mx.uam.ayd.estetica.negocio.ServicioEmpleado;
 import mx.uam.ayd.estetica.negocio.ServicioProveedor;
 
-public class ControlModificaConsultarProveedor {
+public class ControlModificaConsultaProveedor {
 
 	private ServicioProveedor servicioProveedor;
 
-	public ControlModificaConsultarProveedor(ServicioProveedor servicioProveedor) {
+	public ControlModificaConsultaProveedor(ServicioProveedor servicioProveedor) {
 		this.servicioProveedor= servicioProveedor; 
 	}
 	
