@@ -11,7 +11,9 @@ public class ServicioCuenta {
 	
 	private DAOCuentaContrato daoCuentas;
 	
-
+	/*El constructor recibe la interfaz llenada con el dao de la base de 
+	 * datoscuando ya que se pasa como referencia desde que se hecha
+	 * a andar la aplicacion*/
 	public ServicioCuenta(DAOCuentaContrato daoCuenta) {
 		this.daoCuentas=daoCuenta;
 	}
