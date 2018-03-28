@@ -153,7 +153,7 @@ public class DAOProveedor {
 			while(rs.next())
 			{
 				// Crea una nueva instancia del objeto
-				Proveedor proveedor = new Proveedor(rs.getString("nombre"),rs.getString("descripcion"),rs.getString("domicilio"),rs.getString("telefono"));
+				Proveedor proveedor = new Proveedor(rs.getString("nombreProveedor"),rs.getString("descripcion"),rs.getString("domicilio"),rs.getString("telefono"));
 				proveedor.cambiaId(rs.getInt(1));// Asigna la llave al empleado
 				proveedorTemp.add(proveedor);
 			}

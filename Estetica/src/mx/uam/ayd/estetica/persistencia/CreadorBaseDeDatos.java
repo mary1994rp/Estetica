@@ -64,7 +64,8 @@ public class CreadorBaseDeDatos {
 			System.out.println("Tabla de Cuentas creada exitosamente");
 			
 			statement.execute("create table Proveedor (idProveedor INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombreProveedor varchar(80), descripcion varchar(300), domicilio varchar(300), telefono varchar(300))"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
-			
+			statement.execute("insert into Proveedor values (DEFAULT,'salerm', 'tintes','guayabitos 50', '56985678')",Statement.RETURN_GENERATED_KEYS);
+
 			//termina la conexion con la base de datos
 			
 			//Tabla Paquetes
