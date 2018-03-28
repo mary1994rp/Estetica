@@ -33,6 +33,7 @@ public class VentanaPrincipal extends JFrame {
 	private JButton BtnConsultarEmpleado;
 	private JButton BtnConsultarSalario;
 	private JButton BtnAñadirProveedor;
+	private JButton BtnConsultaProveedor;
 	private JButton BtnAñadirCuenta;
 	private JButton BtnConsultaCuenta;
 	
@@ -47,6 +48,7 @@ public class VentanaPrincipal extends JFrame {
 	File ruta_proveedor = new File("icons/proveedor.png");
 	File ruta_anadirusuario= new File("icons/agusuario.png");
 	File ruta_usuario = new File("icons/usuarios.png");
+	File ruta_consultaproveedor = new File("icons/consultaProveedores.png");
 	
 	private ImageIcon img_Agenda = new ImageIcon(ruta_agenda.getAbsolutePath());
 	private ImageIcon img_Producto = new ImageIcon(ruta_producto.getAbsolutePath());
@@ -58,6 +60,7 @@ public class VentanaPrincipal extends JFrame {
 	private ImageIcon img_Proveedor = new ImageIcon(ruta_proveedor.getAbsolutePath());
 	private ImageIcon img_AnadirUsuario = new ImageIcon(ruta_anadirusuario.getAbsolutePath());
 	private ImageIcon img_Usuario = new ImageIcon(ruta_usuario.getAbsolutePath());
+	private ImageIcon img_ConsultaProveedor = new ImageIcon(ruta_consultaproveedor.getAbsolutePath());
 	
 	
 	/*********************   Constructor  ******************************/
@@ -109,6 +112,11 @@ public class VentanaPrincipal extends JFrame {
 		label_proveedor.setBounds(280, 120, 85, 15);
 		contentPane.add(label_proveedor);
 		
+		JLabel label_consultarProveedor = new JLabel("<html><body>Consulta <br>proveedor</body></html>");
+		label_consultarProveedor.setBounds(70, 120, 120, 30);
+		contentPane.add(label_consultarProveedor);
+		
+		
 		JLabel label_agenda = new JLabel("agenda");
 		label_agenda.setBounds(240, 250, 64, 15);
 		contentPane.add(label_agenda);
@@ -153,6 +161,7 @@ public class VentanaPrincipal extends JFrame {
 		BtnConsultarEmpleado = new JButton();
 		BtnConsultarSalario = new JButton();
 		BtnAñadirProveedor = new JButton();
+		BtnConsultaProveedor = new JButton();
 		BtnAñadirCuenta = new JButton();
 		BtnConsultaCuenta = new JButton();
 		BtnConsultarVenta = new JButton();
@@ -174,6 +183,14 @@ public class VentanaPrincipal extends JFrame {
 		BtnAñadirProveedor.setBackground(null);
 		BtnAñadirProveedor.setBorder(null);
 		BtnAñadirProveedor.setIcon(img_Proveedor);
+
+		
+		//CONSULTA PROVEDOR
+		BtnConsultaProveedor.addActionListener(eventoConsultaProveedor);
+		BtnConsultaProveedor.setBounds(70, 48, 73, 60);
+		BtnConsultaProveedor.setBackground(null);
+		BtnConsultaProveedor.setBorder(null);
+		BtnConsultaProveedor.setIcon(img_ConsultaProveedor);
 
 		/******   DISEÑO AGENDA  ******/
 
@@ -245,6 +262,7 @@ public class VentanaPrincipal extends JFrame {
 		//agregado de botones Inventario
 		contentPane.add(BtnConsultarInventario);
 		contentPane.add(BtnAñadirProveedor);
+		contentPane.add(BtnConsultaProveedor);////*******
 		
 		//agregado de botones Citas
 		contentPane.add(BtnConsultarCita);
@@ -286,6 +304,15 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			control.añadirProveedor();
+		}
+	};
+	
+	ActionListener eventoConsultaProveedor = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			control.consultarProveedor();
 		}
 	};
 	
