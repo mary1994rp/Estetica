@@ -108,12 +108,12 @@ public class VentanaPrincipal extends JFrame {
 		label_producto.setBounds(184, 120, 70, 15);
 		contentPane.add(label_producto);
 		
-		JLabel label_proveedor = new JLabel("proveedor");
-		label_proveedor.setBounds(280, 120, 85, 15);
+		JLabel label_proveedor = new JLabel("<html><body>Nuevo <br>proveedor</body></html>");
+		label_proveedor.setBounds(280, 120, 85, 30);
 		contentPane.add(label_proveedor);
 		
-		JLabel label_consultarProveedor = new JLabel("<html><body>Consulta <br>proveedor</body></html>");
-		label_consultarProveedor.setBounds(70, 120, 120, 30);
+		JLabel label_consultarProveedor = new JLabel("Proveedores");
+		label_consultarProveedor.setBounds(70, 120, 120, 15);
 		contentPane.add(label_consultarProveedor);
 		
 		
