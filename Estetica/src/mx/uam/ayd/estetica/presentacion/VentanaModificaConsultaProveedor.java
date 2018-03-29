@@ -11,7 +11,9 @@ import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import javax.swing.JOptionPane;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -104,9 +106,13 @@ public class VentanaModificaConsultaProveedor extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		jTableProveedores.getColumnModel().getColumn(0).setPreferredWidth(3); // armamos el jtable, pegamos toda la
+
 		jTableProveedores.getColumnModel().getColumn(1).setPreferredWidth(25);// informacion
-		jTableProveedores.getColumnModel().getColumn(4).setPreferredWidth(25);
-		scrollPaneContenedorTablaProveedor.setViewportView(jTableProveedores); // agreamos un scrollaljtable
+	
+
+		scrollPaneContenedorTablaProveedor.setViewportView(jTableProveedores);// informacion
+																				// agreamos un scrollaljtable
+
 
 		// agregamos todos los elemntos al contenedor
 
@@ -114,13 +120,17 @@ public class VentanaModificaConsultaProveedor extends JFrame {
 		jPanelContenedor.add(jButtonRegresar);
 
 		/* estilo del titulo */
-		jLabelTitulo = new JLabel("Consulta Proveedores:");
+
+		
+		jLabelTitulo = new JLabel("Proveedores:");
+
 		jLabelTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		jLabelTitulo.setForeground(new Color(105, 105, 105));
 		jLabelTitulo.setBackground(new Color(0, 0, 0));
 		jLabelTitulo.setFont(new Font("DejaVu Serif", Font.BOLD, 20));
 		jLabelTitulo.setBounds(12, 12, 212, 15);
 		jPanelContenedor.add(jLabelTitulo);
+
 		
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
@@ -152,6 +162,7 @@ public class VentanaModificaConsultaProveedor extends JFrame {
 		btnEliminar.setBounds(614, 287, 117, 25);
 		jPanelContenedor.add(btnEliminar);
 
+
 		/*
 		 * for que crea cada fila para el jTable, con la informacion recuperada de la
 		 * base de datos
@@ -179,4 +190,5 @@ public class VentanaModificaConsultaProveedor extends JFrame {
 
 
 	}// fin del constructor
+
 }

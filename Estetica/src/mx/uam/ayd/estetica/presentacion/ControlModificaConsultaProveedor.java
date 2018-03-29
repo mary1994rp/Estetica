@@ -6,17 +6,21 @@ import mx.uam.ayd.estetica.negocio.ServicioCuenta;
 import mx.uam.ayd.estetica.negocio.ServicioEmpleado;
 import mx.uam.ayd.estetica.negocio.ServicioProveedor;
 
-public class ControlModificaConsultarProveedor {
+
+
+public class ControlModificaConsultaProveedor {
 
 	private ServicioProveedor servicioProveedor;
 
-	public ControlModificaConsultarProveedor(ServicioProveedor servicioProveedor) {
+	public ControlModificaConsultaProveedor(ServicioProveedor servicioProveedor) {
+
 		this.servicioProveedor= servicioProveedor; 
 	}
 	
 	public void inicia() {
 	/******* Inicia el caso de uso Consulta proveedor***********/
 		VentanaModificaConsultaProveedor VCP = new VentanaModificaConsultaProveedor(this);
+
 		VCP.setVisible(true);		
 	}
 	
@@ -25,9 +29,11 @@ public class ControlModificaConsultarProveedor {
 		return servicioProveedor.dameProveedor();
 	}
 	
+
 	public boolean quitaProveedor(int id) {
 		return servicioProveedor.quitaProveedor(id);
 	}
 	
+
 		
 }
