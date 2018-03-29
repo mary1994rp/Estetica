@@ -32,24 +32,21 @@ public class ControlLogin {
 	}
 
 	public boolean validaCuentaAdmin(String usuario, String contraseña) {
-		
-		if( (usuario.equals("miriam")) && (contraseña.equals("123"))) {
+		if(servicioCuenta.validaCuentaAdmin(usuario, contraseña)) {
 			Aplicacion app = new Aplicacion();
 			app.inicia();
 			return true;
 		}
-		
 		return false;
 	}
 
 	public boolean validaCuentaUsuario(String usuario, String contraseña) {
-		for(Cuenta c: servicioCuenta.dameCuentas()) {
-			if((c.dameNombre().equals(usuario)) && (c.dameContraseña().equals(contraseña))){
-				Aplicacion2 app = new Aplicacion2();
-				app.inicia();
-				return true;
-			}
+		if(servicioCuenta.validaCuentaUsuario(usuario, contraseña)) {
+			Aplicacion2 app = new Aplicacion2();
+			app.inicia();
+			return true;
 		}
 		return false;
+		
 	}
 }

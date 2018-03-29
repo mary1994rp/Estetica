@@ -36,7 +36,7 @@ public class DAOCuentasSustituto implements DAOCuentaContrato{
 	public Cuenta[] dameCuentas() {
 		Empleado emp = new Empleado("nombre", "apellido", "la purisima", "27-03-18", 300.5);
 		
-		Cuenta c1 = new Cuenta("emp1", emp, "123");
+		Cuenta c1 = new Cuenta("fili xD", emp, "filiberto");
 		Cuenta c2 = new Cuenta("emp2", emp, "123");
 		
 		Cuenta[] arreglo = {c1,c2};
