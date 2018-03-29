@@ -96,7 +96,8 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 
 		modeloJTable.setColumnIdentifiers(encabezadosJTable); // agregamos los encambezados al jtable
 
-		setBounds(100, 100, 459, 358);
+		setSize(459, 358);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		jTableEmpleado.getColumnModel().getColumn(3).setPreferredWidth(116); // armamos el jtable, pegamos toda la
