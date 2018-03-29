@@ -51,8 +51,6 @@ public class ServicioCuenta {
 	public boolean validaCuentaAdmin(String usuario, String contraseña) {
 		
 		if( (usuario.equals("miriam")) && (contraseña.equals("123"))) {
-			Aplicacion app = new Aplicacion();
-			app.inicia();
 			return true;
 		}
 		
@@ -62,8 +60,6 @@ public class ServicioCuenta {
 	public boolean validaCuentaUsuario(String usuario, String contraseña) {
 		for(Cuenta c: dameCuentas()) {
 			if((c.dameNombre().equals(usuario)) && (c.dameContraseña().equals(contraseña))){
-				Aplicacion2 app = new Aplicacion2();
-				app.inicia();
 				return true;
 			}
 		}
