@@ -2,11 +2,12 @@ package mx.uam.ayd.estetica.negocio;
 
 import mx.uam.ayd.estetica.modelo.Empleado;
 import mx.uam.ayd.estetica.persistencia.DAOEmpleado;
+import mx.uam.ayd.estetica.persistencia.DAOEmpleadoContrato;
 
 public class ServicioEmpleado {
-	private DAOEmpleado daoEmpleado;
+	private DAOEmpleadoContrato daoEmpleado;
 	
-	public ServicioEmpleado(DAOEmpleado daoEmpleado) {
+	public ServicioEmpleado(DAOEmpleadoContrato daoEmpleado) {
 		this.daoEmpleado=daoEmpleado;
 	}
 	public boolean añadirEmpleado(String nombreEmpleado, String apellidoEmpleado, String domicilio, String fechaIngreso, double sueldo) {
