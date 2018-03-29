@@ -57,7 +57,7 @@ public class VentanaModificaConsultaProveedor extends JFrame {
 	public VentanaModificaConsultaProveedor(ControlModificaConsultaProveedor CCP) {
 		
 		setType(Type.UTILITY);
-		setTitle("Consulta de Proveedores");
+		setTitle("Proveedores");
 		setBackground(Color.WHITE);
 		setSize(900, 358);
 		setLocationRelativeTo(null);
