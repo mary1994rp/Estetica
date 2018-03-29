@@ -29,4 +29,29 @@ public class ServicioProveedor {
 	}
 	
 	
+
+	public boolean quitaProveedor(int id) {
+		return daoProveedor.quitaProveedor(id);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
