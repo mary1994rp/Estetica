@@ -33,6 +33,7 @@ public class VentanaPrincipal extends JFrame {
 	private JButton BtnConsultarEmpleado;
 	private JButton BtnConsultarSalario;
 	private JButton BtnAñadirProveedor;
+	private JButton BtnConsultaProveedor;
 	private JButton BtnAñadirCuenta;
 	private JButton BtnConsultaCuenta;
 	
@@ -47,6 +48,7 @@ public class VentanaPrincipal extends JFrame {
 	File ruta_proveedor = new File("icons/proveedor.png");
 	File ruta_anadirusuario= new File("icons/agusuario.png");
 	File ruta_usuario = new File("icons/usuarios.png");
+	File ruta_consultaproveedor = new File("icons/consultaProveedores.png");
 	
 	private ImageIcon img_Agenda = new ImageIcon(ruta_agenda.getAbsolutePath());
 	private ImageIcon img_Producto = new ImageIcon(ruta_producto.getAbsolutePath());
@@ -58,6 +60,7 @@ public class VentanaPrincipal extends JFrame {
 	private ImageIcon img_Proveedor = new ImageIcon(ruta_proveedor.getAbsolutePath());
 	private ImageIcon img_AnadirUsuario = new ImageIcon(ruta_anadirusuario.getAbsolutePath());
 	private ImageIcon img_Usuario = new ImageIcon(ruta_usuario.getAbsolutePath());
+	private ImageIcon img_ConsultaProveedor = new ImageIcon(ruta_consultaproveedor.getAbsolutePath());
 	
 	
 	/*********************   Constructor  ******************************/
@@ -102,12 +105,17 @@ public class VentanaPrincipal extends JFrame {
 		
 		//LABELS NOMBRES
 		JLabel label_producto = new JLabel("producto");
-		label_producto.setBounds(184, 120, 70, 15);
+		label_producto.setBounds(240, 120, 70, 15);
 		contentPane.add(label_producto);
 		
-		JLabel label_proveedor = new JLabel("proveedor");
-		label_proveedor.setBounds(280, 120, 85, 15);
+		JLabel label_proveedor = new JLabel("<html><body>Nuevo <br>proveedor</body></html>");
+		label_proveedor.setBounds(107, 120, 130, 30);
 		contentPane.add(label_proveedor);
+		
+		JLabel label_consultarProveedor = new JLabel("Proveedores");
+		label_consultarProveedor.setBounds(340, 120, 95, 15);
+		contentPane.add(label_consultarProveedor);
+		
 		
 		JLabel label_agenda = new JLabel("agenda");
 		label_agenda.setBounds(240, 250, 64, 15);
@@ -153,6 +161,7 @@ public class VentanaPrincipal extends JFrame {
 		BtnConsultarEmpleado = new JButton();
 		BtnConsultarSalario = new JButton();
 		BtnAñadirProveedor = new JButton();
+		BtnConsultaProveedor = new JButton();
 		BtnAñadirCuenta = new JButton();
 		BtnConsultaCuenta = new JButton();
 		BtnConsultarVenta = new JButton();
@@ -163,17 +172,25 @@ public class VentanaPrincipal extends JFrame {
 		
 		//CONSULTAR-MODIFICA INVENTARIO
 		BtnConsultarInventario.addActionListener(eventoModificaConsultarInventario);
-		BtnConsultarInventario.setBounds(174, 48, 90, 60);
+		BtnConsultarInventario.setBounds(235, 48, 90, 60);
 		BtnConsultarInventario.setBackground(null);
 		BtnConsultarInventario.setBorder(null);
 		BtnConsultarInventario.setIcon(img_Producto);
 		
 		//AñADIR PROVEDOR
 		BtnAñadirProveedor.addActionListener(eventoAñadirProveedor);
-		BtnAñadirProveedor.setBounds(276, 48, 73, 60);
+		BtnAñadirProveedor.setBounds(107, 48, 73, 60);
 		BtnAñadirProveedor.setBackground(null);
 		BtnAñadirProveedor.setBorder(null);
 		BtnAñadirProveedor.setIcon(img_Proveedor);
+
+		
+		//CONSULTA PROVEDOR
+		BtnConsultaProveedor.addActionListener(eventoConsultaProveedor);
+		BtnConsultaProveedor.setBounds(340, 48, 73, 60);
+		BtnConsultaProveedor.setBackground(null);
+		BtnConsultaProveedor.setBorder(null);
+		BtnConsultaProveedor.setIcon(img_ConsultaProveedor);
 
 		/******   DISEÑO AGENDA  ******/
 
@@ -241,10 +258,12 @@ public class VentanaPrincipal extends JFrame {
 		/****** DISEÑO SALIR  ******/
 		BtnSalir.addActionListener(eventoSalir);
 		BtnSalir.setBounds(410, 654, 117, 25);
+		BtnSalir.setBackground(Color.RED);
 		
 		//agregado de botones Inventario
 		contentPane.add(BtnConsultarInventario);
 		contentPane.add(BtnAñadirProveedor);
+		contentPane.add(BtnConsultaProveedor);////*******
 		
 		//agregado de botones Citas
 		contentPane.add(BtnConsultarCita);
@@ -286,6 +305,15 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			control.añadirProveedor();
+		}
+	};
+	
+	ActionListener eventoConsultaProveedor = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			control.consultarProveedor();
 		}
 	};
 	

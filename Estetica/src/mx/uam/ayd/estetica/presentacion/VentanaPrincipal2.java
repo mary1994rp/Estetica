@@ -5,10 +5,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import mx.uam.ayd.estetica.Aplicacion2;
+import mx.uam.ayd.estetica.ControlLogin;
 
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Color;
@@ -25,7 +28,17 @@ public class VentanaPrincipal2 extends JFrame {
 	private JButton jButtonAñadirCita; 
 	private JButton jButtonAñadirTrabajo;
 	private JButton jButtonVenderProducto;
-
+	private JButton BtnSalir;
+	
+	File ruta_agenda = new File("icons/Agenda.png");
+	File ruta_producto = new File("icons/producto.png");
+	File ruta_ventas = new File("icons/ventas.png");
+	File ruta_trabajos = new File("icons/trabajo.png");
+	
+	private ImageIcon img_Producto = new ImageIcon(ruta_producto.getAbsolutePath());
+	private ImageIcon img_Ventas = new ImageIcon(ruta_ventas.getAbsolutePath());
+	private ImageIcon img_Agenda = new ImageIcon(ruta_agenda.getAbsolutePath());
+	private ImageIcon img_Trabajos = new ImageIcon(ruta_trabajos.getAbsolutePath());
 	
 	/*********************   Constructor  ******************************/
 	public VentanaPrincipal2(Aplicacion2 control) {
@@ -33,12 +46,14 @@ public class VentanaPrincipal2 extends JFrame {
 
 		/******   Init de la Ventana Principal  ******/
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 422, 451);
+		setSize(422, 451);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(Color.WHITE);
 
 		jLabelInventario = new JLabel("Inventario");
 		jLabelInventario.setFont(new Font("Dialog", Font.BOLD, 16));
@@ -59,7 +74,10 @@ public class VentanaPrincipal2 extends JFrame {
 		
 		/******   INVENTARIO  ******/
 		//AñADIR
-		jButtonAñadirInventario = new JButton("Añadir");
+		jButtonAñadirInventario = new JButton();
+		jButtonAñadirInventario.setIcon(img_Producto);
+		jButtonAñadirInventario.setBackground(null);
+		jButtonAñadirInventario.setBorder(null);
 		jButtonAñadirInventario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				control.añadirInventario();
@@ -69,7 +87,10 @@ public class VentanaPrincipal2 extends JFrame {
 		contentPane.add(jButtonAñadirInventario);
 
 		//VenderProducto
-		jButtonVenderProducto = new JButton("Vender Producto");
+		jButtonVenderProducto = new JButton();
+		jButtonVenderProducto.setIcon(img_Ventas);
+		jButtonVenderProducto.setBackground(null);
+		jButtonVenderProducto.setBorder(null);
 		jButtonVenderProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				control.venderProducto();
@@ -80,7 +101,10 @@ public class VentanaPrincipal2 extends JFrame {
 				
 		/******   CITAS  ******/
 		//AñADIR
-		jButtonAñadirCita = new JButton("Añadir");
+		jButtonAñadirCita = new JButton();
+		jButtonAñadirCita.setIcon(img_Agenda);
+		jButtonAñadirCita.setBackground(null);
+		jButtonAñadirCita.setBorder(null);
 		jButtonAñadirCita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				control.añadirCita();
@@ -91,7 +115,10 @@ public class VentanaPrincipal2 extends JFrame {
 
 		/******   TRABAJO  ******/
 		//AñADIR
-		jButtonAñadirTrabajo = new JButton("Añadir");
+		jButtonAñadirTrabajo = new JButton();
+		jButtonAñadirTrabajo.setIcon(img_Trabajos);
+		jButtonAñadirTrabajo.setBackground(null);
+		jButtonAñadirTrabajo.setBorder(null);
 		jButtonAñadirTrabajo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				control.añadirTrabajo();
@@ -99,5 +126,22 @@ public class VentanaPrincipal2 extends JFrame {
 		});
 		jButtonAñadirTrabajo.setBounds(148, 273, 114, 66);
 		contentPane.add(jButtonAñadirTrabajo);
+		
+		BtnSalir = new JButton("Salir");
+		BtnSalir.addActionListener(eventoSalir);
+		BtnSalir.setBounds(310, 360, 80, 30);
+		BtnSalir.setBackground(Color.RED);
+		contentPane.add(BtnSalir);
 	}
+	
+ActionListener eventoSalir = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			dispose();
+			ControlLogin obj = new ControlLogin();
+			obj.inicia();
+		}
+	};
 }

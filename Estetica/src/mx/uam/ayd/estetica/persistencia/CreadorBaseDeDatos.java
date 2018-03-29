@@ -59,12 +59,13 @@ public class CreadorBaseDeDatos {
 			//Crea tabla Cuentas
 			statement.execute("create table Cuenta(idCuenta INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombre varchar(40), idEmpleado int, contraseña varchar(40) )"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
 			System.out.println("Tabla de Ventas de Cuenta creada exitosamente");
-			statement.execute("insert into Cuenta values (DEFAULT,'miriamc',1,'123')",Statement.RETURN_GENERATED_KEYS);
+			statement.execute("insert into Cuenta values (DEFAULT,'fili xD',1,'filiberto')",Statement.RETURN_GENERATED_KEYS);
 			statement.execute("insert into Cuenta values (DEFAULT,'maryanc',2,'234')",Statement.RETURN_GENERATED_KEYS);
 			System.out.println("Tabla de Cuentas creada exitosamente");
 			
 			statement.execute("create table Proveedor (idProveedor INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombreProveedor varchar(80), descripcion varchar(300), domicilio varchar(300), telefono varchar(300))"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
-			
+			statement.execute("insert into Proveedor values (DEFAULT,'salerm', 'tintes','guayabitos 50', '56985678')",Statement.RETURN_GENERATED_KEYS);
+			statement.execute("insert into Proveedor values (DEFAULT,'koleston', 'tintes','alfredo del mazo 50', '56985678')",Statement.RETURN_GENERATED_KEYS);
 			//termina la conexion con la base de datos
 			
 			//Tabla Paquetes

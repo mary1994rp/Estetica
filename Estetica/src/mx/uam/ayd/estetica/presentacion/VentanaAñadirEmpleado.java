@@ -43,7 +43,8 @@ public class VentanaAñadirEmpleado extends JFrame {
 		/*********************  CONFIGURACION DE LA VENTANA  ******************************/
 		getContentPane().setLayout(null);
 		setTitle("Añadir Empleado");
-		setBounds(100, 100, 650, 367);
+		setSize(650, 367);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
