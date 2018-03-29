@@ -204,6 +204,57 @@ public class DAOProveedor {
 		}
 		
 	}
+	
+	
+	
+	
+	
+	public boolean quitaProveedor(int id) {
+
+		int resultado = 0;
+
+		try {
+			// Crea el statement
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+
+			// Recibe los resutados
+			resultado = statement.executeUpdate("DELETE FROM Proveedor WHERE idProveedor="+id);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		if(resultado == 0) {
+			return false;
+		} else {
+			return true;
+		}
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 
