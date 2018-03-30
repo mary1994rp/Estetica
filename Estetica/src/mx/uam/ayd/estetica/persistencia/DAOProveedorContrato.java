@@ -10,11 +10,6 @@ public interface DAOProveedorContrato {
 	public Proveedor buscaProveedor(int id);
 	public Proveedor[] dameProveedor();
 	public boolean quitaProveedor(int id);
-	
-	
-	
-	
-	
-	
+
 
 }

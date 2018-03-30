@@ -11,13 +11,14 @@ import mx.uam.ayd.estetica.negocio.ServicioProveedor;
 import test.mx.uam.ayd.estetica.persistencia.DAOProveedorSustituto;
 
 class ServicioProveedorTest {
+	
 	DAOProveedorSustituto daoProveedor ;
 	ServicioProveedor servicioProveedor ;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		daoProveedor = new DAOProveedorSustituto();
-		 servicioProveedor = new ServicioProveedor(daoProveedor);
+		servicioProveedor = new ServicioProveedor(daoProveedor);
 	}
 
 	@AfterEach
@@ -25,17 +26,20 @@ class ServicioProveedorTest {
 	}
 
 	@Test
-	void testValidaQuitaProveedor() {
-		int id;
-		id=56;
-		boolean resultado = servicioProveedor.quitaProveedor(id);
+	void testquitaProveedor() {
+		
+		//Caso 1: Si el proveedor con el id 56, SI existe:
+		boolean resultado = servicioProveedor.quitaProveedor(56);
 		assertEquals("Valor esperado: TRUE, Sí existe el proveedor  con el id 56, y se pudo eliminar informacion",resultado,true);
-		id=57;
-		//Caso 2: Si el proveedor con el id 57 ,pasado como argumento, NO existe:
-		resultado=servicioProveedor.quitaProveedor(id);
+		
+		//Caso 2: Si el proveedor con el id 57, NO existe:
+		resultado=servicioProveedor.quitaProveedor(57);
 		assertEquals("Valor esperado: FALSE, NO existe el proveedor con el id 15,  no se logro actualizar su informacion",resultado,false);
-		System.out.println("olaaa");
 		
 	}
 
+	@Test
+	void testdameProveedor() {
+		
+	}
 }

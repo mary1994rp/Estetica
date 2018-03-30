@@ -30,30 +30,9 @@ public class ServicioProveedor {
 		return daoProveedor.buscaProveedor(id);
 	}
 	
-	
-
 	public boolean quitaProveedor(int id) {
 		return daoProveedor.quitaProveedor(id);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
