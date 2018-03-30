@@ -37,7 +37,7 @@ public class DAOProveedorSustituto implements DAOProveedorContrato{
 	}
 
 	@Override
-	public int cuantosEmpleados() {
+	public int cuantosProveedores() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -170,10 +170,10 @@ public class DAOProveedor implements DAOProveedorContrato{
 
 
 	/**
-	 * Regresa numero de empleados en el registro
+	 * Regresa numero de proveedores en el registro
 	 * @return un entero con el numero de empleados
 	 */
-	public int cuantosEmpleados() {
+	public int cuantosProveedores() {
 		try {
 			// Crea el statement
 			Statement statement = ManejadorBD.dameConnection().createStatement();

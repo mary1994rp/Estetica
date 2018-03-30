@@ -14,7 +14,7 @@ public interface DAOProveedorContrato {
 	public boolean quitaProveedor(Proveedor proveedor);
 	public Proveedor buscaProveedor(int id);
 	public Proveedor[] dameProveedor();
-	public int cuantosEmpleados();
+	public int cuantosProveedores();
 	public void actualizaSalario(double salario, int idEmpleado);
 	public boolean quitaProveedor(int id);
 

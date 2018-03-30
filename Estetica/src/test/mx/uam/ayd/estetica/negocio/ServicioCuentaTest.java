@@ -16,7 +16,6 @@ class ServicioCuentaTest {
 	ServicioCuenta ser;
 	DAOCuentasSustituto dao = new DAOCuentasSustituto();
 	
-
 	@BeforeEach
 	void setUp() throws Exception {
 		ser= new ServicioCuenta(dao);
