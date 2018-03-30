@@ -33,7 +33,7 @@ class ServicioProveedorTest {
 		 *Precondicion "SI" hay cuentas*/
 		ArrayList<Proveedor> lista = new ArrayList<>();	
 		
-		for(Proveedor c: ServicioProveedor.dameProveedor()) {
+		for(Proveedor c: servicioProveedor.dameProveedor()) {
 			lista.add(c);
 		}
 		
