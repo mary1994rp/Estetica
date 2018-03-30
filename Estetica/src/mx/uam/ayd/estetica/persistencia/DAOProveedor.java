@@ -14,7 +14,7 @@ import mx.uam.ayd.estetica.persistencia.ManejadorBD;
  *
  *
  */
-public class DAOProveedor {
+public class DAOProveedor implements DAOProveedorContrato{
 
 
 	/**
