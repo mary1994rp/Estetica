@@ -14,7 +14,7 @@ import mx.uam.ayd.estetica.persistencia.ManejadorBD;
  *
  *
  */
-public class DAOProveedor {
+public class DAOProveedor implements DAOProveedorContrato{
 
 
 	/**
@@ -173,37 +173,7 @@ public class DAOProveedor {
 	 * Regresa numero de empleados en el registro
 	 * @return un entero con el numero de empleados
 	 */
-	public int cuantosEmpleados() {
-		try {
-			// Crea el statement
-			Statement statement = ManejadorBD.dameConnection().createStatement();
-
-			// Recibe los resutados
-			ResultSet rs = statement.executeQuery("SELECT COUNT(*) FROM Empleado");
-			if (rs.next()) {
-		        return rs.getInt(1);
-		    }
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return 0;
-	}
-
-	public void actualizaSalario(double salario, int idEmpleado) {
-		try {
-			// Crea el statement
-			Statement statement = ManejadorBD.dameConnection().createStatement();
-
-			// Recibe los resutados
-			/*solo actualizare el salario*/
-			statement.executeUpdate("UPDATE Empleado set sueldo ="+salario+" WHERE idEmpleado="+idEmpleado);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-	}
+	
 	
 	
 	
