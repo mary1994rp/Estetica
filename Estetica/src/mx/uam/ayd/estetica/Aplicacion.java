@@ -60,11 +60,12 @@ public class Aplicacion {
 		//inicializamos los Servicios
 		//this.servicioCuenta=servicioCuenta;
 		servicioEmpleado = new ServicioEmpleado(daoEmpleado);
+		servicioCuenta = new ServicioCuenta(daoCuenta);
+		
 		servicioProducto = new ServicioProducto(daoProducto,daoVentaProducto);
 		servicioTrabajo = new ServicioTrabajo(daoTrabajo);
 		servicioCita = new ServicioCita(daoCita);
 		servicioProveedor = new ServicioProveedor(daoProveedor);
-		servicioCuenta = new ServicioCuenta(daoCuenta);
 
 	}
 		

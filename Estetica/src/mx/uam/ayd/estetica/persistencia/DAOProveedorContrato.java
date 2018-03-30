@@ -1,10 +1,5 @@
 package mx.uam.ayd.estetica.persistencia;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-
 import mx.uam.ayd.estetica.modelo.Proveedor;
 
 public interface DAOProveedorContrato {

@@ -1,13 +1,12 @@
 package test.mx.uam.ayd.estetica.negocio;
 
 import static org.junit.Assert.assertEquals;
-import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import mx.uam.ayd.estetica.modelo.Cuenta;
 import mx.uam.ayd.estetica.negocio.ServicioCuenta;
 import test.mx.uam.ayd.estetica.persistencia.DAOCuentasSustituto;
 
@@ -15,7 +14,7 @@ class ServicioCuentaTest {
 	
 	ServicioCuenta ser;
 	DAOCuentasSustituto dao = new DAOCuentasSustituto();
-	
+
 	@BeforeEach
 	void setUp() throws Exception {
 		ser= new ServicioCuenta(dao);
@@ -26,25 +25,30 @@ class ServicioCuentaTest {
 	}
 
 	@Test
-	void testDameCuentas() {
+	void testValidaCuentaAdmin() {
 		
-		/*CASO POSITIVO
-		 *Precondicion "SI" hay cuentas*/
-		ArrayList<Cuenta> lista = new ArrayList<>();
+		//CASO POSITIVO
+		boolean resultado = ser.validaCuentaAdmin("miriam", "123");
+		assertEquals("esperaba un true ya que SI ES la cuenta del administrador",resultado,true);
 		
-		for(Cuenta c: ser.dameCuentas()) {
-			lista.add(c);
-		}
+		//CASO NEGATIVO
+		resultado= ser.validaCuentaAdmin("cuenta", "contraseña");
+		assertEquals("esperaba un false ya que NO ES la cuenta del administrador",resultado,false);
 		
-		boolean resultado1 = lista.isEmpty();
-		assertEquals("esperaba un false ya que la lista \"NO\" esta vacia",resultado1,false);
+	}
+
+	@Test
+	void testValidaCuentaUsuario() {
 		
-		/*CASO NEGATIVO
-		 *Precondicion "NO" hay cuentas*/
+		//CASO POSITIVO
+		boolean resultado = ser.validaCuentaUsuario("fili xD", "filiberto");
+		assertEquals("esperaba un true ya que SI ES una cuenta de usuario",resultado,true);
 		
-		lista.clear();
-		boolean resultado2 = lista.isEmpty();
-		assertEquals("esperaba un true ya que la lista \"SI\" esta vacia",resultado2,true);
+		//CASO NEGATIVO
+		resultado = ser.validaCuentaUsuario("cuenta", "contraseña");
+		assertEquals("esperaba un false ya que NO ES una cuenta de usuario",resultado,false);
+		
+		
 	}
 
 }

@@ -204,11 +204,7 @@ public class DAOProveedor implements DAOProveedorContrato{
 		}
 		
 	}
-	
-	
-	
-	
-	
+
 	public boolean quitaProveedor(int id) {
 
 		int resultado = 0;
@@ -231,29 +227,6 @@ public class DAOProveedor implements DAOProveedorContrato{
 		}
 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
 

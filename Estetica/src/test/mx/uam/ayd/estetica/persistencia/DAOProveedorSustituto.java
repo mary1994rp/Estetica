@@ -3,7 +3,8 @@ package test.mx.uam.ayd.estetica.persistencia;
 import mx.uam.ayd.estetica.modelo.Proveedor;
 import mx.uam.ayd.estetica.persistencia.DAOProveedorContrato;
 
-public class DAOProveedorSustituto implements DAOProveedorContrato{
+
+public class DAOProveedorSustituto  implements  DAOProveedorContrato {
 
 	@Override
 	public boolean añadirProveedor(Proveedor proveedor) {
@@ -17,14 +18,12 @@ public class DAOProveedorSustituto implements DAOProveedorContrato{
 		return null;
 	}
 
-	@Override
-	public Proveedor buscaProveedor(int id) {
+  public Proveedor buscaProveedor(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public Proveedor[] dameProveedor() {
+  public Proveedor[] dameProveedor() {
 		//Simulamos  tener varios Proveedores atravez del arreglo 
 		// que es que regresaremos al servicio
 		Proveedor obj = new Proveedor("Salerm", "tintes", "guayabitos No 50", "56787896");
@@ -35,29 +34,35 @@ public class DAOProveedorSustituto implements DAOProveedorContrato{
 		
 		return arreglo;
 	}
-
-	@Override
+  
+  @Override
 	public int cuantosProveedores() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
+  @Override
 	public void actualizaSalario(double salario, int idEmpleado) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public boolean quitaProveedor(int id) {
-		// TODO Auto-generated method stub
+    Proveedor proveedorPrueba = new Proveedor("mariana", "koleston", "col. del valle calle 56", "17098654");
+		proveedorPrueba.cambiaId(56);
+		if(id==56) {
+			proveedorPrueba=null;
+			return true;
+		}
+		//si el identificador no existe
+		else  
 		return false;
 	}
-
-	@Override
+  
+  @Override
 	public boolean quitaProveedor(Proveedor proveedor) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 }
+
