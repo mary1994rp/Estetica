@@ -170,15 +170,41 @@ public class DAOProveedor implements DAOProveedorContrato{
 
 
 	/**
-	 * Regresa numero de empleados en el registro
+	 * Regresa numero de proveedores en el registro
 	 * @return un entero con el numero de empleados
 	 */
-	
-	
-	
-	
-	
-	
+	public int cuantosProveedores() {
+		try {
+			// Crea el statement
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+
+			// Recibe los resutados
+			ResultSet rs = statement.executeQuery("SELECT COUNT(*) FROM Empleado");
+			if (rs.next()) {
+		        return rs.getInt(1);
+		    }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public void actualizaSalario(double salario, int idEmpleado) {
+		try {
+			// Crea el statement
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+
+			// Recibe los resutados
+			/*solo actualizare el salario*/
+			statement.executeUpdate("UPDATE Empleado set sueldo ="+salario+" WHERE idEmpleado="+idEmpleado);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 	public boolean quitaProveedor(int id) {
 
 		int resultado = 0;
@@ -201,29 +227,6 @@ public class DAOProveedor implements DAOProveedorContrato{
 		}
 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
 

@@ -7,6 +7,7 @@ import mx.uam.ayd.estetica.persistencia.DAOProveedorContrato;
 import test.mx.uam.ayd.estetica.persistencia.DAOProveedorSustituto;
 
 public class ServicioProveedor {
+
 	private DAOProveedorContrato daoProveedor;
 	
 	public ServicioProveedor(DAOProveedorContrato daoProveedor) {
