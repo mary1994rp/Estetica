@@ -19,9 +19,9 @@ public class ControlEmpleadoDelmes {
 		return servicioEmpleado.dameEmpleados();
 	}
 	
-	public Trabajo[] dameTrabajos() {
+	public int dameNumeroTrabajos(int id) {
 
-		return servicioTrabajo.dameTrabajos();
+		return servicioTrabajo.dameTrabajosEmpleado(id).length;
 	}
 
 }

@@ -3,6 +3,8 @@ package mx.uam.ayd.estetica.presentacion;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Window.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +17,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import mx.uam.ayd.estetica.modelo.Empleado;
+
 public class VentanaEmpleadoDelMes extends JFrame{
 
 	private JPanel jPanelContenedor;
@@ -25,6 +29,7 @@ public class VentanaEmpleadoDelMes extends JFrame{
 	private String[] encabezadosJTable;
 	private JLabel jLabelTitulo;
 	private JLabel jLabelEmpleado;
+	private ArrayList<Empleado> empleados;
 	
 	private DefaultTableModel modeloJTable = new DefaultTableModel() { // se define el modelo que ocupará la tabla
 		Class[] types = new Class[] {
@@ -39,7 +44,7 @@ public class VentanaEmpleadoDelMes extends JFrame{
 	public VentanaEmpleadoDelMes(ControlEmpleadoDelmes CEM) {
 		this.CEM=CEM;
 		setType(Type.UTILITY);
-		setTitle("Inventario");
+		setTitle("Empleado del mes");
 		setBackground(Color.WHITE);
 		jPanelContenedor = new JPanel();
 		jPanelContenedor.setBackground(Color.WHITE);
@@ -89,13 +94,27 @@ public class VentanaEmpleadoDelMes extends JFrame{
 		jLabelTitulo.setBounds(100, 15, 250, 20);
 		jPanelContenedor.add(jLabelTitulo);
 		//Empleado
-		jLabelEmpleado = new JLabel("Miriam");
+		jLabelEmpleado = new JLabel("");
 		jLabelEmpleado.setHorizontalAlignment(SwingConstants.CENTER);
 		jLabelEmpleado.setForeground(new Color(105, 105, 105));
 		jLabelEmpleado.setBackground(new Color(0, 0, 0));
 		jLabelEmpleado.setFont(new Font("DejaVu Serif", Font.BOLD, 20));
-		jLabelEmpleado.setBounds(180, 45, 100, 20);
+		jLabelEmpleado.setBounds(180, 45, 190, 20);
 		jPanelContenedor.add(jLabelEmpleado);
+		
+		//llenado de la tabala
+		//Se obtienen todos los empleados
+		empleados = new ArrayList<Empleado>(Arrays.asList(CEM.dameEmpleados()));
+		Empleado EmpleadoDelMes=empleados.get(0);
+		for(int i=0; i<empleados.size();i++) {
+			int numeroTrabajos= CEM.dameNumeroTrabajos(empleados.get(i).dameId());
+			if(EmpleadoDelMes.dameSueldo()<empleados.get(i).dameSueldo())EmpleadoDelMes=empleados.get(i);
+			//Creamos una nueva fila para ponerla en la tabla
+			Object[] nuevaFilaJTable = { empleados.get(i).dameNombre(), numeroTrabajos, empleados.get(i).dameSueldo() };
+			//se agrega en la tabla
+			modeloJTable.addRow(nuevaFilaJTable);
+		}
+		jLabelEmpleado.setText(EmpleadoDelMes.dameNombre());
 		
 		
 	}

@@ -55,5 +55,10 @@ public class ServicioTrabajo {
 	public double[] dameCostoTrabajos(int id) {
 		return daoTrabajo.dameCostoTrabajos(id);
 	}
+	
+	public Trabajo[] dameTrabajosEmpleado(int id) {
+
+		return daoTrabajo.dameTrabajosEmpleado(id);
+	}
 
 }
