@@ -15,6 +15,11 @@ public class ControlEmpleadoDelmes {
 		this.servicioTrabajo = servicioTrabajo;
 	}
 	
+	public void inicia() {
+		VentanaEmpleadoDelMes VEM = new VentanaEmpleadoDelMes(this);
+		VEM.setVisible(true);
+	}
+	
 	public Empleado[] dameEmpleados() {
 		return servicioEmpleado.dameEmpleados();
 	}

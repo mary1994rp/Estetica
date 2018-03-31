@@ -94,7 +94,7 @@ public class VentanaEmpleadoDelMes extends JFrame{
 		jLabelTitulo.setBounds(100, 15, 250, 20);
 		jPanelContenedor.add(jLabelTitulo);
 		//Empleado
-		jLabelEmpleado = new JLabel("");
+		jLabelEmpleado = new JLabel();
 		jLabelEmpleado.setHorizontalAlignment(SwingConstants.CENTER);
 		jLabelEmpleado.setForeground(new Color(105, 105, 105));
 		jLabelEmpleado.setBackground(new Color(0, 0, 0));
@@ -105,15 +105,20 @@ public class VentanaEmpleadoDelMes extends JFrame{
 		//llenado de la tabala
 		//Se obtienen todos los empleados
 		empleados = new ArrayList<Empleado>(Arrays.asList(CEM.dameEmpleados()));
+		//Se escoge como emṕleado del mes al primer elemento de la lista
 		Empleado EmpleadoDelMes=empleados.get(0);
 		for(int i=0; i<empleados.size();i++) {
+			//Se calcula el numero de travajos
 			int numeroTrabajos= CEM.dameNumeroTrabajos(empleados.get(i).dameId());
+			//si el salario de el empleado en la pocicion i es mayor al actual
+			//se reemplaza el empleado para que sea el empleado del mes
 			if(EmpleadoDelMes.dameSueldo()<empleados.get(i).dameSueldo())EmpleadoDelMes=empleados.get(i);
 			//Creamos una nueva fila para ponerla en la tabla
 			Object[] nuevaFilaJTable = { empleados.get(i).dameNombre(), numeroTrabajos, empleados.get(i).dameSueldo() };
 			//se agrega en la tabla
 			modeloJTable.addRow(nuevaFilaJTable);
 		}
+		//Se pone el nombre del empleado del mes
 		jLabelEmpleado.setText(EmpleadoDelMes.dameNombre());
 		
 		

@@ -18,6 +18,7 @@ import mx.uam.ayd.estetica.presentacion.ControlAñadirEmpleado;
 import mx.uam.ayd.estetica.presentacion.ControlAñadirProveedor;
 import mx.uam.ayd.estetica.presentacion.ControlConsultaSueldo;
 import mx.uam.ayd.estetica.presentacion.ControlConsultaVenta;
+import mx.uam.ayd.estetica.presentacion.ControlEmpleadoDelmes;
 import mx.uam.ayd.estetica.presentacion.ControlModificaConsultaProveedor;
 import mx.uam.ayd.estetica.presentacion.ControlModificaConsultaCita;
 import mx.uam.ayd.estetica.presentacion.ControlModificaConsultaCuenta;
@@ -142,7 +143,13 @@ public class Aplicacion {
 		CCP.inicia();//arranca el control para  Añadir Trabajo
 		
 	}
-
+	/*********************   CU-Empleado del mes  ******************************/
+	public void empleadoDelMes() {
+		
+		ControlEmpleadoDelmes CEM = new ControlEmpleadoDelmes(servicioEmpleado, servicioTrabajo);
+		CEM.inicia();
+	}
+	
 	/*********************   CU-CONSULTA VENTA  ******************************/
 	public void consultaVenta() {
 		ControlConsultaVenta CCV = new ControlConsultaVenta(servicioProducto);
