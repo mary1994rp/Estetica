@@ -4,18 +4,19 @@ import mx.uam.ayd.estetica.modelo.Empleado;
 import mx.uam.ayd.estetica.modelo.Producto;
 import mx.uam.ayd.estetica.modelo.Trabajo;
 import mx.uam.ayd.estetica.persistencia.DAOTrabajo;
+import mx.uam.ayd.estetica.persistencia.DAOTrabajoContrato;
 
 public class ServicioTrabajo {
 
 	/**
 	 * Dao Trabajo
 	 */
-	private DAOTrabajo daoTrabajo;
+	private DAOTrabajoContrato daoTrabajo;
 
 	/**
 	 * Constructor de la clase
 	 */
-	public ServicioTrabajo(DAOTrabajo daoTrabajo) {
+	public ServicioTrabajo(DAOTrabajoContrato daoTrabajo) {
 		this.daoTrabajo = daoTrabajo;
 	}
 

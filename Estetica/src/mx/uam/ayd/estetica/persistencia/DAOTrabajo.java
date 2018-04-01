@@ -16,7 +16,7 @@ import mx.uam.ayd.estetica.persistencia.ManejadorBD;
  *
  *
  */
-public class DAOTrabajo {
+public class DAOTrabajo implements DAOTrabajoContrato{
 
 	/**
 	 * Constructor de la clase

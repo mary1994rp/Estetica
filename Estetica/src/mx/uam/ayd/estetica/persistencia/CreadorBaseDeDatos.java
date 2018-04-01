@@ -42,6 +42,7 @@ public class CreadorBaseDeDatos {
 			//crea tabla Trabajo en la base de datos
 			statement.execute("create table Trabajo(idTrabajo INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombre varchar(40), idEmpleado int, descripcion varchar(80), monto double, fecha date, idProducto int, pzaUsadas int)"); // , CONSTRAINT primary_key PRIMARY KEY (autorId)
 			statement.execute("insert into Trabajo values (DEFAULT,'uñas',1,'No se uso todo el esmalte',150.0,'2017-11-10',1,1)",Statement.RETURN_GENERATED_KEYS);
+			statement.execute("insert into Trabajo values (DEFAULT,'Corte',2,'No se uso todo el esmalte',150.0,'2017-11-10',1,1)",Statement.RETURN_GENERATED_KEYS);
 			statement.execute("insert into Trabajo values (DEFAULT,'Tinte',2,'Se ocupo el tinte completo',90.0,'2017-10-09',1,1)",Statement.RETURN_GENERATED_KEYS);
 			System.out.println("Tabla de Trabajos creada exitosamente");
 			
