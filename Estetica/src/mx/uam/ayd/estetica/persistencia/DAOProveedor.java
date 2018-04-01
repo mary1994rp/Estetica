@@ -14,7 +14,7 @@ import mx.uam.ayd.estetica.persistencia.ManejadorBD;
  *
  *
  */
-public class DAOProveedor {
+public class DAOProveedor implements DAOProveedorContrato{
 
 
 	/**
@@ -170,10 +170,10 @@ public class DAOProveedor {
 
 
 	/**
-	 * Regresa numero de empleados en el registro
+	 * Regresa numero de proveedores en el registro
 	 * @return un entero con el numero de empleados
 	 */
-	public int cuantosEmpleados() {
+	public int cuantosProveedores() {
 		try {
 			// Crea el statement
 			Statement statement = ManejadorBD.dameConnection().createStatement();
@@ -204,11 +204,7 @@ public class DAOProveedor {
 		}
 		
 	}
-	
-	
-	
-	
-	
+
 	public boolean quitaProveedor(int id) {
 
 		int resultado = 0;
@@ -231,29 +227,6 @@ public class DAOProveedor {
 		}
 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
 

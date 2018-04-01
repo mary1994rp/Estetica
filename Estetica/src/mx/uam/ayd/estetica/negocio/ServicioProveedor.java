@@ -3,11 +3,14 @@ package mx.uam.ayd.estetica.negocio;
 
 import mx.uam.ayd.estetica.modelo.Proveedor;
 import mx.uam.ayd.estetica.persistencia.DAOProveedor;
+import mx.uam.ayd.estetica.persistencia.DAOProveedorContrato;
+import test.mx.uam.ayd.estetica.persistencia.DAOProveedorSustituto;
 
 public class ServicioProveedor {
-	private DAOProveedor daoProveedor;
+
+	private DAOProveedorContrato daoProveedor;
 	
-	public ServicioProveedor(DAOProveedor daoProveedor) {
+	public ServicioProveedor(DAOProveedorContrato daoProveedor) {
 		this.daoProveedor=daoProveedor;
 	}
 	public boolean añadirProveedor(String nombre, String descripcion, String domicilio, String telefono) {
@@ -28,30 +31,9 @@ public class ServicioProveedor {
 		return daoProveedor.buscaProveedor(id);
 	}
 	
-	
-
 	public boolean quitaProveedor(int id) {
 		return daoProveedor.quitaProveedor(id);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
