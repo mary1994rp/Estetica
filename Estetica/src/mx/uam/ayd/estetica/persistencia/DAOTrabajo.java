@@ -16,7 +16,7 @@ import mx.uam.ayd.estetica.persistencia.ManejadorBD;
  *
  *
  */
-public class DAOTrabajo {
+public class DAOTrabajo implements DAOTrabajoContrato{
 
 	/**
 	 * Constructor de la clase
@@ -250,5 +250,49 @@ public class DAOTrabajo {
 		}
 		
 		
+	}
+	
+	public Trabajo[] dameTrabajosEmpleado(int id) {
+
+		ArrayList<Trabajo> trabajosTemp = new ArrayList<Trabajo>();
+		DAOEmpleado daoEmpleado = new DAOEmpleado();
+		DAOProducto daoProducto = new DAOProducto();
+
+		Empleado empleado;
+		Producto producto;
+		int idEmpleado;
+		int idProducto;
+
+		try {
+			// Crea el statement
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+
+			// Recibe los resutados
+			ResultSet rs = statement.executeQuery("SELECT * FROM Trabajo Where idEmpleado="+id);
+
+			while (rs.next()) {
+				idEmpleado = rs.getInt("idEmpleado");
+				empleado = daoEmpleado.buscaEmpleado(idEmpleado);
+
+				idProducto = rs.getInt("idProducto");
+				producto = daoProducto.buscaProducto(idProducto);
+
+				// Crea una nueva instancia del objeto
+
+				Trabajo trabajo = new Trabajo(rs.getString("nombre"), empleado, rs.getString("descripcion"),
+						rs.getDouble("monto"), rs.getString("fecha"), producto, rs.getInt("pzaUsadas"));
+				trabajo.cambiaId(rs.getInt(1));// Asigna la llave al trabajo
+				trabajosTemp.add(trabajo);
+			}
+
+			Trabajo trabajosTempArreglo[] = new Trabajo[trabajosTemp.size()];
+			trabajosTemp.toArray(trabajosTempArreglo);
+			return trabajosTempArreglo;
+		} catch (SQLException e) {
+			System.out.println("fallo el query");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 }
