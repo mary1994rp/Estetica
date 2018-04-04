@@ -22,7 +22,7 @@ import mx.uam.ayd.estetica.modelo.Empleado;
 public class VentanaEmpleadoDelMes extends JFrame{
 
 	private JPanel jPanelContenedor;
-	private ControlEmpleadoDelmes CEM;
+	private ControlModificaConsultaEmpleado CMCE;
 	private JTable jTableInventario;
 	private JScrollPane scrollPaneContenedorTablaInventario;
 	private JButton jButtonRegresar;
@@ -41,8 +41,8 @@ public class VentanaEmpleadoDelMes extends JFrame{
 			return types[columnIndex];
 		}
 	};
-	public VentanaEmpleadoDelMes(ControlEmpleadoDelmes CEM) {
-		this.CEM=CEM;
+	public VentanaEmpleadoDelMes(ControlModificaConsultaEmpleado CMCE) {
+		this.CMCE=CMCE;
 		setType(Type.UTILITY);
 		setTitle("Empleado del mes");
 		setBackground(Color.WHITE);
@@ -76,7 +76,8 @@ public class VentanaEmpleadoDelMes extends JFrame{
 		jButtonRegresar.setBounds(167, 287, 105, 25);
 
 		modeloJTable.setColumnIdentifiers(encabezadosJTable);
-		setBounds(100, 100, 440, 358);
+		setSize(440, 358);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		jTableInventario.getColumnModel().getColumn(2).setPreferredWidth(100);
@@ -104,12 +105,12 @@ public class VentanaEmpleadoDelMes extends JFrame{
 		
 		//llenado de la tabala
 		//Se obtienen todos los empleados
-		empleados = new ArrayList<Empleado>(Arrays.asList(CEM.dameEmpleados()));
+		empleados = new ArrayList<Empleado>(Arrays.asList(CMCE.dameEmpleados()));
 		//Se escoge como emṕleado del mes al primer elemento de la lista
 		Empleado EmpleadoDelMes=empleados.get(0);
 		for(int i=0; i<empleados.size();i++) {
 			//Se calcula el numero de travajos
-			int numeroTrabajos= CEM.dameNumeroTrabajos(empleados.get(i).dameId());
+			int numeroTrabajos= CMCE.dameNumeroTrabajos(empleados.get(i).dameId());
 			//si el salario de el empleado en la pocicion i es mayor al actual
 			//se reemplaza el empleado para que sea el empleado del mes
 			if(EmpleadoDelMes.dameSueldo()<empleados.get(i).dameSueldo())EmpleadoDelMes=empleados.get(i);

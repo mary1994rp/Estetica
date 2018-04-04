@@ -3,12 +3,15 @@ package mx.uam.ayd.estetica.presentacion;
 import mx.uam.ayd.estetica.modelo.Empleado;
 import mx.uam.ayd.estetica.modelo.Producto;
 import mx.uam.ayd.estetica.negocio.ServicioEmpleado;
+import mx.uam.ayd.estetica.negocio.ServicioTrabajo;
 
 public class ControlModificaConsultaEmpleado {
-	private ServicioEmpleado servicioEmpleado;//******
+	private ServicioEmpleado servicioEmpleado;
+	private ServicioTrabajo servicioTrabajo;//******
 
-	public ControlModificaConsultaEmpleado(ServicioEmpleado servicioEmpleado) {
+	public ControlModificaConsultaEmpleado(ServicioEmpleado servicioEmpleado, ServicioTrabajo servicioTrabajo) {
 		this.servicioEmpleado= servicioEmpleado;
+		this.servicioTrabajo= servicioTrabajo;
 	}
 	
 	public void inicia() {
@@ -34,5 +37,16 @@ public class ControlModificaConsultaEmpleado {
 		
 	public boolean actualizaEmpleado(Empleado empleado, int id) {
 		return servicioEmpleado.actualizaEmpleado(empleado, id);
+	}
+
+	public void empleadoDelMes() {
+		// TODO Auto-generated method stub
+		VentanaEmpleadoDelMes VEM = new VentanaEmpleadoDelMes(this);
+		VEM.setVisible(true);
+	}
+	
+	public int dameNumeroTrabajos(int id) {
+
+		return servicioTrabajo.dameTrabajosEmpleado(id).length;
 	}
 }

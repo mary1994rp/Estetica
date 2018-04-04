@@ -18,7 +18,6 @@ import mx.uam.ayd.estetica.presentacion.ControlAñadirEmpleado;
 import mx.uam.ayd.estetica.presentacion.ControlAñadirProveedor;
 import mx.uam.ayd.estetica.presentacion.ControlConsultaSueldo;
 import mx.uam.ayd.estetica.presentacion.ControlConsultaVenta;
-import mx.uam.ayd.estetica.presentacion.ControlEmpleadoDelmes;
 import mx.uam.ayd.estetica.presentacion.ControlModificaConsultaProveedor;
 import mx.uam.ayd.estetica.presentacion.ControlModificaConsultaCita;
 import mx.uam.ayd.estetica.presentacion.ControlModificaConsultaCuenta;
@@ -118,7 +117,7 @@ public class Aplicacion {
 	/*********************   CU-MODIFICA EMPLEADO  ******************************/
 	public void modificaConsultaEmpleado() {
 				
-		ControlModificaConsultaEmpleado CMCE = new ControlModificaConsultaEmpleado(servicioEmpleado);
+		ControlModificaConsultaEmpleado CMCE = new ControlModificaConsultaEmpleado(servicioEmpleado, servicioTrabajo);
 		CMCE.inicia();//arranca el control para  Añadir Trabajo
 		
 	}	
@@ -142,12 +141,6 @@ public class Aplicacion {
 		ControlModificaConsultaProveedor CCP = new ControlModificaConsultaProveedor(servicioProveedor);
 		CCP.inicia();//arranca el control para  Añadir Trabajo
 		
-	}
-	/*********************   CU-Empleado del mes  ******************************/
-	public void empleadoDelMes() {
-		
-		ControlEmpleadoDelmes CEM = new ControlEmpleadoDelmes(servicioEmpleado, servicioTrabajo);
-		CEM.inicia();
 	}
 	
 	/*********************   CU-CONSULTA VENTA  ******************************/

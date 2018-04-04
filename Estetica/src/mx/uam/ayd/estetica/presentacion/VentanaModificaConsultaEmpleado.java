@@ -76,7 +76,7 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 		jButtonRegresar = new JButton("Regresar");
 		jButtonRegresar.setBackground(new Color(51, 204, 255));
 		encabezadosJTable = new String[] { "Id", "Nombre", "Apellido", "Domicilio", "Fecha", "Sueldo" };
-
+		JButton BtnEmpleadoDelMes = new JButton("Empleado del mes");
 		/*
 		 * array de productos temporal, utilizado para almacenar la informacion de la
 		 * base de datos
@@ -89,14 +89,14 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 		jPanelContenedor.setLayout(null);
 
 		/* scrol que contiene la tabla */
-		scrollPaneContenedorTablaEmpleado.setBounds(12, 47, 427, 228);
+		scrollPaneContenedorTablaEmpleado.setBounds(50, 47, 427, 228);
 
-		jButtonEliminar.setBounds(215, 287, 105, 25);
-		jButtonRegresar.setBounds(339, 287, 100, 25);
+		jButtonEliminar.setBounds(271, 300, 105, 25);
+		jButtonRegresar.setBounds(388, 300, 100, 25);
 
 		modeloJTable.setColumnIdentifiers(encabezadosJTable); // agregamos los encambezados al jtable
 
-		setSize(459, 358);
+		setSize(515, 380);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -123,7 +123,7 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 		
 		jButtonGuardar.setForeground(Color.DARK_GRAY);
 		jButtonGuardar.setBackground(Color.YELLOW);
-		jButtonGuardar.setBounds(80, 287, 105, 25);
+		jButtonGuardar.setBounds(161, 300, 105, 25);
 		jPanelContenedor.add(jButtonGuardar);
 
 		/*
@@ -243,5 +243,19 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 
 			}
 		});
+		
+		//Empleado del mes
+				BtnEmpleadoDelMes.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						CMCE.empleadoDelMes();;
+					}
+				});
+				BtnEmpleadoDelMes.setBounds(12, 300, 137, 25);
+				BtnEmpleadoDelMes.setBackground(Color.ORANGE);
+				getContentPane().add(BtnEmpleadoDelMes);
+
 	}// fin del constructor
 }

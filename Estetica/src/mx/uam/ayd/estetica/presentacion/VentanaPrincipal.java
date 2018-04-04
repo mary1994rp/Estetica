@@ -13,7 +13,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import java.awt.Button;
 import java.awt.Color;
 
 public class VentanaPrincipal extends JFrame {
@@ -37,7 +36,6 @@ public class VentanaPrincipal extends JFrame {
 	private JButton BtnConsultaProveedor;
 	private JButton BtnAñadirCuenta;
 	private JButton BtnConsultaCuenta;
-	private JButton BtnEmpleadoDelMes;
 	
 	//Rutas
 	File ruta_agenda = new File("icons/Agenda.png");
@@ -143,10 +141,6 @@ public class VentanaPrincipal extends JFrame {
 		label_sueldo.setBounds(350, 519, 70, 15);
 		contentPane.add(label_sueldo);
 		
-		JLabel label_EmpleadodelMes = new JLabel("<html><body> Empleado <br>del mes</body></html>");
-		label_sueldo.setBounds(440, 519, 70, 15);
-		contentPane.add(label_EmpleadodelMes);
-		
 		JLabel label_cuentas = new JLabel("Cuentas");
 		label_cuentas.setBounds(310, 620, 70, 15);
 		contentPane.add(label_cuentas);
@@ -171,7 +165,6 @@ public class VentanaPrincipal extends JFrame {
 		BtnAñadirCuenta = new JButton();
 		BtnConsultaCuenta = new JButton();
 		BtnConsultarVenta = new JButton();
-		BtnEmpleadoDelMes = new JButton("Empleado del mes");
 		JButton BtnSalir = new JButton("Salir");
 		
 		
@@ -248,12 +241,6 @@ public class VentanaPrincipal extends JFrame {
 		BtnConsultarSalario.setBorder(null);
 		BtnConsultarSalario.setIcon(img_Sueldo);
 		
-		//Empleado del mes
-		BtnEmpleadoDelMes.addActionListener(eventoEmpleadodelMes);
-		BtnEmpleadoDelMes.setBounds(430, 449, 85, 64);
-		BtnEmpleadoDelMes.setBackground(null);
-		BtnEmpleadoDelMes.setBorder(null);
-		
 		//AñADIR CUENTA
 		BtnAñadirCuenta.addActionListener(eventoAñadirCuenta);
 		BtnConsultaCuenta.setBounds(304, 546, 73, 73);
@@ -291,7 +278,7 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.add(BtnConsultarSalario);
 		contentPane.add(BtnAñadirCuenta);
 		contentPane.add(BtnConsultaCuenta);
-		contentPane.add(BtnEmpleadoDelMes);
+		
 		
 		//agregado de boton salir
 		contentPane.add(BtnSalir);
@@ -393,15 +380,7 @@ public class VentanaPrincipal extends JFrame {
 		}
 	}; 
 	
-ActionListener eventoEmpleadodelMes = new ActionListener() {
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			control.empleadoDelMes();;
-		}
-	}; 
-	
+
 	ActionListener eventoAñadirCuenta = new ActionListener() {
 		
 		@Override
