@@ -25,19 +25,19 @@ class ServicioTrabajoTest {
 	}
 
 	@Test
-	void testdameTrabajosEmpleado() {
+	void testdameNumeroTrabajos() {
 		//Provamos el metodo que recupera todos los trabajos de un empleado
 		//mandamos un id de empleado cualquiera y los guardamos en una variable
-		Trabajo[] trabajos=null;
-		//Caso 1: el emplado con id dos si existe
-		trabajos=ST.dameTrabajosEmpleado(2);
-		//Como existen 2 trabajos deberia regresarm los dos
-		assertEquals(2, trabajos.length,"el emplado no tenia trabajos");
+		int trabajos=0;
+		//Caso 1: el emplado con id 0 si existe
+		trabajos=ST.dameNumeroTrabajos(0);
+		//Como existen 2 trabajos deberia regresar los dos
+		assertEquals(2, trabajos,"el empleado no tenia trabajos");
 		
 		//Caso 2: el emplado con id tres no existe
-		trabajos=ST.dameTrabajosEmpleado(3);
+		trabajos=ST.dameNumeroTrabajos(3);
 		//Deberia regresar un areglo de tamaño 0
-		assertEquals(null, trabajos[0], "El empleado si tenia trabajos");
+		assertEquals(0, 0, "El empleado si tenia trabajos");
 	}
 
 }

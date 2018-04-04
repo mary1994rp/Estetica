@@ -31,8 +31,21 @@ public class DAOTrabajoSustituto implements DAOTrabajoContrato{
 
 	@Override
 	public Trabajo[] dameTrabajos() {
-		// TODO Auto-generated method stub
-		return null;
+		//Creamos un arreglo de trabajos que se regresara al servicio 
+		Trabajo[] trabajos = new Trabajo[2];
+		//creamos trabajos para meterlos en el arreglo
+		//primero creamos al empleado para enviarlo al constructor
+		Empleado empleado = new Empleado("Jean");
+		empleado.cambiaId(0);
+		
+		//Tambien creamos los productos
+		Producto producto = new Producto("Tinte", "patito", 5, 50);
+		
+		//llenamos el arreglo
+		trabajos[0]= new Trabajo("Tinte", empleado, "Se usaron varios tintes", 250.0, "2017-10-09", producto, 2);
+		trabajos[1]= new Trabajo("Corte", empleado, "corte normal", 50.0, "2017-10-09", null, 0);		
+		//llenamos el arreglo
+		return trabajos;
 	}
 
 	@Override
@@ -55,25 +68,7 @@ public class DAOTrabajoSustituto implements DAOTrabajoContrato{
 
 	@Override
 	public Trabajo[] dameTrabajosEmpleado(int id) {
-		//Creamos un arreglo de trabajos que se regresara al servicio 
-		Trabajo[] trabajos = new Trabajo[2];
-		if(id==2) {
-		//creamos trabajos para meterlos en el arreglo
-		//primero creamos al empleado para enviarlo al constructor
-		Empleado empleado = new Empleado("Jean");
-		//Tambien creamos los productos
-		Producto producto = new Producto("Tinte", "patito", 5, 50);
-		//llenamos el arreglo
-		trabajos[0]= new Trabajo("Tinte", empleado, "Se usaron varios tintes", 250.0, "2017-10-09", producto, 2);
-		trabajos[1]= new Trabajo("Corte", empleado, "corte normal", 50.0, "2017-10-09", null, 0);
-		
-		//llenamos el arreglo
-		
-		
-		return trabajos;
-		} else {
-			return trabajos;
-		}
+		return null;
 	}
 
 }

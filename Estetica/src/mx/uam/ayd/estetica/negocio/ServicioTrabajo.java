@@ -57,9 +57,13 @@ public class ServicioTrabajo {
 		return daoTrabajo.dameCostoTrabajos(id);
 	}
 	
-	public Trabajo[] dameTrabajosEmpleado(int id) {
-
-		return daoTrabajo.dameTrabajosEmpleado(id);
+	public int dameNumeroTrabajos(int id) {
+		int numerotrabajos=0;
+		Trabajo[] trabajos = daoTrabajo.dameTrabajos();
+		for(int i=0;i<trabajos.length;i++) {
+			if(trabajos[i].dameId()==id)numerotrabajos++;
+		}
+		return numerotrabajos;
 	}
 
 }

@@ -3,6 +3,8 @@ package mx.uam.ayd.estetica.presentacion;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -108,7 +110,13 @@ public class VentanaEmpleadoDelMes extends JFrame{
 		empleados = new ArrayList<Empleado>(Arrays.asList(CMCE.dameEmpleados()));
 		//Se escoge como emṕleado del mes al primer elemento de la lista
 		Empleado EmpleadoDelMes=empleados.get(0);
+		
 		for(int i=0; i<empleados.size();i++) {
+			//actializamos el salario
+			double[] salarios = CMCE.dameCostoTrabajos(empleados.get(i).dameId());
+			double salario = CMCE.calculaSalario(salarios);
+			System.out.println(salario);
+			CMCE.actualizaSalario(salario, empleados.get(i).dameId());
 			//Se calcula el numero de travajos
 			int numeroTrabajos= CMCE.dameNumeroTrabajos(empleados.get(i).dameId());
 			//si el salario de el empleado en la pocicion i es mayor al actual
@@ -122,6 +130,14 @@ public class VentanaEmpleadoDelMes extends JFrame{
 		//Se pone el nombre del empleado del mes
 		jLabelEmpleado.setText(EmpleadoDelMes.dameNombre());
 		
+		
+		jButtonRegresar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+			
+		});
 		
 	}
 
