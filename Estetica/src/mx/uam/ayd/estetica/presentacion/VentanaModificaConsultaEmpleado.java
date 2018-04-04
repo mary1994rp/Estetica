@@ -30,6 +30,7 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 	private JScrollPane scrollPaneContenedorTablaEmpleado;
 	private JButton jButtonEliminar;
 	private JButton jButtonRegresar;
+	private JButton BtnEmpleadoDelMes;
 	private String[] encabezadosJTable;
 	private JLabel jLabelTitulo;
 	// array que almacenara los productos
@@ -76,7 +77,7 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 		jButtonRegresar = new JButton("Regresar");
 		jButtonRegresar.setBackground(new Color(51, 204, 255));
 		encabezadosJTable = new String[] { "Id", "Nombre", "Apellido", "Domicilio", "Fecha", "Sueldo" };
-		JButton BtnEmpleadoDelMes = new JButton("Empleado del mes");
+		BtnEmpleadoDelMes = new JButton("<html><body>Empleado<br>del mes</body></html>");
 		/*
 		 * array de productos temporal, utilizado para almacenar la informacion de la
 		 * base de datos
@@ -245,17 +246,17 @@ public class VentanaModificaConsultaEmpleado extends JFrame {
 		});
 		
 		//Empleado del mes
-				BtnEmpleadoDelMes.addActionListener(new ActionListener() {
+		BtnEmpleadoDelMes.addActionListener(new ActionListener() {
 					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						// TODO Auto-generated method stub
-						CMCE.empleadoDelMes();;
-					}
-				});
-				BtnEmpleadoDelMes.setBounds(12, 300, 137, 25);
-				BtnEmpleadoDelMes.setBackground(Color.ORANGE);
-				getContentPane().add(BtnEmpleadoDelMes);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				CMCE.empleadoDelMes();;
+			}
+		});
+		BtnEmpleadoDelMes.setBounds(12, 300, 137, 30);
+		BtnEmpleadoDelMes.setBackground(Color.ORANGE);
+		getContentPane().add(BtnEmpleadoDelMes);
 
 	}// fin del constructor
 }

@@ -45,8 +45,25 @@ public class ControlModificaConsultaEmpleado {
 		VEM.setVisible(true);
 	}
 	
+	public double[] dameCostoTrabajos(int id) {
+		return servicioTrabajo.dameCostoTrabajos(id);
+		
+	}
+	
+	public double calculaSalario(double[] salarios) {
+		double salario=120;
+		for(int i=0; i<salarios.length;i++) {
+			salario=salario +(salarios[i]*0.3);
+		}
+		return salario;
+	}
+	
+	public void actualizaSalario(double salario, int idEmpleado) {
+		servicioEmpleado.actualizaSalario(salario, idEmpleado);
+	}
+	
 	public int dameNumeroTrabajos(int id) {
 
-		return servicioTrabajo.dameTrabajosEmpleado(id).length;
+		return servicioTrabajo.dameNumeroTrabajos(id);
 	}
 }
